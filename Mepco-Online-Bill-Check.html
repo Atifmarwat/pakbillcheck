@@ -707,20 +707,133 @@
         });
     });
     
-    // Set default home content without scrolling
-    setTimeout(function() {
-        const homeLink = document.querySelector('[data-page="home"]');
-        if (homeLink) {
-            contentArea.innerHTML = `<h3><i class="fas fa-home"></i>How to Check Your MEPCO Bill Online (Step-by-Step Guide)
-</h3><p><strong>MEPCO Online Bill Check</strong> - The electricity bill, which is a regular part of our lives, has become a challenge. As soon as we receive a bill, we have to wait in long lines. Many people stand in these long queues because the office opens at nine o’clock and closes at two o’clock. During this time, there is also intense heat, and people have to wait for a long time.
-
-So, to save you from the heat and the long waiting, we have created this tool. Now, you can sit at home, enter your bill’s reference number on your mobile, and download a duplicate copy from here.
-</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
-         
-</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
+// Set default home content without scrolling
+setTimeout(function() {
+    const homeLink = document.querySelector('[data-page="home"]');
+    if (homeLink) {
+        contentArea.innerHTML = `
         
-        }
-    }, 50);
+        <h3><i class="fas fa-home"></i>How to Check Your MEPCO Bill Online (Step-by-Step Guide)</h3>
+
+        <p>
+        The electricity bill, which is a regular part of our lives, has become a challenge. As soon as we receive a bill, we have to wait in long lines. Many people stand in these long queues because the office opens at nine o’clock and closes at two o’clock. During this time, there is also intense heat, and people have to wait for a long time.
+
+        So, to save you from the heat and the long waiting, we have created this tool. Now, you can sit at home, enter your bill’s reference number on your mobile, and download a duplicate copy from here.
+        </p>
+
+        <h3>What is MEPCO?</h3>
+        <p>
+        “Multan Electric Power Company (MEPCO) is one of the electricity distribution companies in Pakistan. It provides electricity to several cities in South Punjab, including Multan, Dera Ghazi Khan, and other nearby areas. It is responsible for the distribution and maintenance of the electricity system in its region, and its services are generally considered reliable.”
+        </p>
+
+        <h3>Why Check MEPCO Bill Online?</h3>
+        <ul>
+            <li>Convenience: No need to visit offices</li>
+            <li>Time-saving: Access your bill instantly</li>
+            <li>Anywhere access: Check from mobile or computer</li>
+            <li>Avoid late fees: Stay updated on due dates</li>
+            <li>Duplicate bills: Easily download if you lose the original</li>
+        </ul>
+
+        <h3>Information You Need</h3>
+        <p>To check your MEPCO bill online, you only need:</p>
+        <ul>
+            <li>A 14-digit reference number</li>
+            <li>This number is printed on any previous electricity bill</li>
+            <li>Make sure you enter the number correctly to avoid errors.</li>
+        </ul>
+
+        <h3>How to Check MEPCO Bill Online (Step-by-Step)</h3>
+
+        <h4>Method 1: Official Website</h4>
+        <p>
+        The easiest and most reliable method is through the official portal:
+        </p>
+        <ul>
+            <li>Visit the MEPCO official website</li>
+            <li>Enter your 14-digit reference number</li>
+            <li>Click on the “Submit” or “Check Bill” button</li>
+            <li>Your bill details will appear on the screen</li>
+            <li>You can view due date, amount, and usage details instantly.</li>
+        </ul>
+
+        <h4>Method 2: Third-Party Websites</h4>
+        <ul>
+            <li>Open a reliable bill-checking site</li>
+            <li>Enter your reference number</li>
+            <li>Click “Check Bill”</li>
+            <li>View your bill details</li>
+        </ul>
+
+        <p>
+        These platforms work similarly but always ensure the site is secure.
+        </p>
+
+        <h3>How to Download and Print MEPCO Bill</h3>
+        <ul>
+            <li>After checking your bill, click on the Download or Print option</li>
+            <li>Save the bill as a PDF file</li>
+            <li>Print it using your printer</li>
+        </ul>
+
+        <p>This copy is valid for bill payment.</p>
+
+        <h3>How to Pay MEPCO Bill Online</h3>
+        <ul>
+            <li>Internet banking through your bank’s website</li>
+            <li>Mobile banking apps</li>
+            <li>ATM machines</li>
+            <li>Digital wallets like JazzCash and EasyPaisa</li>
+        </ul>
+
+        <p>
+        These methods are secure and help you avoid late payment charges.
+        </p>
+
+        <h3>Common Issues and Solutions</h3>
+        <ul>
+            <li>Incorrect reference number: Double-check digits before submitting</li>
+            <li>Website not loading: Try again later or switch browser</li>
+            <li>Bill not found: Ensure the bill has been generated for the month</li>
+            <li>Slow internet: Use a stable connection</li>
+        </ul>
+
+        <p>If problems continue, contact MEPCO customer support.</p>
+
+        <h3>Tips to Avoid Late Fees</h3>
+        <ul>
+            <li>Set reminders for due dates</li>
+            <li>Check your bill early each month</li>
+            <li>Use mobile apps for instant notifications</li>
+            <li>Consider auto-payment options</li>
+        </ul>
+
+        <h3>Frequently Asked Questions (FAQs)</h3>
+
+        <p><strong>1. How can I check my MEPCO bill without a reference number?</strong><br>
+        You usually need the reference number. Without it, checking the bill online is difficult.</p>
+
+        <p><strong>2. Can I check previous bills online?</strong><br>
+        Yes, many platforms allow access to billing history.</p>
+
+        <p><strong>3. Is the online bill valid for payment?</strong><br>
+        Yes, a downloaded or printed copy is valid.</p>
+
+        <p><strong>4. What if I lose my bill?</strong><br>
+        You can easily download a duplicate copy online.</p>
+
+        <h3>Conclusion</h3>
+        <p>
+        “Well, this tool has a great advantage as it saves your valuable time. It is an online service. Here, you can find a list of all electricity bills. As soon as you enter the reference number, your bill details will be displayed instantly without any delay. You can easily download it from here and get it printed from a nearby shopkeeper.”
+        </p>
+
+        <div class="alert alert-success">
+            <strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.
+        </div>
+
+        `;
+    }
+}, 50);
 
             
 </script>
