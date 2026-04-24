@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Lesco Online Bill Check | Lesco Online Bill Check By Customer Id</title>
+    <meta name="description" content="MEPCO Online Bill Check - Enter your 14-digit reference number to view, download and print your MEPCO duplicate bill online instantly. Fast and free MEPCO bill check tool.">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03592E;
+            --primary-dark: #024d27;
+            --success-color: #28a745;
+            --success-dark: #218838;
+            --error-color: #dc3545;
+            --footer-bg: #024d27;
+            --nav-bg: #03592E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Header */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: white !important;
+        }
+        .navbar-brand i {
+            margin-right: 8px;
+        }
+        .nav-link-custom {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.2s;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        .nav-link-custom:hover, .nav-link-custom.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+        .navbar-toggler-icon-custom {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Main container - page starts from top */
+        .main-content {
+            flex: 1;
+            padding: 30px 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* SEO Header Styles */
+        .seo-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .seo-header h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .seo-header h2 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* Language toggle wrapper */
+        .lang-toggle-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        .lang-toggle-group {
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: inline-flex;
+            gap: 5px;
+        }
+        .lang-toggle-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        .lang-toggle-btn.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 6px rgba(3,89,46,0.3);
+        }
+        .lang-toggle-btn:not(.active):hover {
+            background: #e9ecef;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+        }
+        .services-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.5rem;
+        }
+        .service-card {
+            background: #f8f9fa;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+            border-left: 4px solid var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .service-card:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        .service-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1e2a3a;
+        }
+        .service-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        /* Dynamic content area */
+        .dynamic-content-area {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+            min-height: 280px;
+        }
+        .dynamic-content-area h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* MEPCO Tool Card */
+        .tool-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .tool-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.8rem;
+        }
+        .tool-header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .pitc-bill-container {
+            width: 100%;
+        }
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+        .bill-option {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .bill-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(3, 89, 46, 0.05);
+            box-shadow: 0 0 0 2px rgba(3, 89, 46, 0.25);
+        }
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            display: none;
+        }
+        .success-animation {
+            animation: pulse 1s ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Footer */
+        .footer-custom {
+            background-color: var(--footer-bg);
+            color: #f1f1f1;
+            padding: 2rem 2rem 1rem;
+            margin-top: 2rem;
+        }
+        .footer-custom a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-custom a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+        }
+
+        :target {
+            scroll-margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-custom { padding: 0.6rem 1rem; }
+            .lang-toggle-wrapper { justify-content: center; margin-top: 0; }
+            .lang-toggle-btn { padding: 6px 18px; font-size: 0.8rem; }
+            .tool-header h2 { font-size: 1rem; }
+            .services-section { padding: 1rem; }
+            .seo-header h1 { font-size: 1.3rem; }
+            .seo-header h2 { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Header -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-bolt"></i> BillCheck.PK
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-custom"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="services">Services</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="about">About</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <!-- SEO Keywords Header - H1 and H2 with your keywords -->
+    <div class="seo-header">
+        <h1>Lesco Online Bill Check | Lesco Online Bill Check By Customer Id</h1>
+        <h2>MEPCO Online Bill Check - Enter Your 14-Digit Reference Number & Download Duplicate Bill Instantly</h2>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle-wrapper">
+        <div class="lang-toggle-group">
+            <button type="button" class="lang-toggle-btn active" data-lang="en">English</button>
+            <button type="button" class="lang-toggle-btn" data-lang="ur">اردو</button>
+        </div>
+    </div>
+
+    <!-- MEPCO Bill Tool Card -->
+    <div class="tool-card">
+        <div class="tool-header">
+            <h2><i class="fas fa-file-invoice-dollar me-2"></i> MEPCO Online Bill Check | Enter 14-Digit Reference Number</h2>
+        </div>
+        <div class="card-body p-4">
+            <div class="pitc-bill-container">
+                <div id="pitc-search-form-container">
+                    <form id="pitc-bill-search-form">
+                        <div class="mb-4">
+                            <p class="fw-semibold mb-2 lang-en">Select Bill Type</p>
+                            <p class="fw-semibold mb-2 lang-ur urdu-text">بل کی قسم منتخب کریں</p>
+                            <div class="d-flex flex-column flex-md-row gap-3">
+                                <div class="bill-option selected" data-type="refno">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="bill_type" id="pitc-refRadio" value="refno" checked>
+                                        <label class="form-check-label fw-medium" for="pitc-refRadio">Reference No (14-Digit)</label>
+                                    </div>
+                                    <p class="input-hint mt-1 mb-0 lang-en small text-muted">14-digit reference number from your MEPCO bill</p>
+                                    <p class="input-hint mt-1 mb-0 lang-ur urdu-text small">آپ کے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر</p>
+                                </div>
+                                <div class="bill-option" data-type="custid">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="bill_type" id="pitc-custRadio" value="custid">
+                                        <label class="form-check-label fw-medium" for="pitc-custRadio">Customer ID</label>
+                                    </div>
+                                    <p class="input-hint mt-1 mb-0 lang-en small text-muted">10-digit customer identification number</p>
+                                    <p class="input-hint mt-1 mb-0 lang-ur urdu-text small">10 ہندسوں کا کسٹمر شناختی نمبر</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3 align-items-end mb-4">
+                            <div class="col-12 col-md">
+                                <label id="pitc-input-label" class="form-label fw-semibold lang-en">Enter 14-Digit Reference Number</label>
+                                <label class="form-label fw-semibold lang-ur urdu-text">14 ہندسوں کا ریفرنس نمبر درج کریں</label>
+                                <input type="text" id="pitc-reference-number" class="form-control form-control-lg" placeholder="Enter 14-digit reference number (e.g., 12345678901234)" maxlength="14" required>
+                                <div id="pitc-error-message" class="error-message mt-1"></div>
+                                <div class="input-hint mt-1 lang-en small text-muted">Please enter your 14-digit reference number from your MEPCO bill</div>
+                                <div class="input-hint mt-1 lang-ur urdu-text small">براہ کرم اپنے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر درج کریں</div>
+                            </div>
+                            <div class="col-12 col-md-auto" id="pitc-ur-type-wrapper">
+                                <label for="pitc-ur-type" class="form-label fw-semibold lang-en">Area Type</label>
+                                <label for="pitc-ur-type" class="form-label fw-semibold lang-ur urdu-text">علاقے کی قسم</label>
+                                <select id="pitc-ur-type" class="form-select form-select-lg">
+                                    <option value="U">Urban (U)</option>
+                                    <option value="R">Rural (R)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg py-3">
+                            <i class="fas fa-search me-2"></i>
+                            <span class="lang-en">Check MEPCO Bill Online</span>
+                            <span class="lang-ur urdu-text">MEPCO بل آن لائن چیک کریں</span>
+                        </button>
+                    </form>
+                </div>
+                <div id="pitc-loading-container" class="text-center py-5" style="display: none;">
+                    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="progress mt-4 mx-auto" style="max-width: 300px;"><div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div></div>
+                    <p class="mt-4 lang-en">Loading your MEPCO bill...</p><p class="mt-4 lang-ur urdu-text">آپ کا MEPCO بل لوڈ ہو رہا ہے</p>
+                </div>
+                <div id="pitc-result-container" style="display: none;">
+                    <div class="text-center py-4 success-animation">
+                        <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--primary-color);"></i>
+                        <h3 class="mt-3 lang-en">MEPCO Bill Ready</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل تیار ہے</h3>
+                        <div class="mb-4"><form id="pitc-billForm" action="#" method="POST" target="_blank"><button type="submit" class="btn btn-success btn-lg px-5"><i class="fas fa-file-invoice me-2"></i><span class="lang-en">View & Download MEPCO Bill</span><span class="lang-ur urdu-text">MEPCO بل دیکھیں اور ڈاؤن لوڈ کریں</span></button></form></div>
+                        <button id="pitc-reset-btn" class="btn btn-outline-primary"><i class="fas fa-redo-alt me-2"></i><span class="lang-en">Check Another Bill</span><span class="lang-ur urdu-text">دوبارہ چیک کریں</span></button>
+                    </div>
+                </div>
+                <div id="pitc-error-container" style="display: none;" class="text-center py-5">
+                    <i class="fas fa-exclamation-circle" style="font-size: 4rem; color: var(--error-color);"></i>
+                    <h3 class="mt-3 lang-en">Error Loading MEPCO Bill</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل لوڈ کرنے میں خرابی</h3>
+                    <button id="pitc-retry-btn" class="btn btn-primary mt-3"><i class="fas fa-redo me-2"></i><span class="lang-en">Try Again</span><span class="lang-ur urdu-text">دوبارہ کوشش کریں</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services-section">
+        <h3 class="services-title"><i class="fas fa-list-ul me-2"></i> Our Bill Checking Services</h3>
+        <div class="row g-3" id="servicesList">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card" data-service="fesco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> FESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card" data-service="mepco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> MEPCO Online Bill</span>
+                    <span class="service-badge">Check Now</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card" data-service="gepco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> GEPCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card" data-service="lesco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> LESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card" data-service="pesco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> PESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Content Area -->
+    <div class="dynamic-content-area" id="dynamicContentArea">
+        <h3><i class="fas fa-info-circle me-2"></i> MEPCO Online Bill Check - Quick Guide</h3>
+        <p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number from your MEPCO electricity bill to instantly view, download and print your duplicate bill. This free tool helps you access your MEPCO bill online anytime, anywhere.</p>
+        <p>Simply enter your <strong>14-digit reference number</strong> in the tool above, select your area type (Urban/Rural), and click "Check MEPCO Bill Online". Your bill will be ready in seconds.</p>
+        <div class="alert alert-light border-start border-4 border-success mt-3">
+            <i class="fas fa-lightbulb text-warning"></i> <strong>Quick Tip:</strong> Your 14-digit reference number is printed on every MEPCO bill. Keep it handy for instant duplicate bill download.
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer-custom">
+    <div class="footer-links">
+        <a href="#" data-page="home">Home</a>
+        <a href="#" data-page="services">Services</a>
+        <a href="#" data-page="privacy">Privacy Policy</a>
+        <a href="#" data-page="terms">Terms & Conditions</a>
+        <a href="#" data-page="contact">Contact Us</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 BillCheck.PK - Lesco Online Bill Check | Lesco Online Bill Check By Customer Id. All Rights Reserved.</p>
+        <p class="small">MEPCO, FESCO, GEPCO, LESCO, PESCO are registered utilities. This tool helps consumers check MEPCO online bill using 14-digit reference number.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // CRITICAL: Prevent ANY auto-scroll on page load - page stays at TOP
+    if (window.location.hash === '') {
+        window.scrollTo(0, 0);
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+    } else {
+        window.scrollTo(0, 0);
+    }
+
+    // ---------- MEPCO BILL TOOL SCRIPT ----------
+    (function() {
+        const referenceInput = document.getElementById('pitc-reference-number');
+        const errorMsgDiv = document.getElementById('pitc-error-message');
+        const searchFormContainer = document.getElementById('pitc-search-form-container');
+        const loadingContainer = document.getElementById('pitc-loading-container');
+        const resultContainer = document.getElementById('pitc-result-container');
+        const errorContainer = document.getElementById('pitc-error-container');
+        const billForm = document.getElementById('pitc-billForm');
+        const urTypeSelect = document.getElementById('pitc-ur-type');
+        const radioRef = document.getElementById('pitc-refRadio');
+        const radioCust = document.getElementById('pitc-custRadio');
+        const billOptions = document.querySelectorAll('.bill-option');
+        const urTypeWrapper = document.getElementById('pitc-ur-type-wrapper');
+        const progressBar = document.querySelector('#pitc-loading-container .progress-bar');
+        
+        function hideError() { errorMsgDiv.style.display = 'none'; referenceInput.classList.remove('is-invalid'); }
+        function showError(msg) { errorMsgDiv.textContent = msg; errorMsgDiv.style.display = 'block'; referenceInput.classList.add('is-invalid'); }
+        
+        function updateUIBasedOnType() {
+            const selected = document.querySelector('input[name="bill_type"]:checked').value;
+            const isUrdu = document.body.classList.contains('urdu');
+            if(selected === 'refno') {
+                referenceInput.maxLength = 14;
+                referenceInput.placeholder = isUrdu ? '14 ہندسوں کا ریفرنس نمبر (مثال: 12345678901234)' : 'Enter 14-digit reference number (e.g., 12345678901234)';
+                urTypeWrapper.style.display = 'block';
+            } else {
+                referenceInput.maxLength = 10;
+                referenceInput.placeholder = isUrdu ? '10 ہندسوں کا کسٹمر آئی ڈی' : 'Enter 10-digit Customer ID';
+                urTypeWrapper.style.display = 'none';
+            }
+            hideError();
+        }
+        
+        function validateInput() {
+            const val = referenceInput.value.trim();
+            const type = document.querySelector('input[name="bill_type"]:checked').value;
+            if(type === 'refno') { if(!/^\d{14}$/.test(val)) { showError('Please enter a valid 14-digit reference number'); return false; } }
+            else { if(!/^\d{10}$/.test(val)) { showError('Please enter a valid 10-digit Customer ID'); return false; } }
+            return true;
+        }
+        
+        function performFetch() {
+            if(!validateInput()) return;
+            const inputVal = referenceInput.value.trim();
+            const type = document.querySelector('input[name="bill_type"]:checked').value;
+            const area = type === 'refno' ? urTypeSelect.value : 'U';
+            searchFormContainer.style.display = 'none';
+            loadingContainer.style.display = 'block';
+            resultContainer.style.display = 'none';
+            errorContainer.style.display = 'none';
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 8;
+                if(progress <= 90 && progressBar) progressBar.style.width = progress+'%';
+            }, 150);
+            setTimeout(() => {
+                clearInterval(interval);
+                if(progressBar) progressBar.style.width = '100%';
+                let billUrl = '';
+                if(type === 'refno') billUrl = `https://bill.pitc.com.pk/gbill.aspx?refno=${encodeURIComponent(inputVal)}&type=${area}`;
+                else billUrl = `https://bill.pitc.com.pk/custbill.aspx?custid=${encodeURIComponent(inputVal)}`;
+                billForm.action = billUrl;
+                loadingContainer.style.display = 'none';
+                resultContainer.style.display = 'block';
+                const animDiv = document.querySelector('#pitc-result-container .success-animation');
+                if(animDiv) animDiv.style.animation = 'none';
+                setTimeout(() => { if(animDiv) animDiv.style.animation = ''; }, 10);
+            }, 1400);
+        }
+        
+        document.getElementById('pitc-bill-search-form').addEventListener('submit', (e) => { e.preventDefault(); performFetch(); });
+        document.getElementById('pitc-reset-btn').addEventListener('click', () => {
+            resultContainer.style.display = 'none'; errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block';
+            referenceInput.value = ''; if(progressBar) progressBar.style.width = '0%'; hideError();
+        });
+        document.getElementById('pitc-retry-btn').addEventListener('click', () => {
+            errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block'; hideError();
+        });
+        referenceInput.addEventListener('input', hideError);
+        billOptions.forEach(opt => {
+            opt.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if(radio) radio.checked = true;
+                billOptions.forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                updateUIBasedOnType();
+                hideError();
+            });
+        });
+        radioRef.addEventListener('change', () => { updateUIBasedOnType(); });
+        radioCust.addEventListener('change', () => { updateUIBasedOnType(); });
+        updateUIBasedOnType();
+        
+        const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
+        function setLanguage(lang) {
+            if(lang === 'ur') document.body.classList.add('urdu'); else document.body.classList.remove('urdu');
+            langToggleBtns.forEach(btn => { if(btn.dataset.lang === lang) btn.classList.add('active'); else btn.classList.remove('active'); });
+            updateUIBasedOnType();
+            const allLangEn = document.querySelectorAll('.lang-en');
+            const allLangUr = document.querySelectorAll('.lang-ur');
+            if(lang === 'ur') {
+                allLangEn.forEach(el => el.style.display = 'none');
+                allLangUr.forEach(el => el.style.display = 'block');
+            } else {
+                allLangEn.forEach(el => el.style.display = 'block');
+                allLangUr.forEach(el => el.style.display = 'none');
+            }
+        }
+        langToggleBtns.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+        setLanguage('en');
+    })();
+
+    // Dynamic content for services
+    const contentArea = document.getElementById('dynamicContentArea');
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    const serviceContent = {
+        fesco: { title: "FESCO Online Bill Check", body: "<p><strong>Faisalabad Electric Supply Company (FESCO)</strong> provides electricity to Faisalabad, Jhang, Toba Tek Singh, Chiniot and more. To check your FESCO bill, simply enter your 14-digit reference number in the tool above. You can view, download, and print duplicate bill instantly.</p><div class='mt-3 p-3 bg-light rounded'><i class='fas fa-phone-alt me-2'></i> FESCO Helpline: 118</div>" },
+        mepco: { title: "MEPCO Online Bill Check", body: "<p><strong>Multan Electric Power Company (MEPCO)</strong> serves southern Punjab. Use the tool above to check your MEPCO bill by entering your 14-digit reference number. Download duplicate bill as PDF instantly.</p><p>Peak hours: 7pm-11pm (Jun-Aug) – avoid heavy usage to save money.</p>" },
+        gepco: { title: "GEPCO Online Bill Check", body: "<p><strong>Gujranwala Electric Power Company (GEPCO)</strong> covers Gujranwala, Gujrat, Sialkot. Use reference number in our bill checker to view latest bill, units consumed, due date.</p>" },
+        lesco: { title: "LESCO Online Bill Check", body: "<p><strong>Lahore Electric Supply Company (LESCO)</strong> services Lahore, Kasur, Sheikhupura. Check your LESCO bill online using 14-digit reference number.</p>" },
+        pesco: { title: "PESCO Online Bill Check", body: "<p><strong>Peshawar Electric Supply Company (PESCO)</strong> operates in Khyber Pakhtunkhwa. Use our unified bill checker with your 14-digit reference number.</p>" }
+    };
+    
+    function updateServiceContent(serviceKey) {
+        const data = serviceContent[serviceKey];
+        if(data) {
+            contentArea.innerHTML = `<h3><i class="fas fa-file-invoice me-2"></i> ${data.title}</h3>${data.body}<hr><p class="text-muted small mt-3">You can upload/edit this content section easily.</p>`;
+        }
+    }
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const service = card.getAttribute('data-service');
+            if(service && serviceContent[service]) updateServiceContent(service);
+            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    
+    // Navigation - no auto scroll on load
+    const navLinks = document.querySelectorAll('[data-page]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-page');
+            if(page === 'home') {
+                contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to BillCheck.PK</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
+            } else if(page === 'services') {
+                contentArea.innerHTML = `<h3><i class="fas fa-concierge-bell"></i> Our Services</h3><p>Free online bill checking for: FESCO, MEPCO, GEPCO, LESCO, PESCO. Enter your 14-digit reference number to get started.</p>`;
+            } else if(page === 'about') {
+                contentArea.innerHTML = `<h3><i class="fas fa-info-circle"></i> About Us</h3><p>BillCheck.PK helps consumers check MEPCO online bill and other electricity bills using their 14-digit reference number.</p>`;
+            } else if(page === 'contact') {
+                contentArea.innerHTML = `<h3><i class="fas fa-envelope"></i> Contact Us</h3><p>Email: support@billcheck.pk<br>For MEPCO bill check issues, ensure your 14-digit reference number is correct.</p>`;
+            } else if(page === 'privacy') {
+                contentArea.innerHTML = `<h3>Privacy Policy</h3><p>We do not store any bill data. Your 14-digit reference number is used only for live bill check.</p>`;
+            } else if(page === 'terms') {
+                contentArea.innerHTML = `<h3>Terms & Conditions</h3><p>This MEPCO online bill check tool is for informational purposes only.</p>`;
+            }
+            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    
+    // Set default home content without scrolling
+    setTimeout(function() {
+        const homeLink = document.querySelector('[data-page="home"]');
+        if (homeLink) {
+            contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to BillCheck.PK</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
+        }
+    }, 50);
+</script>
+</body>
+</html>
