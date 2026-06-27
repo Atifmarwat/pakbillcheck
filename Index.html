@@ -119,6 +119,119 @@
             margin-bottom: 1rem;
         }
 
+        /* =================================================== */
+        /* GREEN BOX - BILL CHECK TOOL (NEW ADDED) */
+        /* =================================================== */
+        .bill-check-tool-wrapper {
+            background: #03592E;
+            border-radius: 24px;
+            padding: 40px 35px 45px;
+            margin: 50px auto;
+            box-shadow: 0 20px 60px rgba(3, 89, 46, 0.25);
+            max-width: 900px;
+        }
+
+        .bill-check-tool-wrapper .tool-title {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .bill-check-tool-wrapper .tool-subtitle {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Inner white card for the tool */
+        .tool-inner-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px 28px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .tool-inner-card .form-label {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .tool-inner-card .bill-option {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f8fafc;
+            flex: 1;
+        }
+
+        .tool-inner-card .bill-option:hover {
+            border-color: #03592E;
+            background: #f0f9f4;
+        }
+
+        .tool-inner-card .bill-option.selected {
+            border-color: #03592E;
+            background: #e6f3ec;
+            box-shadow: 0 0 0 3px rgba(3, 89, 46, 0.15);
+        }
+
+        .tool-inner-card .btn-check-bill {
+            background: #03592E;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .tool-inner-card .btn-check-bill:hover {
+            background: #024d27;
+            transform: translateY(-2px);
+        }
+
+        .tool-inner-card .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        .tool-inner-card .success-animation {
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .tool-inner-card .progress-bar-custom {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .tool-inner-card .progress-bar-custom .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #03592E, #0a7a42);
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        /* =================================================== */
+        /* END GREEN BOX */
+        /* =================================================== */
+
         /* Services Section */
         .section-title {
             text-align: center;
@@ -265,11 +378,36 @@
         .footer a:hover {
             color: white;
         }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+        }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .navbar { padding: 0.8rem 1rem; }
             .section-title h2 { font-size: 1.8rem; }
+            .bill-check-tool-wrapper { padding: 20px 15px 25px; }
+            .bill-check-tool-wrapper .tool-title { font-size: 1.5rem; }
+            .tool-inner-card { padding: 20px 16px; }
         }
     </style>
 </head>
@@ -287,38 +425,23 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/" data-page="home">Home</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">
-    FESCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">
-    GEPCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">
-    LESCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">
-    MEPCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">
-    PESCO Bill
-  </a>
-</li>
+                    <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/" data-page="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link nav-link-custom' href='https://pakbillcheck.com/fesco-online-bill-check'>FESCO Bill</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link nav-link-custom' href='https://pakbillcheck.com/gepco-online-bill-check'>GEPCO Bill</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link nav-link-custom' href='https://pakbillcheck.com/lesco-online-bill-check'>LESCO Bill</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link nav-link-custom' href='https://pakbillcheck.com/mepco-online-bill-check'>MEPCO Bill</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link nav-link-custom' href='https://pakbillcheck.com/pesco-online-bill-check'>PESCO Bill</a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
             </ul>
             <a href="https://pakbillcheck.com/lesco-online-bill-check" class="btn btn-outline-primary-custom"><i class="fas fa-search"></i> Check Bill Now</a>
@@ -351,6 +474,102 @@
     </div>
 </section>
 
+<!-- ============================================================ -->
+<!-- GREEN BOX - BILL CHECK TOOL (ADDED) -->
+<!-- ============================================================ -->
+<section class="bill-check-tool-wrapper">
+    <div class="container" style="max-width: 100%; padding: 0;">
+        <h2 class="tool-title"><i class="fas fa-file-invoice-dollar me-2"></i> Bill Check</h2>
+        <p class="tool-subtitle">Enter your 14-digit reference number to view, download & print your bill instantly</p>
+
+        <div class="tool-inner-card">
+            <div class="pitc-bill-container">
+                <!-- SEARCH FORM -->
+                <form id="pitc-bill-search-form">
+                    <div class="mb-4">
+                        <p class="fw-bold mb-3">Select Bill Type</p>
+                        <div class="d-flex flex-column flex-md-row gap-3">
+                            <div class="bill-option selected" data-type="refno">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bill_type" id="pitc-refRadio" value="refno" checked>
+                                    <label class="form-check-label fw-medium" for="pitc-refRadio">Reference No (14-Digit)</label>
+                                </div>
+                                <p class="input-hint mt-1 mb-0 small text-muted">14-digit reference number from your bill</p>
+                            </div>
+                            <div class="bill-option" data-type="custid">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bill_type" id="pitc-custRadio" value="custid">
+                                    <label class="form-check-label fw-medium" for="pitc-custRadio">Customer ID</label>
+                                </div>
+                                <p class="input-hint mt-1 mb-0 small text-muted">10-digit customer identification number</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-end mb-4">
+                        <div class="col-12 col-md">
+                            <label class="form-label fw-semibold">Enter 14-Digit Reference Number</label>
+                            <input type="text" id="pitc-reference-number" class="form-control form-control-lg" 
+                                   placeholder="Enter 14-digit reference number (e.g., 12345678901234)" maxlength="14" required>
+                            <div id="pitc-error-message" class="error-message mt-1"></div>
+                            <div class="input-hint mt-1 small text-muted">Please enter your 14-digit reference number from your bill</div>
+                        </div>
+                        <div class="col-12 col-md-auto" id="pitc-ur-type-wrapper">
+                            <label for="pitc-ur-type" class="form-label fw-semibold">Area Type</label>
+                            <select id="pitc-ur-type" class="form-select form-select-lg">
+                                <option value="U">Urban (U)</option>
+                                <option value="R">Rural (R)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-check-bill">
+                        <i class="fas fa-search me-2"></i> Check Bill Online
+                    </button>
+                </form>
+
+                <!-- LOADING -->
+                <div id="pitc-loading-container" class="text-center py-4" style="display: none;">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="progress-bar-custom">
+                        <div class="progress-fill" id="pitc-progress-fill"></div>
+                    </div>
+                    <p class="mt-3 text-muted">Loading your bill...</p>
+                </div>
+
+                <!-- RESULT -->
+                <div id="pitc-result-container" class="text-center py-4" style="display: none;">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; color: #03592E;"></i>
+                    <h3 class="mt-3 text-success">Bill Ready!</h3>
+                    <p class="text-muted">Your bill is ready to view, download & print</p>
+                    <div class="mb-3">
+                        <form id="pitc-billForm" action="#" method="POST" target="_blank">
+                            <button type="submit" class="btn btn-success btn-lg px-5">
+                                <i class="fas fa-file-invoice me-2"></i> View & Download Bill
+                            </button>
+                        </form>
+                    </div>
+                    <button id="pitc-reset-btn" class="btn btn-outline-secondary">
+                        <i class="fas fa-redo-alt me-2"></i> Check Another Bill
+                    </button>
+                </div>
+
+                <!-- ERROR -->
+                <div id="pitc-error-container" class="text-center py-4" style="display: none;">
+                    <i class="fas fa-exclamation-circle" style="font-size: 4rem; color: #dc3545;"></i>
+                    <h3 class="mt-3 text-danger">Error Loading Bill</h3>
+                    <p class="text-muted">Please check your reference number and try again</p>
+                    <button id="pitc-retry-btn" class="btn btn-primary mt-2">
+                        <i class="fas fa-redo me-2"></i> Try Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Services Section -->
 <section id="services" class="py-5">
     <div class="container">
@@ -365,9 +584,10 @@
                     <div class="service-icon"><i class="fas fa-bolt"></i></div>
                     <h4>MEPCO</h4>
                     <p>Multan Electric Power Company - Check MEPCO bill online using 14-digit reference number</p>
-<a href="https://pakbillcheck.com/mepco-online-bill-check">
-  <button class="service-btn">Check Bill →</button>
-</a>                </div>
+                    <a href="https://pakbillcheck.com/mepco-online-bill-check">
+                        <button class="service-btn">Check Bill →</button>
+                    </a>
+                </div>
             </div>
             <!-- FESCO -->
             <div class="col-lg-4 col-md-6">
@@ -375,9 +595,10 @@
                     <div class="service-icon"><i class="fas fa-charging-station"></i></div>
                     <h4>FESCO</h4>
                     <p>Faisalabad Electric Supply Company - View and download duplicate bill</p>
-<a href="https://pakbillcheck.com/fesco-online-bill-check">
-  <button class="service-btn">Check Bill →</button>
-</a>                </div>
+                    <a href="https://pakbillcheck.com/fesco-online-bill-check">
+                        <button class="service-btn">Check Bill →</button>
+                    </a>
+                </div>
             </div>
             <!-- LESCO -->
             <div class="col-lg-4 col-md-6">
@@ -385,9 +606,10 @@
                     <div class="service-icon"><i class="fas fa-city"></i></div>
                     <h4>LESCO</h4>
                     <p>Lahore Electric Supply Company - Instant bill access with reference number</p>
-<a href="https://pakbillcheck.com/lesco-online-bill-check">
-  <button class="service-btn">Check Bill →</button>
-</a>                </div>
+                    <a href="https://pakbillcheck.com/lesco-online-bill-check">
+                        <button class="service-btn">Check Bill →</button>
+                    </a>
+                </div>
             </div>
             <!-- GEPCO -->
             <div class="col-lg-4 col-md-6">
@@ -395,9 +617,10 @@
                     <div class="service-icon"><i class="fas fa-industry"></i></div>
                     <h4>GEPCO</h4>
                     <p>Gujranwala Electric Power Company - Fast duplicate bill download</p>
-<a href="https://pakbillcheck.com/gepco-online-bill-check">
-  <button class="service-btn">Check Bill →</button>
-</a>                </div>
+                    <a href="https://pakbillcheck.com/gepco-online-bill-check">
+                        <button class="service-btn">Check Bill →</button>
+                    </a>
+                </div>
             </div>
             <!-- PESCO -->
             <div class="col-lg-4 col-md-6">
@@ -405,9 +628,10 @@
                     <div class="service-icon"><i class="fas fa-mountain"></i></div>
                     <h4>PESCO</h4>
                     <p>Peshawar Electric Supply Company - Online bill check for KPK region</p>
-<a href="https://pakbillcheck.com/pesco-online-bill-check">
-  <button class="service-btn">Check Bill →</button>
-</a>                </div>
+                    <a href="https://pakbillcheck.com/pesco-online-bill-check">
+                        <button class="service-btn">Check Bill →</button>
+                    </a>
+                </div>
             </div>
             <!-- More Companies -->
             <div class="col-lg-4 col-md-6">
@@ -556,41 +780,6 @@
                 </div>
             </div>
 
-            <!-- Footer -->
-<footer class="footer-custom">
-
-    <div class="footer-links">
-        <a href="https://pakbillcheck.com/">Home</a>
-
-        <a href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">FESCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">GEPCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">LESCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">MEPCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">PESCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/privacy-policy.html">Privacy Policy</a>
-
-        <a href="https://pakbillcheck.com/terms-and-conditions.html">Terms & Conditions</a>
-
-        <a href="https://pakbillcheck.com/contact.html">Contact Us</a>
-    </div>
-
-    <div class="copyright">
-        <p>
-            &copy; 2026 PakBillCheck.com - Online Electricity Bill Check Pakistan
-        </p>
-
-        <p class="small">
-            FESCO, GEPCO, LESCO, MEPCO, and PESCO are electricity distribution companies in Pakistan. 
-            This website helps users check their electricity bills online using reference number.
-        </p>
-    </div>
-
-</footer>
             <div class="col-md-2 mb-4">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
@@ -603,11 +792,11 @@
             <div class="col-md-3 mb-4">
                 <h5>Supported Bills</h5>
                 <ul class="list-unstyled">
-                    <li><a href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">MEPCO Online Bill</a></li>
-                    <li><a href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">FESCO Online Bill</a></li>
-                    <li><a href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">LESCO Online Bill</a></li>
-                    <li><a href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">GEPCO Online Bill</a></li>
-                    <li><a href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">PESCO Online Bill</a></li>
+                    <li><a href='https://pakbillcheck.com/mepco-online-bill-check'>MEPCO Online Bill</a></li>
+                    <li><a href='https://pakbillcheck.com/fesco-online-bill-check'>FESCO Online Bill</a></li>
+                    <li><a href='https://pakbillcheck.com/lesco-online-bill-check'>LESCO Online Bill</a></li>
+                    <li><a href='https://pakbillcheck.com/gepco-online-bill-check'>GEPCO Online Bill</a></li>
+                    <li><a href='https://pakbillcheck.com/pesco-online-bill-check'>PESCO Online Bill</a></li>
                 </ul>
             </div>
             <div class="col-md-3 mb-4">
@@ -642,5 +831,148 @@
     // Ensure page loads at top
     window.scrollTo(0, 0);
 </script>
+
+<!-- ============================================================ -->
+<!-- BILL CHECK TOOL JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+(function() {
+    const referenceInput = document.getElementById('pitc-reference-number');
+    const errorMsgDiv = document.getElementById('pitc-error-message');
+    const searchFormContainer = document.getElementById('pitc-bill-search-form');
+    const loadingContainer = document.getElementById('pitc-loading-container');
+    const resultContainer = document.getElementById('pitc-result-container');
+    const errorContainer = document.getElementById('pitc-error-container');
+    const billForm = document.getElementById('pitc-billForm');
+    const urTypeSelect = document.getElementById('pitc-ur-type');
+    const radioRef = document.getElementById('pitc-refRadio');
+    const radioCust = document.getElementById('pitc-custRadio');
+    const billOptions = document.querySelectorAll('.bill-option');
+    const urTypeWrapper = document.getElementById('pitc-ur-type-wrapper');
+    const progressFill = document.getElementById('pitc-progress-fill');
+
+    function hideError() {
+        errorMsgDiv.style.display = 'none';
+        referenceInput.classList.remove('is-invalid');
+    }
+
+    function showError(msg) {
+        errorMsgDiv.textContent = msg;
+        errorMsgDiv.style.display = 'block';
+        referenceInput.classList.add('is-invalid');
+    }
+
+    function updateUIBasedOnType() {
+        const selected = document.querySelector('input[name="bill_type"]:checked').value;
+        if (selected === 'refno') {
+            referenceInput.maxLength = 14;
+            referenceInput.placeholder = 'Enter 14-digit reference number (e.g., 12345678901234)';
+            urTypeWrapper.style.display = 'block';
+        } else {
+            referenceInput.maxLength = 10;
+            referenceInput.placeholder = 'Enter 10-digit Customer ID';
+            urTypeWrapper.style.display = 'none';
+        }
+        hideError();
+    }
+
+    function validateInput() {
+        const val = referenceInput.value.trim();
+        const type = document.querySelector('input[name="bill_type"]:checked').value;
+        if (type === 'refno') {
+            if (!/^\d{14}$/.test(val)) {
+                showError('Please enter a valid 14-digit reference number');
+                return false;
+            }
+        } else {
+            if (!/^\d{10}$/.test(val)) {
+                showError('Please enter a valid 10-digit Customer ID');
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function performFetch() {
+        if (!validateInput()) return;
+
+        const inputVal = referenceInput.value.trim();
+        const type = document.querySelector('input[name="bill_type"]:checked').value;
+        const area = type === 'refno' ? urTypeSelect.value : 'U';
+
+        // Show loading
+        searchFormContainer.style.display = 'none';
+        loadingContainer.style.display = 'block';
+        resultContainer.style.display = 'none';
+        errorContainer.style.display = 'none';
+
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 8;
+            if (progress <= 90 && progressFill) {
+                progressFill.style.width = progress + '%';
+            }
+        }, 150);
+
+        // Simulate API call
+        setTimeout(() => {
+            clearInterval(interval);
+            if (progressFill) progressFill.style.width = '100%';
+
+            let billUrl = '';
+            if (type === 'refno') {
+                billUrl = `https://bill.pitc.com.pk/gbill.aspx?refno=${encodeURIComponent(inputVal)}&type=${area}`;
+            } else {
+                billUrl = `https://bill.pitc.com.pk/custbill.aspx?custid=${encodeURIComponent(inputVal)}`;
+            }
+            billForm.action = billUrl;
+
+            loadingContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+        }, 1400);
+    }
+
+    // Event Listeners
+    document.getElementById('pitc-bill-search-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        performFetch();
+    });
+
+    document.getElementById('pitc-reset-btn').addEventListener('click', () => {
+        resultContainer.style.display = 'none';
+        errorContainer.style.display = 'none';
+        searchFormContainer.style.display = 'block';
+        referenceInput.value = '';
+        if (progressFill) progressFill.style.width = '0%';
+        hideError();
+    });
+
+    document.getElementById('pitc-retry-btn').addEventListener('click', () => {
+        errorContainer.style.display = 'none';
+        searchFormContainer.style.display = 'block';
+        hideError();
+    });
+
+    referenceInput.addEventListener('input', hideError);
+
+    billOptions.forEach(opt => {
+        opt.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+            billOptions.forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            updateUIBasedOnType();
+            hideError();
+        });
+    });
+
+    radioRef.addEventListener('change', updateUIBasedOnType);
+    radioCust.addEventListener('change', updateUIBasedOnType);
+
+    // Initialize
+    updateUIBasedOnType();
+})();
+</script>
+
 </body>
 </html>
