@@ -401,7 +401,7 @@
                                 <label class="form-label fw-semibold lang-ur urdu-text">14 ہندسوں کا ریفرنس نمبر درج کریں</label>
                                 <input type="text" id="pitc-reference-number" class="form-control form-control-lg" placeholder="Enter 14-digit reference number (e.g., 12345678901234)" maxlength="14" required>
                                 <div id="pitc-error-message" class="error-message mt-1"></div>
-                                <div class="input-hint mt-1 lang-en small text-muted">Please enter your 14-digit reference number from your MEPCO bill</div>
+                                <div class="input-hint mt-1 lang-en small text-muted">Please enter your 14-digit reference number from your <a href="https://pakbillcheck.com/mepco-online-bill-check">MEPCO bill</a></div>
                                 <div class="input-hint mt-1 lang-ur urdu-text small">براہ کرم اپنے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر درج کریں</div>
                             </div>
                             <div class="col-12 col-md-auto" id="pitc-ur-type-wrapper">
@@ -717,9 +717,9 @@
             e.preventDefault();
             const page = link.getAttribute('data-page');
             if(page === 'home') {
-                contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
+                contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, <a href="https://pakbillcheck.com/lesco-online-bill-check">LESCO bill</a>, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
             } else if(page === 'services') {
-                contentArea.innerHTML = `<h3><i class="fas fa-concierge-bell"></i> Our Services</h3><p>Free online bill checking for: FESCO, MEPCO, GEPCO, LESCO, PESCO. Enter your 14-digit reference number to get started.</p>`;
+                contentArea.innerHTML = `<h3><i class="fas fa-concierge-bell"></i> Our Services</h3><p>Free online bill checking for: FESCO, MEPCO, GEPCO, LESCO, <a href="https://pakbillcheck.com/pesco-online-bill-check">PESCO bill</a>. Enter your 14-digit reference number to get started.</p>`;
             } else if(page === 'about') {
                 contentArea.innerHTML = `<h3><i class="fas fa-info-circle"></i> About Us</h3><p>BillCheck.PK helps consumers check MEPCO online bill and other electricity bills using their 14-digit reference number.</p>`;
             } else if(page === 'contact') {
@@ -738,7 +738,7 @@ setTimeout(function() {
     if (homeLink) {
         contentArea.innerHTML = `
             <h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3>
-            <p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p>
+            <p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, <a href="https://pakbillcheck.com/gepco-online-bill-check">GEPCO bill</a>, LESCO, and PESCO bill checks.</p>
             <div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>
             
             <h2>FESCO Online Bill Check</h2>
@@ -791,7 +791,7 @@ setTimeout(function() {
 <p>It is a good idea to save your reference number somewhere secure. Having it readily available can make future FESCO bill online checks faster and easier.</p>
 
 <h2>What If You Enter the Wrong Reference Number?</h2>
-<p>If the information you entered does not match your electricity connection, the online service may not display your bill.</p>
+<p>If the information you entered does not match your electricity connection, the <a href="https://pakbillcheck.com/">online service</a> may not display your bill.</p>
 <p>Check the following:</p>
 <ul>
     <li>Make sure all digits are correct.</li>
