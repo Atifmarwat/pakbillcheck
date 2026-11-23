@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Lesco Online Bill Check - Lesco Duplicate Bill ( Download & Print )</title>
+    <meta name="description" content="MEPCO Online Bill Check - Enter your 14-digit reference number to view, download and print your MEPCO duplicate bill online instantly. Fast and free MEPCO bill check tool.">
+   <link rel="canonical" href="https://pakbillcheck.com/lesco-online-bill-check" />
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03592E;
+            --primary-dark: #024d27;
+            --success-color: #28a745;
+            --success-dark: #218838;
+            --error-color: #dc3545;
+            --footer-bg: #024d27;
+            --nav-bg: #03592E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Header */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: white !important;
+        }
+        .navbar-brand i {
+            margin-right: 8px;
+        }
+        .nav-link-custom {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.2s;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        .nav-link-custom:hover, .nav-link-custom.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+        .navbar-toggler-icon-custom {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Main container - page starts from top */
+        .main-content {
+            flex: 1;
+            padding: 30px 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* SEO Header Styles */
+        .seo-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .seo-header h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .seo-header h2 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* Language toggle wrapper */
+        .lang-toggle-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        .lang-toggle-group {
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: inline-flex;
+            gap: 5px;
+        }
+        .lang-toggle-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        .lang-toggle-btn.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 6px rgba(3,89,46,0.3);
+        }
+        .lang-toggle-btn:not(.active):hover {
+            background: #e9ecef;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+        }
+        .services-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.5rem;
+        }
+        .service-card {
+            background: #f8f9fa;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+            border-left: 4px solid var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .service-card:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        .service-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1e2a3a;
+        }
+        .service-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        /* Dynamic content area */
+        .dynamic-content-area {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+            min-height: 280px;
+        }
+        .dynamic-content-area h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* MEPCO Tool Card */
+        .tool-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .tool-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.8rem;
+        }
+        .tool-header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .pitc-bill-container {
+            width: 100%;
+        }
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+        .bill-option {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .bill-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(3, 89, 46, 0.05);
+            box-shadow: 0 0 0 2px rgba(3, 89, 46, 0.25);
+        }
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            display: none;
+        }
+        .success-animation {
+            animation: pulse 1s ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Footer */
+        .footer-custom {
+            background-color: var(--footer-bg);
+            color: #f1f1f1;
+            padding: 2rem 2rem 1rem;
+            margin-top: 2rem;
+        }
+        .footer-custom a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-custom a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+        }
+
+        :target {
+            scroll-margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-custom { padding: 0.6rem 1rem; }
+            .lang-toggle-wrapper { justify-content: center; margin-top: 0; }
+            .lang-toggle-btn { padding: 6px 18px; font-size: 0.8rem; }
+            .tool-header h2 { font-size: 1rem; }
+            .services-section { padding: 1rem; }
+            .seo-header h1 { font-size: 1.3rem; }
+            .seo-header h2 { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Header -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://pakbillcheck.com/">
+            <i class="fas fa-bolt"></i> Pak Bill Check
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-custom"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/" data-page="home">Home</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">
+    FESCO Bill
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">
+    GEPCO Bill
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">
+    LESCO Bill
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">
+    MEPCO Bill
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">
+    PESCO Bill
+  </a>
+</li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="services">Services</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="about">About</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <!-- SEO Keywords Header - H1 and H2 with your keywords -->
+    <div class="seo-header">
+        <h1>Lesco Online Bill Check - Lesco Duplicate Bill ( Download & Print )</h1>
+        <p>If the meter reader did not deliver your electricity bill to your home, you can download it from this Lesco Online Bill Check website.</p>
+    </div>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle-wrapper">
+        <div class="lang-toggle-group">
+            <button type="button" class="lang-toggle-btn active" data-lang="en">English</button>
+            <button type="button" class="lang-toggle-btn" data-lang="ur">اردو</button>
+        </div>
+    </div>
+
+    <!-- MEPCO Bill Tool Card -->
+    <div class="tool-card">
+        <div class="tool-header">
+            <h2><i class="fas fa-file-invoice-dollar me-2"></i> Lesco Duplicate Bill | Lesco Online Bill Check By Customer Id</h2>
+        </div>
+        <div class="card-body p-4">
+            <div class="pitc-bill-container">
+                <div id="pitc-search-form-container">
+                    <form id="pitc-bill-search-form">
+                        <div class="mb-4">
+                            <p class="fw-semibold mb-2 lang-en">Select Bill Type</p>
+                            <p class="fw-semibold mb-2 lang-ur urdu-text">بل کی قسم منتخب کریں</p>
+                            <div class="d-flex flex-column flex-md-row gap-3">
+                                <div class="bill-option selected" data-type="refno">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="bill_type" id="pitc-refRadio" value="refno" checked>
+                                        <label class="form-check-label fw-medium" for="pitc-refRadio">Reference No (14-Digit)</label>
+                                    </div>
+                                    <p class="input-hint mt-1 mb-0 lang-en small text-muted">14-digit reference number from your MEPCO bill</p>
+                                    <p class="input-hint mt-1 mb-0 lang-ur urdu-text small">آپ کے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر</p>
+                                </div>
+                                <div class="bill-option" data-type="custid">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="bill_type" id="pitc-custRadio" value="custid">
+                                        <label class="form-check-label fw-medium" for="pitc-custRadio">Customer ID</label>
+                                    </div>
+                                    <p class="input-hint mt-1 mb-0 lang-en small text-muted">10-digit customer identification number</p>
+                                    <p class="input-hint mt-1 mb-0 lang-ur urdu-text small">10 ہندسوں کا کسٹمر شناختی نمبر</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3 align-items-end mb-4">
+                            <div class="col-12 col-md">
+                                <label id="pitc-input-label" class="form-label fw-semibold lang-en">Enter 14-Digit Reference Number</label>
+                                <label class="form-label fw-semibold lang-ur urdu-text">14 ہندسوں کا ریفرنس نمبر درج کریں</label>
+                                <input type="text" id="pitc-reference-number" class="form-control form-control-lg" placeholder="Enter 14-digit reference number (e.g., 12345678901234)" maxlength="14" required>
+                                <div id="pitc-error-message" class="error-message mt-1"></div>
+                                <div class="input-hint mt-1 lang-en small text-muted">Please enter your 14-digit reference number from your MEPCO bill</div>
+                                <div class="input-hint mt-1 lang-ur urdu-text small">براہ کرم اپنے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر درج کریں</div>
+                            </div>
+                            <div class="col-12 col-md-auto" id="pitc-ur-type-wrapper">
+                                <label for="pitc-ur-type" class="form-label fw-semibold lang-en">Area Type</label>
+                                <label for="pitc-ur-type" class="form-label fw-semibold lang-ur urdu-text">علاقے کی قسم</label>
+                                <select id="pitc-ur-type" class="form-select form-select-lg">
+                                    <option value="U">Urban (U)</option>
+                                    <option value="R">Rural (R)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg py-3">
+                            <i class="fas fa-search me-2"></i>
+                            <span class="lang-en">Check MEPCO Bill Online</span>
+                            <span class="lang-ur urdu-text">MEPCO بل آن لائن چیک کریں</span>
+                        </button>
+                    </form>
+                </div>
+                <div id="pitc-loading-container" class="text-center py-5" style="display: none;">
+                    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="progress mt-4 mx-auto" style="max-width: 300px;"><div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div></div>
+                    <p class="mt-4 lang-en">Loading your MEPCO bill...</p><p class="mt-4 lang-ur urdu-text">آپ کا MEPCO بل لوڈ ہو رہا ہے</p>
+                </div>
+                <div id="pitc-result-container" style="display: none;">
+                    <div class="text-center py-4 success-animation">
+                        <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--primary-color);"></i>
+                        <h3 class="mt-3 lang-en">MEPCO Bill Ready</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل تیار ہے</h3>
+                        <div class="mb-4"><form id="pitc-billForm" action="#" method="POST" target="_blank"><button type="submit" class="btn btn-success btn-lg px-5"><i class="fas fa-file-invoice me-2"></i><span class="lang-en">View & Download MEPCO Bill</span><span class="lang-ur urdu-text">MEPCO بل دیکھیں اور ڈاؤن لوڈ کریں</span></button></form></div>
+                        <button id="pitc-reset-btn" class="btn btn-outline-primary"><i class="fas fa-redo-alt me-2"></i><span class="lang-en">Check Another Bill</span><span class="lang-ur urdu-text">دوبارہ چیک کریں</span></button>
+                    </div>
+                </div>
+                <div id="pitc-error-container" style="display: none;" class="text-center py-5">
+                    <i class="fas fa-exclamation-circle" style="font-size: 4rem; color: var(--error-color);"></i>
+                    <h3 class="mt-3 lang-en">Error Loading MEPCO Bill</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل لوڈ کرنے میں خرابی</h3>
+                    <button id="pitc-retry-btn" class="btn btn-primary mt-3"><i class="fas fa-redo me-2"></i><span class="lang-en">Try Again</span><span class="lang-ur urdu-text">دوبارہ کوشش کریں</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+   <div class="services-section">
+    <h3 class="services-title">
+        <i class="fas fa-list-ul me-2"></i> Our Bill Checking Services
+    </h3>
+
+    <div class="row g-3" id="servicesList">
+
+        <!-- FESCO -->
+        <div class="col-md-6 col-lg-4">
+            <a href="https://pakbillcheck.com/fesco-online-bill-check" class="service-card text-decoration-none" data-service="fesco">
+                <span class="service-name">
+                    <i class="fas fa-file-alt text-success me-2"></i>
+                    FESCO Online Bill Check
+                </span>
+                <span class="service-badge">Check Now</span>
+            </a>
+        </div>
+
+        <!-- MEPCO -->
+        <div class="col-md-6 col-lg-4">
+            <a href="https://pakbillcheck.com/mepco-online-bill-check" class="service-card text-decoration-none" data-service="mepco">
+                <span class="service-name">
+                    <i class="fas fa-file-alt text-success me-2"></i>
+                    MEPCO Online Bill
+                </span>
+                <span class="service-badge">Check Now</span>
+            </a>
+        </div>
+
+        <!-- GEPCO -->
+        <div class="col-md-6 col-lg-4">
+            <a href="https://pakbillcheck.com/gepco-online-bill-check" class="service-card text-decoration-none" data-service="gepco">
+                <span class="service-name">
+                    <i class="fas fa-file-alt text-success me-2"></i>
+                    GEPCO Online Bill Check
+                </span>
+                <span class="service-badge">Check Now</span>
+            </a>
+        </div>
+
+        <!-- LESCO -->
+        <div class="col-md-6 col-lg-4">
+            <a href="https://pakbillcheck.com/lesco-online-bill-check" class="service-card text-decoration-none" data-service="lesco">
+                <span class="service-name">
+                    <i class="fas fa-file-alt text-success me-2"></i>
+                    LESCO Online Bill Check
+                </span>
+                <span class="service-badge">Check Now</span>
+            </a>
+        </div>
+
+        <!-- PESCO -->
+        <div class="col-md-6 col-lg-4">
+            <a href="https://pakbillcheck.com/pesco-online-bill-check" class="service-card text-decoration-none" data-service="pesco">
+                <span class="service-name">
+                    <i class="fas fa-file-alt text-success me-2"></i>
+                    PESCO Online Bill Check
+                </span>
+                <span class="service-badge">Check Now</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+ <!-- Dynamic Content Area -->
+    <div class="dynamic-content-area" id="dynamicContentArea">
+
+        <h2>LESCO Bill Check</h2>
+        <p>You can check your LESCO online bill easily. In this way, you can view your monthly electricity costs online. Using the LESCO bill check service allows you to see how much you owe, what date to pay by, check how much electricity you've used and download a duplicate of your bill. It is very convenient for electricity consumers who want to complete an online bill check without waiting for a physical copy.</p>
+
+        <h2>About LESCO</h2>
+        <p>Lahore Electric Supply Company (LESCO) provides electricity to people in Lahore and surrounding areas in Punjab. These people include residential, commercial, industrial and other electricity consumers. Customers can use the LESCO online bill service to access their monthly electricity information.</p>
+
+        <h2>Checking Your Online Bill</h2>
+        <p>Using this online tool means that you can easily view information from your electricity bill using your 14-digit reference number. The LESCO bill online check service allows you to access important billing details. This includes:</p>
+        <ul>
+            <li>Your name.</li>
+            <li>Month of the bill.</li>
+            <li>Meter readings.</li>
+            <li>Units of electricity used.</li>
+            <li>Taxes.</li>
+            <li>What you owe.</li>
+        </ul>
+        <p>If you have lost, damaged, or simply not received a physical bill, you can still view the bill information for your account in an online format. The online bill check LESCO facility makes it easier to access your electricity charges whenever you need them.</p>
+
+        <h2>How to Check LESCO Bills Online</h2>
+        <p>To begin checking your LESCO bill online, you'll need to have your 14-digit reference number ready. This can be found on your previous bill.</p>
+        <p>To check for your latest bill:</p>
+        <ol>
+            <li>Go to the LESCO Bill Checker.</li>
+            <li>Type in your 14-digit reference number.</li>
+            <li>Click ‘Check Bill’.</li>
+            <li>If your information is correctly inputted, and a bill is available, the information in your electricity bill will now appear.</li>
+        </ol>
+        <p>If available, Download or Print Your Bill.</p>
+        <p>The LESCO online bill check print option allows you to save a digital copy or print your electricity bill for future use.</p>
+        <p>Be sure to input all 14 digits of the reference number correctly. If not, the bill may not be able to be found.</p>
+
+        <h2>What is LESCO Online Bill Check?</h2>
+        <p>The LESCO online bill check service allows electricity consumers to view their monthly bills in an online format, rather than just receiving them in paper form. This online LESCO bill facility makes it convenient to access electricity billing information using an internet-connected device.</p>
+        <p>LESCO is Lahore Electric Supply Company. It supplies electricity to residential and commercial consumers in specific areas of Punjab.</p>
+        <p>Using this online service means that you can view information from your electricity connection. This can include:</p>
+        <ul>
+            <li>Month of bill.</li>
+            <li>Name of customer.</li>
+            <li>Amount of electricity used.</li>
+            <li>Meter readings.</li>
+            <li>Costs of electricity.</li>
+            <li>Taxes.</li>
+            <li>Owing amounts.</li>
+        </ul>
+        <p>It can be very useful if you haven't received your bill on time or have lost it. Using this online tool with your reference number means you can quickly see what you owe, without having to visit an electricity office.</p>
+        <p>For example, if you need to pay your electricity bill in a few days and have not received your physical copy, you can quickly check using this online service to see what amount you owe, and when. Whether you search for a LESCO bill online or use an online bill check for LESCO Lahore, the service helps you access the latest available billing information.</p>
+
+        <h2>How to Find Your LESCO Reference Number</h2>
+        <p>In order to check your bill using most of these online services, you'll need to know your reference number. This will be unique to your electricity connection.</p>
+        <p>There are usually 14 digits in this reference number. It can be found on your previous LESCO bill.</p>
+        <p>If you're unsure where to find it:</p>
+        <ol>
+            <li>Find your previous LESCO bill.</li>
+            <li>Look at the top of the page.</li>
+            <li>Find ‘Reference No.’ or ‘Reference Number’.</li>
+            <li>Copy all 14 digits.</li>
+            <li>Be sure to type in all 14 digits in the online bill checker.</li>
+        </ol>
+        <p>Double-check your reference number. If even one digit is incorrect then you may not be able to find the correct bill.</p>
+
+        <h2>Reference Numbers vs Customer IDs</h2>
+        <p>Reference numbers and customer IDs are often confused.</p>
+        <p>They are completely different numbers.</p>
+        <p>Reference numbers are often required for viewing electricity bill information in online bill checkers. Customer IDs are another identifying number for your electricity account.</p>
+        <p>Some consumers search for LESCO online bill check by customer ID or LESCO online bill check by customer when they cannot find their reference number. However, most online bill checkers require a 14-digit reference number rather than a customer ID.</p>
+        <p>If the online bill checker specifically asks for a 14-digit reference number, be sure to input this and not your customer ID.</p>
+
+        <h2>How to Download a LESCO Duplicate Bill</h2>
+        <p>If you haven't received your bill in a timely fashion or have lost your copy, you can download a LESCO duplicate bill. This makes it very easy to view the available billing information.</p>
+        <p>You can do this with your reference number. The duplicate bill LESCO facility is useful when you need another copy of your electricity bill for payment or personal records.</p>
+
+        <h3>Steps</h3>
+        <ol>
+            <li>Go to the LESCO online bill checker.</li>
+            <li>Enter the full 14-digit reference number.</li>
+            <li>Click ‘Check Bill’ or ‘Submit’.</li>
+            <li>Once the information has loaded, check:
+                <ul>
+                    <li>The consumer information.</li>
+                    <li>The amount owed.</li>
+                    <li>If you can ‘Download’ or ‘Print’ your bill.</li>
+                </ul>
+            </li>
+            <li>Save the PDF on your mobile phone or computer.</li>
+        </ol>
+        <p>Now, you can refer to this downloaded bill at any point. If you would like a hard copy, you can open the PDF and print it via any printers connected to your device.</p>
+        <p>This can be very useful if you need to pay for electricity, but don't have the hard copy of the bill.</p>
+        <p>Depending on if the information has been added online, you may not be able to view a duplicate bill. The LESCO bill check online duplicate facility depends on the availability of your latest billing information.</p>
+
+        <h2>How to Check LESCO Bill Without Reference Number</h2>
+        <p>Most online LESCO bill checkers require a reference number. If you do not have a previous bill, you may need to find this information before viewing the information.</p>
+        <p>Below are some ways you can find your reference number.</p>
+
+        <h3>Previous Bill</h3>
+        <p>If you have a previous paper bill for electricity, you can find your 14-digit reference number at the top of the page.</p>
+
+        <h3>Previously Downloaded PDF</h3>
+        <p>If you have downloaded your bill in the past, search your device (mobile/PC) for the PDF.</p>
+
+        <h3>Email</h3>
+        <p>You may have a previous bill in your email.</p>
+
+        <h3>Ask a Family Member</h3>
+        <p>Another family member may have a previous bill including this reference number.</p>
+
+        <h3>Contact LESCO Support</h3>
+        <p>If you are unable to find your reference number, get in touch with the appropriate LESCO Customer Support centre. They can advise you on what information is needed to identify your electricity connection.</p>
+
+        <p>Once you have found your reference number, be sure to save it somewhere safe to make it easier to check bills in the future.</p>
+
+        <h2>Understanding Your LESCO Bill</h2>
+        <p>Your monthly LESCO customer bill will have a variety of information listed.</p>
+        <p>This can allow you to understand what you are being charged for each month, and identify any issues with your bill.</p>
+
+        <h3>Consumer Name</h3>
+        <p>This shows the name associated with the electricity connection.</p>
+
+        <h3>Reference Number</h3>
+        <p>This identifies your electricity bill connection. This is commonly needed to view bills in online services.</p>
+
+        <h3>Customer ID</h3>
+        <p>Another identification number associated with your electricity account.</p>
+
+        <h3>Month of Bill</h3>
+        <p>The month associated with this electricity bill.</p>
+
+        <h3>Date of Issue</h3>
+        <p>When the bill was issued.</p>
+
+        <h3>Due Date</h3>
+        <p>This is the date by which you must pay for this electricity bill. Be careful with this to avoid late payment charges.</p>
+
+        <h3>Previous Reading and Current Reading</h3>
+        <p>These indicate the meter readings from the start and end of the billing period. This can be used to calculate how much electricity you have used.</p>
+
+        <h3>Units Used</h3>
+        <p>The amount of electricity you have used is measured in kWh (kilowatt hours). This is often referred to as units. The difference between previous and current meter readings will give you the amount of units used in this period.</p>
+
+        <h3>Charges</h3>
+        <p>This shows how much you are being charged for the electricity you have used, depending on the tariff and category you fall into.</p>
+
+        <h3>Taxes and Extra Charges</h3>
+        <p>Depending on current regulations, there may be government taxes, levies, adjustments and other charges included in your LESCO bill.</p>
+
+        <h3>Total Owed</h3>
+        <p>This is the amount you should pay. Be sure to double-check this, along with the due date.</p>
+
+        <h2>Payment Options</h2>
+        <p>Once you have viewed your bill, you should pay for the electricity you owe before the due date.</p>
+        <p>Within Pakistan, there are a variety of payment options available. After completing your LESCO bill check online, you can use supported payment methods to pay your electricity bill.</p>
+
+        <h3>Banking App</h3>
+        <p>Many banks in Pakistan allow you to pay for your electricity bill through their mobile banking app or online banking.</p>
+        <p>Select the bill payment option. Select LESCO as the electricity company. Enter the required information.</p>
+
+        <h3>Easypaisa</h3>
+        <p>Easypaisa allows users to pay their utility bills. Open the app, and check if you can pay a LESCO bill. Follow the prompts to pay.</p>
+
+        <h3>JazzCash</h3>
+        <p>Users of JazzCash can check if they can pay their LESCO bill. Choose the right electricity provider, and enter the required information.</p>
+
+        <h3>Bank Branch</h3>
+        <p>If you would prefer to pay in person, you can do so at certain branches of certain banks.</p>
+
+        <h3>Approved Payment Services</h3>
+        <p>Depending on current arrangements, other approved payment services may allow you to pay for LESCO electricity.</p>
+
+        <p>Before making a payment, be sure to double-check that your reference number and amount owed is correct. Be sure to save your payment confirmation or receipt.</p>
+
+        <h2>LESCO Coverage Area (Punjab)</h2>
+        <p>Lahore Electric Supply Company provides electricity to Lahore, and surrounding areas within Punjab.</p>
+        <p>This means that they provide electricity to residential, commercial, industrial and other consumers in the area.</p>
+        <p>Some large cities/districts served by LESCO include:</p>
+        <ul>
+            <li>Lahore</li>
+            <li>Kasur</li>
+            <li>Sheikhupura</li>
+            <li>Okara</li>
+            <li>Nankana Sahib</li>
+        </ul>
+        <p>Within the areas specified, LESCO provides electricity to various towns, areas and sub-divisions. Consumers in these locations can use the LESCO online bill check Lahore service to view their monthly electricity information.</p>
+        <p>If you have any questions regarding your electricity connection, bill information, meter readings or payments, get in touch with the relevant LESCO sub-division or Customer Support.</p>
+
+        <h2>Common Issues</h2>
+        <p>Whilst it is convenient to check bills in this way, sometimes issues may occur when using an online bill check LESCO service.</p>
+        <p>Below are some common issues and solutions.</p>
+
+        <h3>Reference Number Not Found</h3>
+        <p>If no bill information appears, double-check that you have entered all 14 digits of your reference number correctly.</p>
+        <p>Check this matches the reference number of your previous bill. If there are any typos, correct them and try again.</p>
+
+        <h3>No Latest Bill</h3>
+        <p>Sometimes, the bill shown may be from last month, rather than this month. This could be because the updated information hasn't been added to the site yet.</p>
+        <p>Try checking again at a later date.</p>
+
+        <h3>Bill Not Loading</h3>
+        <p>If the bill isn't loading, this may be due to a slow internet connection, or the site may be having temporary issues. It may also be due to high traffic.</p>
+        <p>To fix this, refresh the page, check your internet connection and try again in a little while.</p>
+
+        <h3>Incorrect Information</h3>
+        <p>If there is incorrect information in your bill (meter readings, consumer information, unexpected charges) carefully review the bill. Get in touch with the appropriate LESCO Customer Support for clarification.</p>
+
+        <h3>No Duplicate Bill Available</h3>
+        <p>If no duplicate bill is available, this may be because the latest bill information isn't available or there are technical issues with the service at the moment.</p>
+        <p>Try checking again at a later date, or using the official bill service.</p>
+
+        <h3>Not Working on Mobile</h3>
+        <p>If the bill checker isn't working on your mobile phone, try using an up-to-date browser (such as Google Chrome). Alternatively, refresh the page, or clear your cache.</p>
+
+        <h2>Top Tips for Managing Your LESCO Monthly Bills</h2>
+        <p>Keeping track of your electricity usage can help you manage your monthly costs.</p>
+        <p>Top tips:</p>
+        <ul>
+            <li>Check your LESCO bill every month.</li>
+            <li>Save your reference number (14 digits).</li>
+            <li>Compare the units used from month to month to see if there have been any changes.</li>
+            <li>Turn off lights, fans and electrical devices when not in use.</li>
+            <li>Use LED bulbs to reduce energy usage.</li>
+            <li>Do not run electrical devices unnecessarily.</li>
+            <li>If you think you've had an unusually high bill, check the meter readings.</li>
+            <li>Pay the bill before the due date.</li>
+            <li>Save your payment receipts.</li>
+            <li>If you notice unusual issues with your bill, get in touch with LESCO.</li>
+        </ul>
+        <p>Following these tips can help you keep track of your electricity usage to avoid surprises on your monthly bill.</p>
+
+        <h2>FAQ</h2>
+
+        <h3>1. How to check LESCO bill online?</h3>
+        <p>Enter your 14-digit reference number into an online bill checker. This will allow you to see the latest electricity bill information through the LESCO online bill check service.</p>
+
+        <h3>2. How to download a duplicate LESCO bill?</h3>
+        <p>Enter your reference number into the online bill checker. This will allow you to see the electricity bill. If available, download or print your LESCO duplicate bill.</p>
+
+        <h3>3. Can I check my LESCO bill on my mobile?</h3>
+        <p>Yes. Simply go to the online LESCO bill checker on your mobile, tablet, or computer. Be sure to have internet, and a suitable browser.</p>
+
+        <h3>4. Where can I find my LESCO reference number?</h3>
+        <p>The 14-digit reference number is located on your previous bill. Look for ‘Reference No.’ at the top of the bill.</p>
+
+        <h3>5. Can I check my LESCO bill using my customer ID?</h3>
+        <p>Most online bill checkers will ask for your 14-digit reference number. If the reference number is requested, enter this rather than your customer ID.</p>
+
+        <h3>6. Is LESCO online bill checking free?</h3>
+        <p>Usually, there won't be a fee for viewing your bill using online bill checkers. However, individual sites may charge fees. Refer to individual sites for specific information.</p>
+
+        <h3>7. How to check payment status for my LESCO bill?</h3>
+        <p>This can be checked through your bank, mobile payment app, or approved payment service. Be sure to save your payment confirmation/number.</p>
+
+        <h3>8. My LESCO bill is not showing, what should I do?</h3>
+        <p>Double-check that you have the correct reference number. If so, it may be that the latest bill information has not been added, or there are temporary issues with the service.</p>
+
+        <h3>9. Can I print my LESCO bill?</h3>
+        <p>Yes. If the duplicate bill is printable, open the bill, and click ‘Print’. Alternatively, save the bill as a PDF to use at a later date. This is useful when you need a LESCO bill check online duplicate copy.</p>
+
+        <h3>10. Which areas does LESCO cover?</h3>
+        <p>LESCO provides electricity to Lahore, Kasur, Sheikhupura, Okara and Nankana Sahib.</p>
+
+        <h2>Summary</h2>
+        <p>LESCO online bill check makes it easier for electricity consumers to view their monthly electricity bill information. By entering your 14-digit reference number, you can see your latest electricity bill, and check how much electricity you've used. You can also see how much you owe, and download or print duplicates.</p>
+        <p>If you live in Lahore, Kasur, Sheikhupura, Okara, Nankana Sahib or any other LESCO coverage area, you can easily check your electricity expenses online. The online bill check LESCO Lahore facility provides a convenient way to access your monthly billing details.</p>
+        <p>Whether you need to view your LESCO bill online, check your latest electricity charges, or download a duplicate bill, the online service can help you manage your monthly electricity expenses.</p>
+        <p>Use the LESCO bill checker above to quickly and easily manage your monthly electricity payments.</p>
+
+    </div>
+</main>
+        <div class="alert alert-light border-start border-4 border-success mt-3">
+            <i class="fas fa-lightbulb text-warning"></i> <strong>Quick Tip:</strong> Your 14-digit reference number is printed on every MEPCO bill. Keep it handy for instant duplicate bill download.
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="footer-custom">
+
+    <div class="footer-links">
+        <a href="https://pakbillcheck.com/">Home</a>
+
+        <a href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">FESCO Bill Check</a>
+
+        <a href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">GEPCO Bill Check</a>
+
+        <a href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">LESCO Bill Check</a>
+
+        <a href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">MEPCO Bill Check</a>
+
+        <a href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">PESCO Bill Check</a>
+
+        <a href="https://pakbillcheck.com/privacy-policy.html">Privacy Policy</a>
+
+        <a href="https://pakbillcheck.com/terms-and-conditions.html">Terms & Conditions</a>
+
+        <a href="https://pakbillcheck.com/contact.html">Contact Us</a>
+    </div>
+
+    <div class="copyright">
+        <p>
+            &copy; 2026 PakBillCheck.com - Online Electricity Bill Check Pakistan
+        </p>
+
+        <p class="small">
+            FESCO, GEPCO, LESCO, MEPCO, and PESCO are electricity distribution companies in Pakistan. 
+            This website helps users check their electricity bills online using reference number.
+        </p>
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // CRITICAL: Prevent ANY auto-scroll on page load - page stays at TOP
+    if (window.location.hash === '') {
+        window.scrollTo(0, 0);
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+    } else {
+        window.scrollTo(0, 0);
+    }
+
+    // ---------- MEPCO BILL TOOL SCRIPT ----------
+    (function() {
+        const referenceInput = document.getElementById('pitc-reference-number');
+        const errorMsgDiv = document.getElementById('pitc-error-message');
+        const searchFormContainer = document.getElementById('pitc-search-form-container');
+        const loadingContainer = document.getElementById('pitc-loading-container');
+        const resultContainer = document.getElementById('pitc-result-container');
+        const errorContainer = document.getElementById('pitc-error-container');
+        const billForm = document.getElementById('pitc-billForm');
+        const urTypeSelect = document.getElementById('pitc-ur-type');
+        const radioRef = document.getElementById('pitc-refRadio');
+        const radioCust = document.getElementById('pitc-custRadio');
+        const billOptions = document.querySelectorAll('.bill-option');
+        const urTypeWrapper = document.getElementById('pitc-ur-type-wrapper');
+        const progressBar = document.querySelector('#pitc-loading-container .progress-bar');
+        
+        function hideError() { errorMsgDiv.style.display = 'none'; referenceInput.classList.remove('is-invalid'); }
+        function showError(msg) { errorMsgDiv.textContent = msg; errorMsgDiv.style.display = 'block'; referenceInput.classList.add('is-invalid'); }
+        
+        function updateUIBasedOnType() {
+            const selected = document.querySelector('input[name="bill_type"]:checked').value;
+            const isUrdu = document.body.classList.contains('urdu');
+            if(selected === 'refno') {
+                referenceInput.maxLength = 14;
+                referenceInput.placeholder = isUrdu ? '14 ہندسوں کا ریفرنس نمبر (مثال: 12345678901234)' : 'Enter 14-digit reference number (e.g., 12345678901234)';
+                urTypeWrapper.style.display = 'block';
+            } else {
+                referenceInput.maxLength = 10;
+                referenceInput.placeholder = isUrdu ? '10 ہندسوں کا کسٹمر آئی ڈی' : 'Enter 10-digit Customer ID';
+                urTypeWrapper.style.display = 'none';
+            }
+            hideError();
+        }
+        
+        function validateInput() {
+            const val = referenceInput.value.trim();
+            const type = document.querySelector('input[name="bill_type"]:checked').value;
+            if(type === 'refno') { if(!/^\d{14}$/.test(val)) { showError('Please enter a valid 14-digit reference number'); return false; } }
+            else { if(!/^\d{10}$/.test(val)) { showError('Please enter a valid 10-digit Customer ID'); return false; } }
+            return true;
+        }
+        
+        function performFetch() {
+            if(!validateInput()) return;
+            const inputVal = referenceInput.value.trim();
+            const type = document.querySelector('input[name="bill_type"]:checked').value;
+            const area = type === 'refno' ? urTypeSelect.value : 'U';
+            searchFormContainer.style.display = 'none';
+            loadingContainer.style.display = 'block';
+            resultContainer.style.display = 'none';
+            errorContainer.style.display = 'none';
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 8;
+                if(progress <= 90 && progressBar) progressBar.style.width = progress+'%';
+            }, 150);
+            setTimeout(() => {
+                clearInterval(interval);
+                if(progressBar) progressBar.style.width = '100%';
+                let billUrl = '';
+                if(type === 'refno') billUrl = `https://bill.pitc.com.pk/gbill.aspx?refno=${encodeURIComponent(inputVal)}&type=${area}`;
+                else billUrl = `https://bill.pitc.com.pk/custbill.aspx?custid=${encodeURIComponent(inputVal)}`;
+                billForm.action = billUrl;
+                loadingContainer.style.display = 'none';
+                resultContainer.style.display = 'block';
+                const animDiv = document.querySelector('#pitc-result-container .success-animation');
+                if(animDiv) animDiv.style.animation = 'none';
+                setTimeout(() => { if(animDiv) animDiv.style.animation = ''; }, 10);
+            }, 1400);
+        }
+        
+        document.getElementById('pitc-bill-search-form').addEventListener('submit', (e) => { e.preventDefault(); performFetch(); });
+        document.getElementById('pitc-reset-btn').addEventListener('click', () => {
+            resultContainer.style.display = 'none'; errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block';
+            referenceInput.value = ''; if(progressBar) progressBar.style.width = '0%'; hideError();
+        });
+        document.getElementById('pitc-retry-btn').addEventListener('click', () => {
+            errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block'; hideError();
+        });
+        referenceInput.addEventListener('input', hideError);
+        billOptions.forEach(opt => {
+            opt.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if(radio) radio.checked = true;
+                billOptions.forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                updateUIBasedOnType();
+                hideError();
+            });
+        });
+        radioRef.addEventListener('change', () => { updateUIBasedOnType(); });
+        radioCust.addEventListener('change', () => { updateUIBasedOnType(); });
+        updateUIBasedOnType();
+        
+        const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
+        function setLanguage(lang) {
+            if(lang === 'ur') document.body.classList.add('urdu'); else document.body.classList.remove('urdu');
+            langToggleBtns.forEach(btn => { if(btn.dataset.lang === lang) btn.classList.add('active'); else btn.classList.remove('active'); });
+            updateUIBasedOnType();
+            const allLangEn = document.querySelectorAll('.lang-en');
+            const allLangUr = document.querySelectorAll('.lang-ur');
+            if(lang === 'ur') {
+                allLangEn.forEach(el => el.style.display = 'none');
+                allLangUr.forEach(el => el.style.display = 'block');
+            } else {
+                allLangEn.forEach(el => el.style.display = 'block');
+                allLangUr.forEach(el => el.style.display = 'none');
+            }
+        }
+        langToggleBtns.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+        setLanguage('en');
+    })();
+
+    // Dynamic content for services
+    const contentArea = document.getElementById('dynamicContentArea');
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    const serviceContent = {
+        fesco: { title: "FESCO Online Bill Check", body: "<p><strong>Faisalabad Electric Supply Company (FESCO)</strong> provides electricity to Faisalabad, Jhang, Toba Tek Singh, Chiniot and more. To check your FESCO bill, simply enter your 14-digit reference number in the tool above. You can view, download, and print duplicate bill instantly.</p><div class='mt-3 p-3 bg-light rounded'><i class='fas fa-phone-alt me-2'></i> FESCO Helpline: 118</div>" },
+        mepco: { title: "MEPCO Online Bill Check", body: "<p><strong>Multan Electric Power Company (MEPCO)</strong> serves southern Punjab. Use the tool above to check your MEPCO bill by entering your 14-digit reference number. Download duplicate bill as PDF instantly.</p><p>Peak hours: 7pm-11pm (Jun-Aug) – avoid heavy usage to save money.</p>" },
+        gepco: { title: "GEPCO Online Bill Check", body: "<p><strong>Gujranwala Electric Power Company (GEPCO)</strong> covers Gujranwala, Gujrat, Sialkot. Use reference number in our bill checker to view latest bill, units consumed, due date.</p>" },
+        lesco: { title: "LESCO Online Bill Check", body: "<p><strong>Lahore Electric Supply Company (LESCO)</strong> services Lahore, Kasur, Sheikhupura. Check your LESCO bill online using 14-digit reference number.</p>" },
+        pesco: { title: "PESCO Online Bill Check", body: "<p><strong>Peshawar Electric Supply Company (PESCO)</strong> operates in Khyber Pakhtunkhwa. Use our unified bill checker with your 14-digit reference number.</p>" }
+    };
+    
+    function updateServiceContent(serviceKey) {
+        const data = serviceContent[serviceKey];
+        if(data) {
+            contentArea.innerHTML = `<h3><i class="fas fa-file-invoice me-2"></i> ${data.title}</h3>${data.body}<hr><p class="text-muted small mt-3">You can upload/edit this content section easily.</p>`;
+        }
+    }
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const service = card.getAttribute('data-service');
+            if(service && serviceContent[service]) updateServiceContent(service);
+            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    
+    // Navigation - no auto scroll on load
+    const navLinks = document.querySelectorAll('[data-page]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-page');
+            if(page === 'home') {
+                contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3><p><strong><a href="https://pakbillcheck.com/mepco-online-bill-check">MEPCO Online</a> Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
+                <h2>LESCO Online Bill Check</h2>
+<p>Checking your <strong>LESCO bill online</strong> is a convenient way to access your electricity billing information without waiting for a printed copy. A <strong>LESCO online bill check</strong> can help you view important details such as your current bill amount, due date, billing month, meter readings, electricity consumption, and applicable charges.</p>
+<p>LESCO, or Lahore Electric Supply Company, provides electricity distribution services to consumers in Lahore and surrounding areas within its service network. If your electricity connection is supplied by LESCO, you can use the appropriate <a href="https://pakbillcheck.com/pesco-online-bill-check">online service</a> to check your <strong>LESCO online bill</strong> and access available billing information.</p>
+<p>Online bill checking is particularly useful if you have not received your printed bill, have misplaced it, or simply want to check the payable amount before the due date.</p>
+
+<h2>How to Check LESCO Bill Online</h2>
+<p>If you want to know <strong>how to check LESCO bill online</strong>, you generally need information associated with your electricity connection. Depending on the available service, this may include your customer ID or reference number.</p>
+<p>For a <strong>LESCO bill check online</strong>, follow these general steps:</p>
+<ul>
+    <li>Open the appropriate LESCO online bill-checking service.</li>
+    <li>Enter your customer ID or required reference information.</li>
+    <li>Check the information carefully.</li>
+    <li>Submit the details.</li>
+    <li>View your available LESCO bill.</li>
+    <li>Download or print the bill if the option is available.</li>
+</ul>
+<p>Make sure the information you enter matches your previous electricity bill. An incorrect customer ID or reference number may prevent the correct bill from appearing.</p>
+
+<h3>Enter Your LESCO Customer Information</h3>
+<p>When performing an <strong>online bill check LESCO</strong>, use the information associated with your electricity connection.</p>
+<p>If you have an old <strong>LESCO bill</strong>, keep it nearby while checking your bill online. Your previous bill can help you locate the customer ID or reference number required by the online service.</p>
+<p>Double-check the numbers before submitting the form. If the bill does not appear, review the information and try again.</p>
+
+<h3>View Your LESCO Online Bill</h3>
+<p>After submitting the required information, your <strong>LESCO online bill</strong> should appear if the details are correct and the billing information is available.</p>
+<p>Depending on the available billing record, you may be able to view:</p>
+<ul>
+    <li>Customer information</li>
+    <li>Customer ID</li>
+    <li>Reference number</li>
+    <li>Meter number</li>
+    <li>Billing month</li>
+    <li>Previous meter reading</li>
+    <li>Current meter reading</li>
+    <li>Electricity units consumed</li>
+    <li>Current bill amount</li>
+    <li>Due date</li>
+    <li>Taxes and other charges</li>
+    <li>Payment information</li>
+    <li>Previous billing details where available</li>
+</ul>
+<p>Review the information carefully, especially the bill amount and due date.</p>
+
+<h2>LESCO Online Bill Check by Customer ID</h2>
+<p>A <strong>LESCO online bill check by customer ID</strong> can be useful when you want to retrieve your electricity bill using the customer information associated with your connection.</p>
+<p>Your customer ID can usually be found on a previous <strong>LESCO customer bill</strong>. Enter the required customer information exactly as shown on your bill.</p>
+
+<h3>What Is a LESCO Customer ID?</h3>
+<p>A customer ID is information associated with your electricity connection that can be used by the relevant billing service to identify your account.</p>
+<p>If you are unsure where to find your customer ID, check a previous LESCO bill. Avoid guessing the number because incorrect information may result in an unsuccessful bill search.</p>
+
+<h3>What If the Customer ID Does Not Work?</h3>
+<p>If your <strong>LESCO bill check by customer ID</strong> does not return a bill, first compare the number with your previous bill.</p>
+<p>Check that:</p>
+<ul>
+    <li>All digits are correct.</li>
+    <li>No digits have been omitted.</li>
+    <li>You have entered the information in the required format.</li>
+    <li>Your connection belongs to LESCO.</li>
+    <li>The online service is functioning correctly.</li>
+</ul>
+<p>If the problem continues, use an appropriate official LESCO support channel.</p>
+
+<h2>LESCO Online Bill Check by Reference Number</h2>
+<p>You can also search for <strong>LESCO online bill check by reference number</strong> when the relevant online service requires a reference number.</p>
+<p>Your reference number can be found on your previous electricity bill. Enter it carefully because even one incorrect digit can prevent the correct billing record from being retrieved.</p>
+<p>A reference number is particularly useful when you have an old printed bill but need to access your current <strong>LESCO bill online</strong>.</p>
+
+<h2>LESCO Bill Online Check in Lahore</h2>
+<p>LESCO provides electricity distribution services in Lahore and its surrounding service areas. This is why many consumers search for terms such as <strong>online bill check LESCO Lahore</strong>, <strong>LESCO Lahore bill check online</strong>, and <strong>LESCO bill online check Lahore</strong>.</p>
+<p>If your electricity connection is supplied by LESCO, you can use the appropriate online service to access available billing information.</p>
+<p>A <strong>LESCO online bill check Lahore</strong> can help you review your bill amount, due date, electricity consumption, and other information without waiting for the physical bill.</p>
+
+<h3>LESCO Online Bill Check Lahore 2026</h3>
+<p>Consumers searching for <strong>online bill check LESCO Lahore 2026</strong> or <strong>online bill check LESCO Lahore 2026 June</strong> are generally looking for their latest available bill for the current billing period.</p>
+<p>The exact bill available online depends on your connection and the latest billing record in the system. If a newly generated bill is not showing yet, try checking again later.</p>
+
+<h2>LESCO Online Bill Check 2026</h2>
+<p>If you are searching for <strong>LESCO online bill check 2026</strong>, you can use the appropriate LESCO billing service to access the latest available electricity bill.</p>
+<p>Searches such as <strong>LESCO bill check online 2026</strong>, <strong>online bill check LESCO 2026</strong>, and <strong>online LESCO bill check</strong> all indicate the same general purpose: finding current LESCO billing information online.</p>
+<p>When checking your bill, pay particular attention to the billing period, total amount, electricity consumption, and due date.</p>
+
+<h2>LESCO Online Bill Check 2025</h2>
+<p>Consumers may also search for <strong>LESCO online bill check 2025</strong>, <strong>LESCO bill check online 2025</strong>, or <strong>online bill check LESCO 2025</strong> when looking for bills or billing information from 2025.</p>
+<p>If you need an older bill, its availability depends on the historical billing records provided by the online service. If the relevant 2025 bill is available, use your customer ID or reference information to retrieve it.</p>
+<p>If an older record cannot be found online, you may need to contact LESCO through an appropriate official channel.</p>
+
+<h2>LESCO Bill Check Online 2023 and 2024</h2>
+<p>Searches such as <strong>LESCO bill check online 2023</strong> and <strong>LESCO bill check online 2024</strong> may indicate that someone is trying to access an older electricity bill.</p>
+<p>Historical bills may not always be available through the current online service. If you need a bill from 2023 or 2024, check whether historical billing information is provided for your connection.</p>
+<p>If the required bill is unavailable online, keep any old printed copy you have or contact the relevant LESCO support service.</p>
+
+<h2>LESCO Previous Bill Check Online</h2>
+<p>A <strong>LESCO previous bill check online</strong> can be useful when you want to compare your electricity consumption or charges from an earlier billing period.</p>
+<p>Previous bills can help you:</p>
+<ul>
+    <li>Compare monthly electricity usage.</li>
+    <li>Review earlier bill amounts.</li>
+    <li>Check previous meter readings.</li>
+    <li>Compare billing periods.</li>
+    <li>Investigate an unexpected increase in charges.</li>
+    <li>Keep records of household electricity expenses.</li>
+</ul>
+
+<h3>LESCO Online Bill Check Previous Month</h3>
+<p>If you want to perform a <strong>LESCO online bill check previous month</strong>, use the available historical billing options if they are provided by the online service.</p>
+<p>The availability of previous-month information can vary. If the previous bill is not displayed, it may not be available through the current online system.</p>
+
+<h2>LESCO Duplicate Bill Online Check</h2>
+<p>A <strong>LESCO duplicate bill</strong> is useful when you have lost your original electricity bill, did not receive a printed copy, or need an additional copy for your records.</p>
+<p>A <strong>LESCO duplicate bill online check</strong> can allow you to retrieve available billing information through the online service.</p>
+<p>Once the duplicate bill is displayed, you may be able to download or print it, depending on the options provided.</p>
+
+<h3>LESCO Bill Check Online Duplicate</h3>
+<p>If you need a <strong>LESCO bill check online duplicate</strong>, use the required customer ID, reference number, or other billing information.</p>
+<p>Before saving the duplicate bill, check the customer details, billing month, bill amount, and due date to make sure you have retrieved the correct billing record.</p>
+
+<h3>LESCO Duplicate Bill Online Check Near Lahore</h3>
+<p>Consumers searching for <strong>LESCO duplicate bill online check near Lahore</strong> may simply need a replacement copy of their electricity bill.</p>
+<p>If your connection falls under LESCO, you can use the relevant online billing service rather than relying only on the original printed bill.</p>
+<p>A duplicate electricity bill can be useful for payment, record keeping, or reviewing previous billing information.</p>
+
+<h2>How to Print LESCO Online Bill</h2>
+<p>After completing your <strong>LESCO online bill check</strong>, you may want to keep a physical copy of the bill.</p>
+<p>If a print option is available, open the displayed bill and select the appropriate print option from your browser or device.</p>
+<p>Before printing, check:</p>
+<ul>
+    <li>Customer information</li>
+    <li>Customer ID</li>
+    <li>Reference number</li>
+    <li>Billing month</li>
+    <li>Bill amount</li>
+    <li>Due date</li>
+    <li>Meter information</li>
+</ul>
+<p>Keeping a printed copy can be useful for personal records.</p>
+
+<h2>LESCO Online Bill Check Print PDF</h2>
+<p>If the online service provides a download or print function, you may be able to save your bill as a PDF.</p>
+<p>A <strong>LESCO online bill check print PDF</strong> can be useful when you want to keep a digital copy on your phone, computer, or cloud storage.</p>
+<p>To create a PDF copy, use the print function available on your device and select the option to save the document as a PDF when supported.</p>
+<p>This can help you keep your <strong>LESCO bill download</strong> organized for future reference.</p>
+
+<h2>What Information Is Shown on a LESCO Bill?</h2>
+<p>A <strong>LESCO bill</strong> contains information about your electricity connection, consumption, and charges.</p>
+<p>Depending on the billing record, it may include:</p>
+<ul>
+    <li>Customer name</li>
+    <li>Customer ID</li>
+    <li>Reference number</li>
+    <li>Meter number</li>
+    <li>Billing period</li>
+    <li>Previous meter reading</li>
+    <li>Current meter reading</li>
+    <li>Units consumed</li>
+    <li>Current bill amount</li>
+    <li>Due date</li>
+    <li>Taxes</li>
+    <li>Electricity charges</li>
+    <li>Other applicable charges</li>
+    <li>Payment information</li>
+</ul>
+<p>Understanding these details can help you identify how your electricity bill was calculated and compare it with previous bills.</p>
+
+<h3>Check Your Electricity Consumption</h3>
+<p>Your electricity consumption is generally represented by the number of units used during the billing period.</p>
+<p>Comparing your current usage with previous <strong>LESCO bills</strong> can help you identify changes in household electricity consumption.</p>
+<p>If your electricity usage has increased significantly, reviewing your meter readings and billing period can provide useful information.</p>
+
+<h3>Check Your LESCO Bill Amount</h3>
+<p>The total bill amount tells you how much is payable for the relevant billing period.</p>
+<p>When you <strong>check LESCO bill online</strong>, review the amount carefully and compare it with previous bills if the current bill is higher or lower than usual.</p>
+
+<h3>Check Your LESCO Due Date</h3>
+<p>The due date is another important part of your electricity bill. Checking it during an <strong>electricity bill check LESCO online</strong> can help you plan your payment and avoid overlooking the deadline.</p>
+
+<h2>LESCO WAPDA Online Bill Check</h2>
+<p>Many people use the term <strong>WAPDA bill</strong> when searching for electricity bills in Pakistan. This is why searches such as <strong>LESCO WAPDA online bill check</strong>, <strong>LESCO WAPDA bill check online</strong>, and <strong>WAPDA bill check online LESCO</strong> are common.</p>
+<p>If your electricity connection is supplied by LESCO, you should use the appropriate LESCO billing service to access your bill.</p>
+<p>A general <strong>WAPDA online bill</strong> search may return information about different electricity distribution companies, so always confirm that the service you are using is appropriate for your connection.</p>
+
+<h2>LESCO Bill Online Check in Pakistan</h2>
+<p>A <strong>LESCO bill online check</strong> is part of the wider process of checking an electricity bill online in Pakistan.</p>
+<p>Consumers may search using phrases such as:</p>
+<ul>
+    <li>Electricity bill online check</li>
+    <li>Online electricity bill check</li>
+    <li>Bijli ka bill online check</li>
+    <li>Bill check online</li>
+    <li>WAPDA bill online</li>
+    <li>Electricity bill check</li>
+</ul>
+<p>If your electricity provider is LESCO, use the relevant LESCO online service to retrieve your billing information.</p>
+
+<h2>Official LESCO Website and Online Bill Check</h2>
+<p>People searching for <strong>www LESCO gov pk online bill check</strong>, <strong>www.lesco.gov.pk bill check online</strong>, or <strong>www.lesco.com.pk bill check online</strong> are usually trying to find an official LESCO resource for checking their electricity bill.</p>
+<p>Because website addresses and online services can change, always verify that you are using the appropriate official LESCO website or authorized billing service before entering your customer or billing information.</p>
+<p>You may also see searches such as <strong>www LESCO online bill check</strong>, <strong>www LESCO bill check online</strong>, and <strong>www LESCO bill online check</strong>. These are search variations rather than separate billing methods.</p>
+<p>Avoid entering personal or billing information on an unfamiliar website simply because it appears in search results.</p>
+
+<h2>LESCO Bill Check by Serial Number</h2>
+<p>Some consumers search for <strong>LESCO bill check by serial number</strong> when they do not have their usual reference information.</p>
+<p>Whether a serial number can be used to retrieve a bill depends on the functionality of the particular billing service. If the service does not support serial-number searches, use the customer ID or reference number shown on your previous bill.</p>
+<p>If you cannot find the required information, contact the appropriate LESCO support channel.</p>
+
+<h2>What to Do If Your LESCO Bill Is Not Showing Online</h2>
+<p>Sometimes a <strong>check online LESCO bill</strong> request may not display the expected result.</p>
+<p>This can happen because of incorrect information, a newly generated bill, temporary technical problems, or an unavailable billing record.</p>
+
+<h3>Check Your Customer ID or Reference Number</h3>
+<p>Compare the information you entered with a previous bill. Make sure every digit is correct.</p>
+
+<h3>Check Whether the Latest Bill Is Available</h3>
+<p>If your latest bill was recently generated, it may take some time before the billing information becomes available online.</p>
+
+<h3>Check Your Internet Connection</h3>
+<p>A slow or unstable connection can prevent the online bill page from loading correctly.</p>
+
+<h3>Try Again Later</h3>
+<p>If your information is correct but the bill is still unavailable, wait for some time and try again.</p>
+<p>If the problem continues, use an appropriate official LESCO support channel.</p>
+
+<h2>Benefits of Checking Your LESCO Bill Online</h2>
+<p>Checking your electricity bill online offers several practical benefits.</p>
+
+<h3>Quick Access</h3>
+<p>You can access available billing information without waiting for a printed bill.</p>
+
+<h3>Check the Amount and Due Date</h3>
+<p>You can quickly review how much you need to pay and when the payment is due.</p>
+
+<h3>Keep a Digital Copy</h3>
+<p>When download or PDF options are available, you can save your bill for future reference.</p>
+
+<h3>Review Previous Bills</h3>
+<p>Historical billing information can help you compare electricity consumption and charges.</p>
+
+<h3>Replace a Lost Bill</h3>
+<p>A duplicate bill can provide another copy when the original printed bill is unavailable.</p>
+
+<h2>Frequently Asked Questions About LESCO Online Bill Check</h2>
+
+<h3>How to Check LESCO Bill Online?</h3>
+<p>To check your LESCO bill online, open the appropriate LESCO bill-checking service and enter the required customer ID, reference number, or other billing information. Submit the details and review the available bill amount, due date, and consumption information.</p>
+
+<h3>How Can I Check My LESCO Bill Online?</h3>
+<p>You can check your LESCO bill online by using the information associated with your electricity connection. A previous bill can help you locate your customer ID or reference number.</p>
+
+<h3>How to Check Electricity Bill Online LESCO?</h3>
+<p>Use the appropriate LESCO online bill-checking service and enter the required billing information. After submitting the details, you can review the available electricity bill online.</p>
+
+<h3>How to Check Online LESCO Bill?</h3>
+<p>To check an online LESCO bill, enter your customer ID or reference number into the relevant billing service. Make sure the information is accurate before submitting the request.</p>
+
+<h3>How to Check Old LESCO Bill Online?</h3>
+<p>The availability of old bills depends on the historical billing information provided by the online service. If older records are available, use your customer ID or reference information to retrieve them. Otherwise, contact the appropriate LESCO support channel.</p>
+
+<h3>How to Check Bill Online LESCO?</h3>
+<p>You can check your bill online through the relevant LESCO billing service. Enter the required information associated with your electricity connection and submit the request to view the available bill.</p>
+
+<h3>How to Check Your LESCO Bill Online?</h3>
+<p>To check your LESCO bill online, locate your customer ID or reference number on a previous bill, enter it into the appropriate service, and submit the information. Your available bill details should then be displayed.</p>
+
+<h3>How to Check LESCO Online Bill?</h3>
+<p>Use the appropriate online LESCO bill service and enter your required customer or reference information. Once the bill is retrieved, review the billing details and due date.</p>
+
+<h3>How to Check LESCO Bill Online Pakistan?</h3>
+<p>If your electricity connection is supplied by LESCO, you can check your bill online using the relevant LESCO billing service in Pakistan. Enter the required connection information and retrieve your available bill.</p>
+
+<h3>How to Check Online Bill LESCO?</h3>
+<p>Enter your required LESCO customer or reference information into the appropriate online billing service. After submitting the details, you can check the available bill information.</p>
+
+<h3>How Do I Check My LESCO Bill Online?</h3>
+<p>To check your LESCO bill online, use the customer ID or reference number associated with your electricity connection. Submit the information through the appropriate billing service and review the displayed bill.</p>
+
+<h3>How to Check LESCO Bill Online Paid or Not?</h3>
+<p>To check whether your LESCO bill has been paid, use the available payment-status information associated with your bill. If you recently made a payment and the status has not updated, keep your receipt or transaction details and verify the payment through the appropriate channel.</p>
+
+<h3>How to Check LESCO Electricity Bill Online?</h3>
+<p>Open the appropriate LESCO online billing service, enter your required customer information, and submit the request. You can then review the available electricity bill details.</p>
+
+<h3>How to Check My LESCO Bill Online?</h3>
+<p>You can check your LESCO bill by entering the required customer ID or reference number into the relevant online billing service. Your previous bill can help you find the information needed.</p>
+
+<h3>How to Check Previous LESCO Bill Online?</h3>
+<p>If historical billing information is available, you can use the relevant options to retrieve a previous LESCO bill. Keep your customer ID or reference number available when performing the search.</p>
+
+<h3>How Can I Check My LESCO Bill Online?</h3>
+<p>You can check your LESCO bill online by using the customer or reference information associated with your electricity connection. Enter the details carefully and submit the request to retrieve your bill.</p>
+
+<h2>Final Thoughts</h2>
+<p>A <strong>LESCO online bill check</strong> provides a convenient way to access electricity billing information without depending entirely on a printed copy. Whether you want to check your current bill, retrieve a duplicate, review a previous month, print a PDF, or verify your customer information, online access can make the process easier.</p>
+<p>Consumers may search for the service using different terms, including <strong>LESCO bill check online</strong>, <strong>LESCO bill online check</strong>, <strong>online bill check LESCO Lahore</strong>, <strong>LESCO online bill check by customer ID</strong>, <strong>LESCO online bill check by reference number</strong>, or <strong>LESCO WAPDA bill check online</strong>.</p>
+<p>Always verify that you are using the appropriate LESCO or authorized billing service before entering your customer information. Keeping your previous bills, customer ID, and reference number available can make future <strong>LESCO bill checks</strong> faster and easier.</p>
+            } else if(page === 'services') {
+                contentArea.innerHTML = `<h3><i class="fas fa-concierge-bell"></i> Our Services</h3><p>Free online bill checking for: FESCO, MEPCO, GEPCO, LESCO, PESCO. Enter your 14-digit reference number to get started.</p>`;
+            } else if(page === 'about') {
+                contentArea.innerHTML = `<h3><i class="fas fa-info-circle"></i> About Us</h3><p>Pakbillcheck.Com helps consumers check MEPCO online bill and other electricity bills using their 14-digit reference number.</p>`;
+            } else if(page === 'contact') {
+                contentArea.innerHTML = `<h3><i class="fas fa-envelope"></i> Contact Us</h3><p>Email: support@Pakbillcheck.Com<br>For MEPCO bill check issues, ensure your 14-digit reference number is correct.</p>`;
+            } else if(page === 'privacy') {
+                contentArea.innerHTML = `<h3>Privacy Policy</h3><p>We do not store any bill data. Your 14-digit reference number is used only for live bill check.</p>`;
+            } else if(page === 'terms') {
+                contentArea.innerHTML = `<h3>Terms & Conditions</h3><p>This MEPCO online bill check tool is for informational purposes only.</p>`;
+            }
+            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    
+    // Set default home content without scrolling
+    setTimeout(function() {
+        const homeLink = document.querySelector('[data-page="home"]');
+        if (homeLink) {
+            contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
+        }
+    }, 50);
+</script>
+</body>
+</html>
