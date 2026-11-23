@@ -7,11 +7,7 @@
     <priority>1.0</priority>
   </url>
 
-  <url>
-    <loc>https://pakbillcheck.com/fesco-online-bill-check</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
 
   <url>
     <loc>https://pakbillcheck.com/gepco-online-bill-check</loc>
@@ -19,22 +15,33 @@
     <priority>0.9</priority>
   </url>
 
-  <url>
-    <loc>https://pakbillcheck.com/lesco-online-bill-check</loc>
+
+<url>
+    <loc>https://pakbillcheck.com/fesco-online-bill-check</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pakbillcheck.com/mepco-online-bill-check</loc>
+    <loc>https://pakbillcheck.com/Lesco-Online-Bill-Check</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pakbillcheck.com/pesco-online-bill-check</loc>
+    <loc>https://pakbillcheck.com/Mepco-Online-Bill-Check</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://pakbillcheck.com/Pesco-Online-Bill-Check</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
