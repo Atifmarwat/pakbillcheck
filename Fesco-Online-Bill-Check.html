@@ -4,35 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Fesco Online Bill Check - Fesco Duplicate Bill ( Download & Print )</title>
-    <meta name="description" content="MEPCO Online Bill Check - Enter your 14-digit reference number to view, download and print your MEPCO duplicate bill online instantly. Fast and free MEPCO bill check tool.">
+    <meta name="description" content="FESCO Online Bill Check - Enter your 14-digit reference number to view, download and print your FESCO duplicate bill online instantly. Fast and free FESCO bill check tool.">
     <link rel="canonical" href="https://pakbillcheck.com/fesco-online-bill-check" />
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #03592E;
             --primary-dark: #024d27;
             --success-color: #28a745;
-            --success-dark: #218838;
             --error-color: #dc3545;
             --footer-bg: #024d27;
             --nav-bg: #03592E;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             background: #f0f2f5;
             font-family: 'Inter', sans-serif;
@@ -40,8 +27,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
-        /* Navigation Header */
         .navbar-custom {
             background-color: var(--nav-bg);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -50,14 +35,8 @@
             top: 0;
             z-index: 1000;
         }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: white !important;
-        }
-        .navbar-brand i {
-            margin-right: 8px;
-        }
+        .navbar-brand { font-weight: 700; font-size: 1.6rem; color: white !important; }
+        .navbar-brand i { margin-right: 8px; }
         .nav-link-custom {
             color: white !important;
             font-weight: 500;
@@ -70,15 +49,8 @@
             background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
-        .navbar-toggler {
-            border-color: rgba(255,255,255,0.5);
-        }
-        .navbar-toggler-icon-custom {
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        /* Main container - page starts from top */
+        .navbar-toggler { border-color: rgba(255,255,255,0.5); }
+        .navbar-toggler-icon-custom { color: white; font-size: 1.5rem; }
         .main-content {
             flex: 1;
             padding: 30px 20px 40px;
@@ -86,32 +58,14 @@
             margin: 0 auto;
             width: 100%;
         }
-
-        /* SEO Header Styles */
-        .seo-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
+        .seo-header { text-align: center; margin-bottom: 1.5rem; }
         .seo-header h1 {
             color: var(--primary-color);
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
-        .seo-header h2 {
-            color: #2c3e50;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
-
-        /* Language toggle wrapper */
-        .lang-toggle-wrapper {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
+        .lang-toggle-wrapper { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
         .lang-toggle-group {
             background: white;
             border-radius: 50px;
@@ -136,11 +90,6 @@
             color: white;
             box-shadow: 0 2px 6px rgba(3,89,46,0.3);
         }
-        .lang-toggle-btn:not(.active):hover {
-            background: #e9ecef;
-        }
-
-        /* Services Section */
         .services-section {
             background: white;
             border-radius: 1.5rem;
@@ -169,15 +118,8 @@
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        .service-card:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-        .service-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #1e2a3a;
-        }
+        .service-card:hover { background: #e9ecef; transform: translateX(5px); }
+        .service-name { font-weight: 600; font-size: 1.1rem; color: #1e2a3a; }
         .service-badge {
             background: var(--primary-color);
             color: white;
@@ -186,7 +128,6 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
-        /* Dynamic content area */
         .dynamic-content-area {
             background: white;
             border-radius: 1.5rem;
@@ -196,12 +137,7 @@
             box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
             min-height: 280px;
         }
-        .dynamic-content-area h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* MEPCO Tool Card */
+        .dynamic-content-area h3 { color: var(--primary-color); margin-bottom: 1rem; }
         .tool-card {
             background: white;
             border-radius: 1.5rem;
@@ -214,17 +150,8 @@
             color: white;
             padding: 1rem 1.8rem;
         }
-        .tool-header h2 {
-            margin: 0;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-        .pitc-bill-container {
-            width: 100%;
-        }
-        .urdu-text {
-            font-family: 'Noto Nastaliq Urdu', serif;
-        }
+        .tool-header h2 { margin: 0; font-size: 1.3rem; font-weight: 600; }
+        .urdu-text { font-family: 'Noto Nastaliq Urdu', serif; }
         .bill-option {
             border: 1px solid #dee2e6;
             border-radius: 0.5rem;
@@ -242,30 +169,14 @@
             font-size: 0.875rem;
             display: none;
         }
-        .success-animation {
-            animation: pulse 1s ease-in-out;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Footer */
         .footer-custom {
             background-color: var(--footer-bg);
             color: #f1f1f1;
             padding: 2rem 2rem 1rem;
             margin-top: 2rem;
         }
-        .footer-custom a {
-            color: #ddd;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-        .footer-custom a:hover {
-            color: white;
-            text-decoration: underline;
-        }
+        .footer-custom a { color: #ddd; text-decoration: none; transition: 0.2s; }
+        .footer-custom a:hover { color: white; text-decoration: underline; }
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -279,84 +190,46 @@
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 1rem;
         }
-
-        :target {
-            scroll-margin-top: 0;
-        }
-
         @media (max-width: 768px) {
             .navbar-custom { padding: 0.6rem 1rem; }
-            .lang-toggle-wrapper { justify-content: center; margin-top: 0; }
+            .lang-toggle-wrapper { justify-content: center; }
             .lang-toggle-btn { padding: 6px 18px; font-size: 0.8rem; }
             .tool-header h2 { font-size: 1rem; }
             .services-section { padding: 1rem; }
             .seo-header h1 { font-size: 1.3rem; }
-            .seo-header h2 { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation Header -->
+<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
         <a class="navbar-brand" href="https://pakbillcheck.com/">
             <i class="fas fa-bolt"></i> Pak Bill Check
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
             <span class="navbar-toggler-icon-custom"><i class="fas fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/" data-page="home">Home</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">
-    FESCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">
-    GEPCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">
-    LESCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">
-    MEPCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">
-    PESCO Bill
-  </a>
-</li>
-                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="services">Services</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="about">About</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/">Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/fesco-online-bill-check">FESCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/gepco-online-bill-check">GEPCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/lesco-online-bill-check">LESCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/mepco-online-bill-check">MEPCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/pesco-online-bill-check">PESCO Bill</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <main class="main-content">
-    <!-- SEO Keywords Header - H1 and H2 with your keywords -->
     <div class="seo-header">
-        <h1>Fesco Online Bill Check - Fesco Duplicate Bill ( Download & Print )</h1>
-        <p>If your electricity bill has not arrived at your home, or you want to download a duplicate from an online website, then this website is for you. You can use it Fesco Online Bill Check to download your bill, save it, and get it printed from a shopkeeper.</p>
+        <h1>FESCO Online Bill Check - FESCO Duplicate Bill (Download & Print)</h1>
+        <p>If your electricity bill has not arrived at your home, or you want to download a duplicate from an online website, then this website is for you. You can use FESCO Online Bill Check to download your bill, save it, and get it printed from a shopkeeper.</p>
     </div>
 
-    <!-- Language Toggle -->
     <div class="lang-toggle-wrapper">
         <div class="lang-toggle-group">
             <button type="button" class="lang-toggle-btn active" data-lang="en">English</button>
@@ -364,636 +237,322 @@
         </div>
     </div>
 
-    <!-- MEPCO Bill Tool Card -->
+    <!-- FESCO Bill Tool Card -->
     <div class="tool-card">
         <div class="tool-header">
-            <h2><i class="fas fa-file-invoice-dollar me-2"></i> Fesco Bill Check | Fesco Online Bill Check 14-Digit</h2>
+            <h2><i class="fas fa-file-invoice-dollar me-2"></i> FESCO Bill Check | FESCO Online Bill Check 14-Digit</h2>
         </div>
         <div class="card-body p-4">
             <div class="pitc-bill-container">
                 <div id="pitc-search-form-container">
                     <form id="pitc-bill-search-form">
                         <div class="mb-4">
-                            <p class="fw-semibold mb-2 lang-en">Select Bill Type</p>
-                            <p class="fw-semibold mb-2 lang-ur urdu-text">بل کی قسم منتخب کریں</p>
+                            <p class="fw-semibold mb-2">Select Bill Type</p>
                             <div class="d-flex flex-column flex-md-row gap-3">
                                 <div class="bill-option selected" data-type="refno">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="bill_type" id="pitc-refRadio" value="refno" checked>
                                         <label class="form-check-label fw-medium" for="pitc-refRadio">Reference No (14-Digit)</label>
                                     </div>
-                                    <p class="input-hint mt-1 mb-0 lang-en small text-muted">14-digit reference number from your MEPCO bill</p>
-                                    <p class="input-hint mt-1 mb-0 lang-ur urdu-text small">آپ کے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر</p>
+                                    <p class="mt-1 mb-0 small text-muted">14-digit reference number from your FESCO bill</p>
                                 </div>
                                 <div class="bill-option" data-type="custid">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="bill_type" id="pitc-custRadio" value="custid">
                                         <label class="form-check-label fw-medium" for="pitc-custRadio">Customer ID</label>
                                     </div>
-                                    <p class="input-hint mt-1 mb-0 lang-en small text-muted">10-digit customer identification number</p>
-                                    <p class="input-hint mt-1 mb-0 lang-ur urdu-text small">10 ہندسوں کا کسٹمر شناختی نمبر</p>
+                                    <p class="mt-1 mb-0 small text-muted">10-digit customer identification number</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row g-3 align-items-end mb-4">
                             <div class="col-12 col-md">
-                                <label id="pitc-input-label" class="form-label fw-semibold lang-en">Enter 14-Digit Reference Number</label>
-                                <label class="form-label fw-semibold lang-ur urdu-text">14 ہندسوں کا ریفرنس نمبر درج کریں</label>
+                                <label class="form-label fw-semibold">Enter 14-Digit Reference Number</label>
                                 <input type="text" id="pitc-reference-number" class="form-control form-control-lg" placeholder="Enter 14-digit reference number (e.g., 12345678901234)" maxlength="14" required>
                                 <div id="pitc-error-message" class="error-message mt-1"></div>
-                                <div class="input-hint mt-1 lang-en small text-muted">Please enter your 14-digit reference number from your <a href="https://pakbillcheck.com/mepco-online-bill-check">MEPCO bill</a></div>
-                                <div class="input-hint mt-1 lang-ur urdu-text small">براہ کرم اپنے MEPCO بل سے 14 ہندسوں کا ریفرنس نمبر درج کریں</div>
-                            </div>
-                            <div class="col-12 col-md-auto" id="pitc-ur-type-wrapper">
-                                <label for="pitc-ur-type" class="form-label fw-semibold lang-en">Area Type</label>
-                                <label for="pitc-ur-type" class="form-label fw-semibold lang-ur urdu-text">علاقے کی قسم</label>
-                                <select id="pitc-ur-type" class="form-select form-select-lg">
-                                    <option value="U">Urban (U)</option>
-                                    <option value="R">Rural (R)</option>
-                                </select>
+                                <div class="mt-1 small text-muted">Please enter your 14-digit reference number from your FESCO bill</div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 btn-lg py-3">
-                            <i class="fas fa-search me-2"></i>
-                            <span class="lang-en">Check MEPCO Bill Online</span>
-                            <span class="lang-ur urdu-text">MEPCO بل آن لائن چیک کریں</span>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg py-3" style="background-color: var(--primary-color); border-color: var(--primary-color);">
+                            <i class="fas fa-search me-2"></i> Check FESCO Bill Online
                         </button>
                     </form>
                 </div>
+
+                <!-- Loading -->
                 <div id="pitc-loading-container" class="text-center py-5" style="display: none;">
                     <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="progress mt-4 mx-auto" style="max-width: 300px;"><div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div></div>
-                    <p class="mt-4 lang-en">Loading your MEPCO bill...</p><p class="mt-4 lang-ur urdu-text">آپ کا MEPCO بل لوڈ ہو رہا ہے</p>
+                    <div class="progress mt-4 mx-auto" style="max-width: 300px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+                    </div>
+                    <p class="mt-4">Loading your FESCO bill...</p>
                 </div>
+
+                <!-- Result -->
                 <div id="pitc-result-container" style="display: none;">
-                    <div class="text-center py-4 success-animation">
+                    <div class="text-center py-4">
                         <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--primary-color);"></i>
-                        <h3 class="mt-3 lang-en">MEPCO Bill Ready</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل تیار ہے</h3>
-                        <div class="mb-4"><form id="pitc-billForm" action="#" method="POST" target="_blank"><button type="submit" class="btn btn-success btn-lg px-5"><i class="fas fa-file-invoice me-2"></i><span class="lang-en">View & Download MEPCO Bill</span><span class="lang-ur urdu-text">MEPCO بل دیکھیں اور ڈاؤن لوڈ کریں</span></button></form></div>
-                        <button id="pitc-reset-btn" class="btn btn-outline-primary"><i class="fas fa-redo-alt me-2"></i><span class="lang-en">Check Another Bill</span><span class="lang-ur urdu-text">دوبارہ چیک کریں</span></button>
+                        <h3 class="mt-3">FESCO Bill Ready</h3>
+                        <p class="text-muted">Your bill is ready to view, download & print</p>
+                        <div class="mb-4">
+                            <form id="pitc-billForm" action="#" method="GET" target="_blank">
+                                <button type="submit" class="btn btn-success btn-lg px-5">
+                                    <i class="fas fa-file-invoice me-2"></i> View & Download FESCO Bill
+                                </button>
+                            </form>
+                        </div>
+                        <button id="pitc-reset-btn" class="btn btn-outline-primary">
+                            <i class="fas fa-redo-alt me-2"></i> Check Another Bill
+                        </button>
                     </div>
                 </div>
+
+                <!-- Error -->
                 <div id="pitc-error-container" style="display: none;" class="text-center py-5">
                     <i class="fas fa-exclamation-circle" style="font-size: 4rem; color: var(--error-color);"></i>
-                    <h3 class="mt-3 lang-en">Error Loading MEPCO Bill</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل لوڈ کرنے میں خرابی</h3>
-                    <button id="pitc-retry-btn" class="btn btn-primary mt-3"><i class="fas fa-redo me-2"></i><span class="lang-en">Try Again</span><span class="lang-ur urdu-text">دوبارہ کوشش کریں</span></button>
+                    <h3 class="mt-3">Error Loading FESCO Bill</h3>
+                    <p class="text-muted">Please check your reference number and try again</p>
+                    <button id="pitc-retry-btn" class="btn btn-primary mt-3">
+                        <i class="fas fa-redo me-2"></i> Try Again
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Services Section -->
-   <div class="services-section">
-    <h3 class="services-title">
-        <i class="fas fa-list-ul me-2"></i> Our Bill Checking Services
-    </h3>
-
-    <div class="row g-3" id="servicesList">
-
-        <!-- FESCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/fesco-online-bill-check" class="service-card text-decoration-none" data-service="fesco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    FESCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
+    <div class="services-section">
+        <h3 class="services-title"><i class="fas fa-list-ul me-2"></i> Our Bill Checking Services</h3>
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/fesco-online-bill-check" class="service-card text-decoration-none">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> FESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/mepco-online-bill-check" class="service-card text-decoration-none">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> MEPCO Online Bill</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/gepco-online-bill-check" class="service-card text-decoration-none">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> GEPCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/lesco-online-bill-check" class="service-card text-decoration-none">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> LESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/pesco-online-bill-check" class="service-card text-decoration-none">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> PESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
         </div>
-
-        <!-- MEPCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/mepco-online-bill-check" class="service-card text-decoration-none" data-service="mepco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    MEPCO Online Bill
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
-        <!-- GEPCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/gepco-online-bill-check" class="service-card text-decoration-none" data-service="gepco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    GEPCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
-        <!-- LESCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/lesco-online-bill-check" class="service-card text-decoration-none" data-service="lesco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    LESCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
-        <!-- PESCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/pesco-online-bill-check" class="service-card text-decoration-none" data-service="pesco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    PESCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
     </div>
-</div>
-    <!-- Dynamic Content Area -->
+
+    <!-- SEO Content Area (Aapki purani content) -->
     <div class="dynamic-content-area" id="dynamicContentArea">
-        <h3><i class="fas fa-info-circle me-2"></i> MEPCO Online Bill Check - Quick Guide</h3>
-        <p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number from your MEPCO electricity bill to instantly view, download and print your duplicate bill. This free tool helps you access your MEPCO bill online anytime, anywhere.</p>
-        <p>Simply enter your <strong>14-digit reference number</strong> in the tool above, select your area type (Urban/Rural), and click "Check MEPCO Bill Online". Your bill will be ready in seconds.</p>
-        <div class="alert alert-light border-start border-4 border-success mt-3">
-            <i class="fas fa-lightbulb text-warning"></i> <strong>Quick Tip:</strong> Your 14-digit reference number is printed on every MEPCO bill. Keep it handy for instant duplicate bill download.
-        </div>
+        <h2>Check Electricity Bill (FESCO)</h2>
+        <p>It is convenient to check electricity bills online. By using the online service for checking FESCO bills, customers can view their latest FESCO online bill without receiving a physical copy. You can see how much you owe, the due date for payment, your electricity usage, and download or print a copy of the bill.</p>
+
+        <h2>What is FESCO?</h2>
+        <p>Faisalabad Electric Supply Company (FESCO) supplies electricity to many residential, commercial, industrial and other customers in Punjab, Pakistan.</p>
+
+        <h2>How to Check Electricity Bill Online?</h2>
+        <p>Enter your 14-digit reference number to view your electricity bill. The FESCO online bill check 14-digit process allows you to view important information on the bill, including how much you owe, the month of the bill, your meter readings, how many units you have used, taxes and the total amount owing.</p>
+
+        <h2>How to Check FESCO Electricity Bills Online</h2>
+        <ol>
+            <li>Go to the FESCO Bill Checker.</li>
+            <li>Insert the 14-digit reference number from your last FESCO bill.</li>
+            <li>Click the 'Check' button.</li>
+            <li>If you enter the correct reference number, you will be able to see the bill.</li>
+        </ol>
+
+        <h3>Download / Print Bill</h3>
+        <p>If available, you can download or print a copy of the electricity bill to store as a backup copy.</p>
+
+        <h2>How to Find FESCO Reference Numbers</h2>
+        <ol>
+            <li>Find your last electricity bill.</li>
+            <li>Look towards the top of the bill.</li>
+            <li>Find the field titled Reference No.</li>
+            <li>Carefully write down the 14-digit number.</li>
+            <li>Input this number into the online bill checking service.</li>
+        </ol>
+
+        <h2>FAQs</h2>
+        <h3>1. How can I check my FESCO bill online?</h3>
+        <p>Input your 14-digit reference number to view the latest bill information.</p>
+        <h3>2. How can I download a duplicate FESCO bill?</h3>
+        <p>Input your reference number into the online bill checker, then select download/print.</p>
+        <h3>3. Is it free to check my FESCO bill online?</h3>
+        <p>Yes, generally there is no charge to view the electricity bill online.</p>
     </div>
 </main>
 
-    
-<div class="bg-slate-50 rounded-2xl p-6 ring-1 ring-slate-100">
-  <h3 class="font-display font-bold text-navy">Related Services</h3>
-  <ul class="mt-3 space-y-2 text-sm">
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/">→ Pak Bill Check Online</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/fesco-online-bill-check">→ FESCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/gepco-online-bill-check">→ GEPCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/Lesco-Online-Bill-Check">→ LESCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/Mepco-Online-Bill-Check">→ MEPCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/Pesco-Online-Bill-Check">→ PESCO Online Bill Check</a></li>
-  </ul>
-</div>
-
-
-<!-- Footer -->
 <!-- Footer -->
 <footer class="footer-custom">
-
     <div class="footer-links">
         <a href="https://pakbillcheck.com/">Home</a>
-
-        <a href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">FESCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">GEPCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">LESCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">MEPCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">PESCO Bill Check</a>
-
-        <a href="https://pakbillcheck.com/privacy-policy.html">Privacy Policy</a>
-
-        <a href="https://pakbillcheck.com/terms-and-conditions.html">Terms & Conditions</a>
-
-        <a href="https://pakbillcheck.com/contact.html">Contact Us</a>
+        <a href="https://pakbillcheck.com/fesco-online-bill-check">FESCO Bill Check</a>
+        <a href="https://pakbillcheck.com/gepco-online-bill-check">GEPCO Bill Check</a>
+        <a href="https://pakbillcheck.com/lesco-online-bill-check">LESCO Bill Check</a>
+        <a href="https://pakbillcheck.com/mepco-online-bill-check">MEPCO Bill Check</a>
+        <a href="https://pakbillcheck.com/pesco-online-bill-check">PESCO Bill Check</a>
     </div>
-
     <div class="copyright">
-        <p>
-            &copy; 2026 PakBillCheck.com - Online Electricity Bill Check Pakistan
-        </p>
-
-        <p class="small">
-            FESCO, GEPCO, LESCO, MEPCO, and PESCO are electricity distribution companies in Pakistan. 
-            This website helps users check their electricity bills online using reference number.
-        </p>
+        <p>&copy; 2026 PakBillCheck.com - Online Electricity Bill Check Pakistan</p>
     </div>
-
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // CRITICAL: Prevent ANY auto-scroll on page load - page stays at TOP
-    if (window.location.hash === '') {
-        window.scrollTo(0, 0);
-    }
-    
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            window.scrollTo(0, 0);
-        });
-    } else {
-        window.scrollTo(0, 0);
+(function() {
+    const referenceInput = document.getElementById('pitc-reference-number');
+    const errorMsgDiv = document.getElementById('pitc-error-message');
+    const searchFormContainer = document.getElementById('pitc-search-form-container');
+    const loadingContainer = document.getElementById('pitc-loading-container');
+    const resultContainer = document.getElementById('pitc-result-container');
+    const errorContainer = document.getElementById('pitc-error-container');
+    const billForm = document.getElementById('pitc-billForm');
+    const radioRef = document.getElementById('pitc-refRadio');
+    const radioCust = document.getElementById('pitc-custRadio');
+    const billOptions = document.querySelectorAll('.bill-option');
+    const progressBar = document.querySelector('#pitc-loading-container .progress-bar');
+
+    function hideError() {
+        errorMsgDiv.style.display = 'none';
+        referenceInput.classList.remove('is-invalid');
     }
 
-    // ---------- MEPCO BILL TOOL SCRIPT ----------
-    (function() {
-        const referenceInput = document.getElementById('pitc-reference-number');
-        const errorMsgDiv = document.getElementById('pitc-error-message');
-        const searchFormContainer = document.getElementById('pitc-search-form-container');
-        const loadingContainer = document.getElementById('pitc-loading-container');
-        const resultContainer = document.getElementById('pitc-result-container');
-        const errorContainer = document.getElementById('pitc-error-container');
-        const billForm = document.getElementById('pitc-billForm');
-        const urTypeSelect = document.getElementById('pitc-ur-type');
-        const radioRef = document.getElementById('pitc-refRadio');
-        const radioCust = document.getElementById('pitc-custRadio');
-        const billOptions = document.querySelectorAll('.bill-option');
-        const urTypeWrapper = document.getElementById('pitc-ur-type-wrapper');
-        const progressBar = document.querySelector('#pitc-loading-container .progress-bar');
-        
-        function hideError() { errorMsgDiv.style.display = 'none'; referenceInput.classList.remove('is-invalid'); }
-        function showError(msg) { errorMsgDiv.textContent = msg; errorMsgDiv.style.display = 'block'; referenceInput.classList.add('is-invalid'); }
-        
-        function updateUIBasedOnType() {
-            const selected = document.querySelector('input[name="bill_type"]:checked').value;
-            const isUrdu = document.body.classList.contains('urdu');
-            if(selected === 'refno') {
-                referenceInput.maxLength = 14;
-                referenceInput.placeholder = isUrdu ? '14 ہندسوں کا ریفرنس نمبر (مثال: 12345678901234)' : 'Enter 14-digit reference number (e.g., 12345678901234)';
-                urTypeWrapper.style.display = 'block';
-            } else {
-                referenceInput.maxLength = 10;
-                referenceInput.placeholder = isUrdu ? '10 ہندسوں کا کسٹمر آئی ڈی' : 'Enter 10-digit Customer ID';
-                urTypeWrapper.style.display = 'none';
+    function showError(msg) {
+        errorMsgDiv.textContent = msg;
+        errorMsgDiv.style.display = 'block';
+        referenceInput.classList.add('is-invalid');
+    }
+
+    function updateUIBasedOnType() {
+        const selected = document.querySelector('input[name="bill_type"]:checked').value;
+        if (selected === 'refno') {
+            referenceInput.maxLength = 14;
+            referenceInput.placeholder = 'Enter 14-digit reference number (e.g., 12345678901234)';
+        } else {
+            referenceInput.maxLength = 10;
+            referenceInput.placeholder = 'Enter 10-digit Customer ID';
+        }
+        hideError();
+    }
+
+    function validateInput() {
+        const val = referenceInput.value.trim();
+        const type = document.querySelector('input[name="bill_type"]:checked').value;
+        if (type === 'refno') {
+            if (!/^\d{14}$/.test(val)) {
+                showError('Please enter a valid 14-digit reference number');
+                return false;
             }
-            hideError();
+        } else {
+            if (!/^\d{10}$/.test(val)) {
+                showError('Please enter a valid 10-digit Customer ID');
+                return false;
+            }
         }
-        
-        function validateInput() {
-            const val = referenceInput.value.trim();
-            const type = document.querySelector('input[name="bill_type"]:checked').value;
-            if(type === 'refno') { if(!/^\d{14}$/.test(val)) { showError('Please enter a valid 14-digit reference number'); return false; } }
-            else { if(!/^\d{10}$/.test(val)) { showError('Please enter a valid 10-digit Customer ID'); return false; } }
-            return true;
-        }
-        
-        function performFetch() {
-            if(!validateInput()) return;
-            const inputVal = referenceInput.value.trim();
-            const type = document.querySelector('input[name="bill_type"]:checked').value;
-            const area = type === 'refno' ? urTypeSelect.value : 'U';
-            searchFormContainer.style.display = 'none';
-            loadingContainer.style.display = 'block';
-            resultContainer.style.display = 'none';
-            errorContainer.style.display = 'none';
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 8;
-                if(progress <= 90 && progressBar) progressBar.style.width = progress+'%';
-            }, 150);
-            setTimeout(() => {
-                clearInterval(interval);
-                if(progressBar) progressBar.style.width = '100%';
-                let billUrl = '';
-                if(type === 'refno') billUrl = `https://bill.pitc.com.pk/gbill.aspx?refno=${encodeURIComponent(inputVal)}&type=${area}`;
-                else billUrl = `https://bill.pitc.com.pk/custbill.aspx?custid=${encodeURIComponent(inputVal)}`;
-                billForm.action = billUrl;
-                loadingContainer.style.display = 'none';
-                resultContainer.style.display = 'block';
-                const animDiv = document.querySelector('#pitc-result-container .success-animation');
-                if(animDiv) animDiv.style.animation = 'none';
-                setTimeout(() => { if(animDiv) animDiv.style.animation = ''; }, 10);
-            }, 1400);
-        }
-        
-        document.getElementById('pitc-bill-search-form').addEventListener('submit', (e) => { e.preventDefault(); performFetch(); });
-        document.getElementById('pitc-reset-btn').addEventListener('click', () => {
-            resultContainer.style.display = 'none'; errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block';
-            referenceInput.value = ''; if(progressBar) progressBar.style.width = '0%'; hideError();
-        });
-        document.getElementById('pitc-retry-btn').addEventListener('click', () => {
-            errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block'; hideError();
-        });
-        referenceInput.addEventListener('input', hideError);
-        billOptions.forEach(opt => {
-            opt.addEventListener('click', function() {
-                const radio = this.querySelector('input[type="radio"]');
-                if(radio) radio.checked = true;
-                billOptions.forEach(o => o.classList.remove('selected'));
-                this.classList.add('selected');
-                updateUIBasedOnType();
-                hideError();
-            });
-        });
-        radioRef.addEventListener('change', () => { updateUIBasedOnType(); });
-        radioCust.addEventListener('change', () => { updateUIBasedOnType(); });
-        updateUIBasedOnType();
-        
-        const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
-        function setLanguage(lang) {
-            if(lang === 'ur') document.body.classList.add('urdu'); else document.body.classList.remove('urdu');
-            langToggleBtns.forEach(btn => { if(btn.dataset.lang === lang) btn.classList.add('active'); else btn.classList.remove('active'); });
+        return true;
+    }
+
+    function performFetch() {
+        if (!validateInput()) return;
+
+        const inputVal = referenceInput.value.trim();
+        const type = document.querySelector('input[name="bill_type"]:checked').value;
+
+        searchFormContainer.style.display = 'none';
+        loadingContainer.style.display = 'block';
+        resultContainer.style.display = 'none';
+        errorContainer.style.display = 'none';
+
+        let progress = 0;
+        const interval = setInterval(function() {
+            progress += 8;
+            if (progress <= 90 && progressBar) progressBar.style.width = progress + '%';
+        }, 150);
+
+        setTimeout(function() {
+            clearInterval(interval);
+            if (progressBar) progressBar.style.width = '100%';
+
+            // ✅ FESCO ka SAHI URL
+            let billUrl = '';
+            if (type === 'refno') {
+                billUrl = 'https://bill.pitc.com.pk/fescobill?refno=' + encodeURIComponent(inputVal);
+            } else {
+                billUrl = 'https://bill.pitc.com.pk/fescobill?refno=' + encodeURIComponent(inputVal);
+            }
+
+            billForm.action = billUrl;
+
+            loadingContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+        }, 1400);
+    }
+
+    document.getElementById('pitc-bill-search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        performFetch();
+    });
+
+    document.getElementById('pitc-reset-btn').addEventListener('click', function() {
+        resultContainer.style.display = 'none';
+        errorContainer.style.display = 'none';
+        searchFormContainer.style.display = 'block';
+        referenceInput.value = '';
+        if (progressBar) progressBar.style.width = '0%';
+        hideError();
+    });
+
+    document.getElementById('pitc-retry-btn').addEventListener('click', function() {
+        errorContainer.style.display = 'none';
+        searchFormContainer.style.display = 'block';
+        hideError();
+    });
+
+    referenceInput.addEventListener('input', hideError);
+
+    billOptions.forEach(function(opt) {
+        opt.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+            billOptions.forEach(function(o) { o.classList.remove('selected'); });
+            this.classList.add('selected');
             updateUIBasedOnType();
-            const allLangEn = document.querySelectorAll('.lang-en');
-            const allLangUr = document.querySelectorAll('.lang-ur');
-            if(lang === 'ur') {
-                allLangEn.forEach(el => el.style.display = 'none');
-                allLangUr.forEach(el => el.style.display = 'block');
-            } else {
-                allLangEn.forEach(el => el.style.display = 'block');
-                allLangUr.forEach(el => el.style.display = 'none');
-            }
-        }
-        langToggleBtns.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
-        setLanguage('en');
-    })();
-
-    // Dynamic content for services
-    const contentArea = document.getElementById('dynamicContentArea');
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    const serviceContent = {
-        fesco: { title: "FESCO Online Bill Check", body: "<p><strong>Faisalabad Electric Supply Company (FESCO)</strong> provides electricity to Faisalabad, Jhang, Toba Tek Singh, Chiniot and more. To check your FESCO bill, simply enter your 14-digit reference number in the tool above. You can view, download, and print duplicate bill instantly.</p><div class='mt-3 p-3 bg-light rounded'><i class='fas fa-phone-alt me-2'></i> FESCO Helpline: 118</div>" },
-        mepco: { title: "MEPCO Online Bill Check", body: "<p><strong>Multan Electric Power Company (MEPCO)</strong> serves southern Punjab. Use the tool above to check your MEPCO bill by entering your 14-digit reference number. Download duplicate bill as PDF instantly.</p><p>Peak hours: 7pm-11pm (Jun-Aug) – avoid heavy usage to save money.</p>" },
-        gepco: { title: "GEPCO Online Bill Check", body: "<p><strong>Gujranwala Electric Power Company (GEPCO)</strong> covers Gujranwala, Gujrat, Sialkot. Use reference number in our bill checker to view latest bill, units consumed, due date.</p>" },
-        lesco: { title: "LESCO Online Bill Check", body: "<p><strong>Lahore Electric Supply Company (LESCO)</strong> services Lahore, Kasur, Sheikhupura. Check your LESCO bill online using 14-digit reference number.</p>" },
-        pesco: { title: "PESCO Online Bill Check", body: "<p><strong>Peshawar Electric Supply Company (PESCO)</strong> operates in Khyber Pakhtunkhwa. Use our unified bill checker with your 14-digit reference number.</p>" }
-    };
-    
-    function updateServiceContent(serviceKey) {
-        const data = serviceContent[serviceKey];
-        if(data) {
-            contentArea.innerHTML = `<h3><i class="fas fa-file-invoice me-2"></i> ${data.title}</h3>${data.body}<hr><p class="text-muted small mt-3">You can upload/edit this content section easily.</p>`;
-        }
-    }
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const service = card.getAttribute('data-service');
-            if(service && serviceContent[service]) updateServiceContent(service);
-            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
-    
-    // Navigation - no auto scroll on load
-    const navLinks = document.querySelectorAll('[data-page]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const page = link.getAttribute('data-page');
-            if(page === 'home') {
-                contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, <a href="https://pakbillcheck.com/lesco-online-bill-check">LESCO bill</a>, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
-            } else if(page === 'services') {
-                contentArea.innerHTML = `<h3><i class="fas fa-concierge-bell"></i> Our Services</h3><p>Free online bill checking for: FESCO, MEPCO, GEPCO, LESCO, <a href="https://pakbillcheck.com/pesco-online-bill-check">PESCO bill</a>. Enter your 14-digit reference number to get started.</p>`;
-            } else if(page === 'about') {
-                contentArea.innerHTML = `<h3><i class="fas fa-info-circle"></i> About Us</h3><p>BillCheck.PK helps consumers check MEPCO online bill and other electricity bills using their 14-digit reference number.</p>`;
-            } else if(page === 'contact') {
-                contentArea.innerHTML = `<h3><i class="fas fa-envelope"></i> Contact Us</h3><p>Email: support@billcheck.pk<br>For MEPCO bill check issues, ensure your 14-digit reference number is correct.</p>`;
-            } else if(page === 'privacy') {
-                contentArea.innerHTML = `<h3>Privacy Policy</h3><p>We do not store any bill data. Your 14-digit reference number is used only for live bill check.</p>`;
-            } else if(page === 'terms') {
-                contentArea.innerHTML = `<h3>Terms & Conditions</h3><p>This MEPCO online bill check tool is for informational purposes only.</p>`;
-            }
-            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    radioRef.addEventListener('change', updateUIBasedOnType);
+    radioCust.addEventListener('change', updateUIBasedOnType);
+
+    updateUIBasedOnType();
+
+    // Language toggle
+    const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
+    langToggleBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            langToggleBtns.forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
         });
     });
-// Set default home content without scrolling
-setTimeout(function() {
-    const homeLink = document.querySelector('[data-page="home"]');
-    if (homeLink) {
-        contentArea.innerHTML = `
-<h2>Check Electricity Bill (FESCO)</h2>
-<p>It is convenient to check electricity bills online. By using the online service for checking FESCO bills, customers can view their latest FESCO online bill without receiving a physical copy. You can see how much you owe, the due date for payment, your electricity usage, and download or print a copy of the bill. The FESCO bill check service makes it easier to access your monthly electricity information through an online bill checker.</p>
 
-<h2>What is FESCO?</h2>
-<p>Faisalabad Electric Supply Company (FESCO) supplies electricity to many residential, commercial, industrial and other customers in Punjab, Pakistan. It provides electricity distribution services to Faisalabad and several surrounding districts. Consumers can use the FESCO online services to access their electricity bill information.</p>
-
-<h2>How to Check Electricity Bill Online?</h2>
-<p>By using the online service for checking bills, you can enter your 14-digit reference number to view your electricity bill. The FESCO online bill check 14-digit process allows you to view important information on the bill, including how much you owe, the month of the bill, your meter readings, how many units you have used, taxes and the total amount owing.</p>
-<p>If you cannot find a physical copy of the electricity bill, or have lost it, you may find it convenient to check the bill online. The online FESCO bill check facility allows customers to view their latest available bill without waiting for a printed copy.</p>
-
-<h2>How to Check FESCO Electricity Bills Online</h2>
-<p>To check FESCO electricity bills online, enter the 14-digit reference number located on your last bill. This is the main information required for a FESCO bill online check.</p>
-<p>To view the latest available bill:</p>
-<ol>
-    <li>Go to the FESCO Bill Checker.</li>
-    <li>Insert the 14-digit reference number from your last FESCO bill.</li>
-    <li>Click the ‘Check’ button.</li>
-    <li>If you enter the correct reference number and there is available bill information, you will be able to see the bill.</li>
-</ol>
-
-<h3>Download / Print Bill</h3>
-<p>If available, you can download or print a copy of the electricity bill to store as a backup copy. The FESCO online bill check print option makes it convenient to keep a digital or printed copy of your monthly electricity charges.</p>
-<p>Ensure that you have entered all 14 digits of the reference number correctly. If you have entered an incorrect or incomplete reference number, you may not find your electricity bill.</p>
-
-<h2>What is FESCO Online Bill Checking?</h2>
-<p>The FESCO online bill check service allows customers to view electricity bill information without receiving a physical version. By using an online electricity bill check facility, consumers can access their latest billing details using their reference number.</p>
-<p>FESCO (Faisalabad Electric Supply Company) provides electricity to customers in multiple districts throughout Punjab. This includes Faisalabad and surrounding areas.</p>
-<p>By using the online service, customers can see important information on their electricity use. This includes how much they have been charged in the month, how many units of electricity were consumed, meter readings, the date of the bill, tax and how much is owed.</p>
-<p>Checking electricity bills online can be very useful if you cannot find a physical copy of the bill. For example, if it is delayed, or if it gets damaged. You can enter the reference number to see the available bill through the FESCO web bill checking facility.</p>
-<p>If your bill is due in a few days, but you have not received a physical copy, you can easily check it online. This means you can see how much you owe in payment, and the final date for payment. Whether you search for FESCO bill online or online FESCO bill check, the reference number helps you retrieve the correct electricity account information.</p>
-
-<h2>How to Find FESCO Reference Numbers</h2>
-<p>In order to check your electricity bills online, you must enter the correct 14-digit reference number. This allows the system to find the right bill.</p>
-<p>Generally 14 digits long, the reference number should be found on your last electricity bill. It is required for the FESCO bill online check by reference number process.</p>
-<p>To find your reference number:</p>
-<ol>
-    <li>Find your last electricity bill.</li>
-    <li>Look towards the top of the bill.</li>
-    <li>Find the field titled Reference No. or Reference Number.</li>
-    <li>Carefully write down the 14-digit number.</li>
-    <li>Input this number into the online bill checking service.</li>
-    <li>Ensure that all 14 digits have been entered.</li>
-</ol>
-
-<h3>Differences Between Reference Numbers and Customer IDs</h3>
-<p>There may be two separate identifiers on your electricity bill. These are the customer ID and reference number.</p>
-<p>The reference number is generally required to view your electricity bill. However, another identifier for your account may be the customer ID.</p>
-<p>If the online bill check requires you to enter 14 digits, be sure to enter the full reference number.</p>
-
-<h2>How to Download a Copy of FESCO Electricity Bill</h2>
-<p>If electricity bills are not delivered in a timely manner, or if you have lost the physical copy, you may want to download a duplicate. This makes it convenient to view the information on your bill. The FESCO duplicate bill facility allows customers to access another copy of their electricity bill whenever the required information is available.</p>
-<p>To download a copy of your electricity bill:</p>
-<ol>
-    <li>Go to the online bill checking page.</li>
-    <li>Enter your full 14-digit reference number.</li>
-    <li>Click ‘Submit’ / ‘Check’.</li>
-    <li>Once submitted, the system will display your electricity bill.</li>
-    <li>View the information for the consumer and money owed.</li>
-    <li>If applicable, click ‘Download’ / ‘Print’.</li>
-    <li>Save the PDF.</li>
-</ol>
-<p>You can store the electricity bill on your mobile phone or computer. If you would like to have a hard copy, you can print the PDF from the device.</p>
-<p>Depending on the system, and if the latest billing information has been uploaded, it may be possible to download a duplicate bill.</p>
-
-<h2>How to Check FESCO Bill Without Reference Number</h2>
-<p>In most situations, you will need a reference number in order to check your FESCO bill. If you do not have a reference number from your last bill, you may need to find it.</p>
-<p>Below are some ways to find your reference number.</p>
-
-<h3>Check Last Bill</h3>
-<p>If you have a physical copy of your last bill, you can look for your reference number. It should be found at the top of the page.</p>
-
-<h3>Check Device</h3>
-<p>If you have downloaded a duplicate bill in the past, you may be able to find it by searching for a PDF file on your device.</p>
-
-<h3>Check Email</h3>
-<p>You may have a copy of your old electricity bill saved in your email.</p>
-
-<h3>Ask Family Members</h3>
-<p>Family members may have a copy of the bill, and therefore may contain the reference number.</p>
-
-<h3>Contact FESCO Customer Services</h3>
-<p>If you cannot find the reference number, contact the relevant FESCO office. They will be able to advise you on what information is required to identify your electricity connection.</p>
-
-<p>Some consumers may also search for FESCO bill check by name when they cannot find their reference number. However, the standard online bill checking process generally requires a 14-digit reference number.</p>
-<p>Once found, be sure to save this information in a safe place so it can be used in the future.</p>
-
-<h2>Understanding Electricity Bill Information</h2>
-<p>Your monthly electricity bill includes a variety of information.</p>
-<p>Understanding this information can help you understand the amount you are being charged, and spot any errors. Whether you use an online electricity bill check or receive a physical bijli bill, the following details help you understand your monthly electricity expenses.</p>
-
-<h3>Consumer Name</h3>
-<p>This details the name associated with the electricity connection.</p>
-
-<h3>Reference Number</h3>
-<p>This reference number identifies the connection and is generally used to view your electricity bill.</p>
-
-<h3>Customer ID</h3>
-<p>Another identifying number associated with your account.</p>
-
-<h3>Month of Billing</h3>
-<p>This details the month for which you have been billed.</p>
-
-<h3>Issue Date</h3>
-<p>Details the date that the bill was issued.</p>
-
-<h3>Due Date</h3>
-<p>This is the final date by which you must pay the electricity bill. Be sure to check this date, so you do not incur late payment charges.</p>
-
-<h3>Previous and Current Meter Reading</h3>
-<p>This details the meter readings during the billing period.</p>
-
-<h3>Units Used</h3>
-<p>Electrical usage is measured in kWh, also known as units. The difference between previous and current meter readings generally gives the amount of electricity used.</p>
-
-<h3>Electricity Charges</h3>
-<p>The charges given in this section are the total cost of the electricity used during this billing period. This depends on the applicable tariffs.</p>
-
-<h3>Taxes and Other Charges</h3>
-<p>Government taxes, duties, amendments and other charges may be included in FESCO electricity bills. These charges may vary depending on current regulations, and the type of consumer.</p>
-
-<h3>Total Amount Owing</h3>
-<p>The final amount to pay is shown here. Be sure to check that you owe the correct amount, and that it is due by the correct date.</p>
-
-<h2>Payment Options for FESCO Electricity Bills</h2>
-<p>Once you have viewed your electricity bill, you can pay the amount due using supported payment methods.</p>
-<p>There are a number of payment methods available for electricity consumers in Pakistan. After completing your FESCO bill check online, you can use the available payment channels to pay your monthly bijli bill.</p>
-
-<h3>Online Bank</h3>
-<p>Many banks in Pakistan allow you to pay bills via mobile and online banking. Simply select the appropriate bill, select FESCO as the electricity provider and enter the relevant bill details.</p>
-
-<h3>Easypaisa</h3>
-<p>Easypaisa allows you to pay bills using their app. Search for FESCO as an electricity provider and follow the payment instructions.</p>
-
-<h3>JazzCash</h3>
-<p>Users of JazzCash can also check if FESCO electricity bills can be paid using the app. Select the appropriate electricity provider and enter the required information.</p>
-
-<h3>Bank Branches</h3>
-<p>If you prefer to pay bills in person, you may be able to do so at supported banks.</p>
-
-<h3>Approved Payment Centres</h3>
-<p>Depending on the current service, FESCO electricity bills may be accepted at other approved payment centres.</p>
-
-<p>Be sure to double-check that you have entered the correct reference number and amount owing. Be sure to save your payment confirmation or receipt.</p>
-
-<h2>FESCO Coverage in Punjab</h2>
-<p>Faisalabad Electric Supply Company supplies electricity to various districts throughout Punjab.</p>
-<p>They supply electricity to residential, commercial, industrial, and other consumers in their designated area. Customers in these locations can use the FESCO online bill service to access their monthly electricity information.</p>
-<p>Major districts in this area include:</p>
-<ul>
-    <li>Faisalabad</li>
-    <li>Jhang</li>
-    <li>Toba Tek Singh</li>
-    <li>Chiniot</li>
-    <li>Sargodha</li>
-    <li>Mianwali</li>
-    <li>Khushab</li>
-    <li>Bhakkar</li>
-</ul>
-<p>Depending on subdivision and connection, the electricity may be supplied to different areas. If you have questions regarding electricity connections, billing issues, or complaints with electricity, contact your local FESCO office.</p>
-
-<h2>Common Issues with Checking Online FESCO Bill</h2>
-<p>Despite being convenient, you may encounter a number of issues when using the FESCO bill check online service.</p>
-<p>Common issues and solutions are listed below.</p>
-
-<h3>Reference Number Not Found</h3>
-<p>If no bill appears, ensure you have entered the 14-digit reference number correctly. Double-check with the same reference number on your last bill.</p>
-
-<h3>No Latest Bill</h3>
-<p>If the latest bill does not appear, and only the previous month’s bill does, it may be because new bill information has not been uploaded. Wait until new information is uploaded, and try again.</p>
-
-<h3>Bill Won’t Load</h3>
-<p>The bill may not load due to an issue with the website, slow internet connection or heavy traffic. Simply refresh the page and try again in a short space of time.</p>
-
-<h3>Incorrect Information</h3>
-<p>If there appears to be incorrect information shown (meter readings / customer information / unexpected charges), be sure to double-check the bill. If incorrect information still appears, contact the relevant FESCO customer services.</p>
-
-<h3>No Duplicate Bill Available</h3>
-<p>If no duplicate bill is available, it may be because the latest bill data has not been processed. Try checking again at a later time. Alternatively, you may be able to use the appropriate official bill service.</p>
-
-<h3>Page Not Working on Mobile Device</h3>
-<p>If the page isn't working on your mobile, try using an updated browser, such as Google Chrome. Alternatively, refresh the page, or clear your browser cache.</p>
-
-<h2>Top Tips for Managing Your Monthly FESCO Bills</h2>
-<p>Keeping track of your monthly electricity usage can help you understand how much energy is being used in your house.</p>
-<p>Tips:</p>
-<ul>
-    <li>Check your electricity bill every month.</li>
-    <li>Save your 14-digit reference number.</li>
-    <li>Compare units used each month to see if you are using more or less.</li>
-    <li>Turn off unnecessary lights and equipment.</li>
-    <li>Use LED light bulbs.</li>
-    <li>Try not to run equipment unnecessarily.</li>
-    <li>If you think you have been charged a high amount, check meter readings.</li>
-    <li>Pay your bill before the due date.</li>
-    <li>Save payment confirmations.</li>
-    <li>If you notice any unusual issues with your bill, contact FESCO.</li>
-</ul>
-<p>Following these tips can help you manage your electricity usage, to avoid any surprises on your monthly bill.</p>
-
-<h2>FAQs</h2>
-
-<h3>1. How can I check my FESCO bill online?</h3>
-<p>You can check your FESCO bill by using an online bill checker. Input your 14-digit reference number to view the latest bill information. The FESCO online bill check service allows you to see your electricity charges, due date and monthly usage.</p>
-
-<h3>2. How can I download a duplicate FESCO bill?</h3>
-<p>Input your reference number into the online bill checker. View your electricity bill, and select download/print to get your FESCO duplicate bill.</p>
-
-<h3>3. Can I check my FESCO bill on my mobile?</h3>
-<p>Yes. As long as you have internet access and a suitable browser, you can access the online bill checker on mobile, tablets and computers.</p>
-
-<h3>4. Where can I find my reference number?</h3>
-<p>Your 14-digit reference number can be found on your last FESCO bill. Look for the Reference No. at the top of the bill.</p>
-
-<h3>5. Can I check my FESCO bills using my customer ID?</h3>
-<p>Most bill checkers require the 14-digit reference number. If a reference number is requested, enter this rather than your customer ID.</p>
-
-<h3>6. Is it free to check my FESCO bill online?</h3>
-<p>Generally, there is no charge to view the electricity bill for online bill checkers. However, individual bill checkers may have different conditions.</p>
-
-<h3>7. How can I check if I have paid my FESCO bill?</h3>
-<p>You can check whether you have paid your bill using your bank, mobile wallet or approved payment service. Be sure to save your payment receipt/confirmation.</p>
-
-<h3>8. My FESCO bill is not appearing online. What should I do?</h3>
-<p>Firstly, check that you have entered the correct reference number. If it is correct, the latest information may not be available. There may also be a technical issue with the service.</p>
-
-<h3>9. Can I print my FESCO bill?</h3>
-<p>Yes! If a duplicate bill is available in a printable form, simply open it and click print. Alternatively, you can save it as a PDF.</p>
-
-<h3>10. Where is FESCO available?</h3>
-<p>FESCO provides electricity to the following areas within Punjab:</p>
-<p>Faisalabad, Jhang, Toba Tek Singh, Chiniot, Sargodha and other districts.</p>
-
-<h2>Summary</h2>
-<p>Checking your FESCO bills online can be very convenient. By inputting your 14-digit reference number, you can easily view your latest electricity bill. This allows you to see how much electricity you have used, how much you owe, and download or print a duplicate.</p>
-<p>If you live in Faisalabad, Jhang, Sargodha, Chiniot, Toba Tek Singh or another FESCO area, checking your FESCO online bill can help you keep track of how much you are spending on electricity each month.</p>
-<p>Whether you need a regular FESCO bill check, want to complete an online electricity bill check, or need a FESCO duplicate bill, the online service makes it easier to access your monthly billing information.</p>
-<p>By using the FESCO bill checker at the top of this page, it can be more convenient to manage your monthly payments.</p>
-        `;
-    }
-}, 0);
-        `;
-    }
-}, 50);
+    // Scroll to top
+    window.scrollTo(0, 0);
+})();
 </script>
 </body>
 </html>
