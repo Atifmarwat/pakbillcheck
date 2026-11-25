@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Mepco Online Bill Check - Mepco Duplicate Bill ( Download & Print )</title>
-<meta name="description" content="MEPCO Online Bill Check - Enter your 14-digit reference number to view, download and print your MEPCO duplicate bill online instantly. Fast and free MEPCO bill check tool.">    <link rel="canonical" href="https://pakbillcheck.com/mepco-online-bill-check" />
-    <!-- Bootstrap 5 CSS -->
+    <meta name="description" content="MEPCO Online Bill Check - Enter your 14-digit reference number to view, download and print your MEPCO duplicate bill online instantly. Fast and free MEPCO bill check tool.">
+    <link rel="canonical" href="https://pakbillcheck.com/mepco-online-bill-check" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,16 +20,8 @@
             --nav-bg: #03592E;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             background: #f0f2f5;
             font-family: 'Inter', sans-serif;
@@ -40,7 +30,6 @@
             min-height: 100vh;
         }
 
-        /* Navigation Header */
         .navbar-custom {
             background-color: var(--nav-bg);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -49,14 +38,8 @@
             top: 0;
             z-index: 1000;
         }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: white !important;
-        }
-        .navbar-brand i {
-            margin-right: 8px;
-        }
+        .navbar-brand { font-weight: 700; font-size: 1.6rem; color: white !important; }
+        .navbar-brand i { margin-right: 8px; }
         .nav-link-custom {
             color: white !important;
             font-weight: 500;
@@ -69,15 +52,9 @@
             background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
-        .navbar-toggler {
-            border-color: rgba(255,255,255,0.5);
-        }
-        .navbar-toggler-icon-custom {
-            color: white;
-            font-size: 1.5rem;
-        }
+        .navbar-toggler { border-color: rgba(255,255,255,0.5); }
+        .navbar-toggler-icon-custom { color: white; font-size: 1.5rem; }
 
-        /* Main container - page starts from top */
         .main-content {
             flex: 1;
             padding: 30px 20px 40px;
@@ -86,11 +63,7 @@
             width: 100%;
         }
 
-        /* SEO Header Styles */
-        .seo-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
+        .seo-header { text-align: center; margin-bottom: 1.5rem; }
         .seo-header h1 {
             color: var(--primary-color);
             font-size: 1.8rem;
@@ -104,7 +77,6 @@
             margin-bottom: 0;
         }
 
-        /* Language toggle wrapper */
         .lang-toggle-wrapper {
             display: flex;
             justify-content: flex-end;
@@ -135,11 +107,8 @@
             color: white;
             box-shadow: 0 2px 6px rgba(3,89,46,0.3);
         }
-        .lang-toggle-btn:not(.active):hover {
-            background: #e9ecef;
-        }
+        .lang-toggle-btn:not(.active):hover { background: #e9ecef; }
 
-        /* Services Section */
         .services-section {
             background: white;
             border-radius: 1.5rem;
@@ -168,15 +137,8 @@
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        .service-card:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-        .service-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #1e2a3a;
-        }
+        .service-card:hover { background: #e9ecef; transform: translateX(5px); }
+        .service-name { font-weight: 600; font-size: 1.1rem; color: #1e2a3a; }
         .service-badge {
             background: var(--primary-color);
             color: white;
@@ -185,7 +147,7 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
-        /* Dynamic content area */
+
         .dynamic-content-area {
             background: white;
             border-radius: 1.5rem;
@@ -195,12 +157,8 @@
             box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
             min-height: 280px;
         }
-        .dynamic-content-area h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
+        .dynamic-content-area h3 { color: var(--primary-color); margin-bottom: 1rem; }
 
-        /* MEPCO Tool Card */
         .tool-card {
             background: white;
             border-radius: 1.5rem;
@@ -213,17 +171,9 @@
             color: white;
             padding: 1rem 1.8rem;
         }
-        .tool-header h2 {
-            margin: 0;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-        .pitc-bill-container {
-            width: 100%;
-        }
-        .urdu-text {
-            font-family: 'Noto Nastaliq Urdu', serif;
-        }
+        .tool-header h2 { margin: 0; font-size: 1.3rem; font-weight: 600; }
+        .pitc-bill-container { width: 100%; }
+        .urdu-text { font-family: 'Noto Nastaliq Urdu', serif; }
         .bill-option {
             border: 1px solid #dee2e6;
             border-radius: 0.5rem;
@@ -236,35 +186,21 @@
             background-color: rgba(3, 89, 46, 0.05);
             box-shadow: 0 0 0 2px rgba(3, 89, 46, 0.25);
         }
-        .error-message {
-            color: var(--error-color);
-            font-size: 0.875rem;
-            display: none;
-        }
-        .success-animation {
-            animation: pulse 1s ease-in-out;
-        }
+        .error-message { color: var(--error-color); font-size: 0.875rem; display: none; }
+        .success-animation { animation: pulse 1s ease-in-out; }
         @keyframes pulse {
             0% { transform: scale(0.95); opacity: 0.7; }
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Footer */
         .footer-custom {
             background-color: var(--footer-bg);
             color: #f1f1f1;
             padding: 2rem 2rem 1rem;
             margin-top: 2rem;
         }
-        .footer-custom a {
-            color: #ddd;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-        .footer-custom a:hover {
-            color: white;
-            text-decoration: underline;
-        }
+        .footer-custom a { color: #ddd; text-decoration: none; transition: 0.2s; }
+        .footer-custom a:hover { color: white; text-decoration: underline; }
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -277,10 +213,6 @@
             font-size: 0.85rem;
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 1rem;
-        }
-
-        :target {
-            scroll-margin-top: 0;
         }
 
         @media (max-width: 768px) {
@@ -307,39 +239,12 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/" data-page="home">Home</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">
-    FESCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">
-    GEPCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">
-    LESCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">
-    MEPCO Bill
-  </a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">
-    PESCO Bill
-  </a>
-</li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/" data-page="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">FESCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">GEPCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">LESCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">MEPCO Bill</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">PESCO Bill</a></li>
                 <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="services">Services</a></li>
                 <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="about">About</a></li>
                 <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-page="contact">Contact</a></li>
@@ -349,13 +254,11 @@
 </nav>
 
 <main class="main-content">
-    <!-- SEO Keywords Header - H1 and H2 with your keywords -->
     <div class="seo-header">
         <h1>Mepco Online Bill Check - Mepco Duplicate Bill ( Download & Print )</h1>
-        <p>If your bill has not reached your home, there’s no need to worry this website can help you. You can enter your bill’s reference number on this website and download a duplicate copy.</p>
+        <p>If your bill has not reached your home, there's no need to worry this website can help you. You can enter your bill's reference number on this website and download a duplicate copy.</p>
     </div>
 
-    <!-- Language Toggle -->
     <div class="lang-toggle-wrapper">
         <div class="lang-toggle-group">
             <button type="button" class="lang-toggle-btn active" data-lang="en">English</button>
@@ -428,7 +331,7 @@
                     <div class="text-center py-4 success-animation">
                         <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--primary-color);"></i>
                         <h3 class="mt-3 lang-en">MEPCO Bill Ready</h3><h3 class="mt-3 lang-ur urdu-text">MEPCO بل تیار ہے</h3>
-                        <div class="mb-4"><form id="pitc-billForm" action="#" method="POST" target="_blank"><button type="submit" class="btn btn-success btn-lg px-5"><i class="fas fa-file-invoice me-2"></i><span class="lang-en">View & Download MEPCO Bill</span><span class="lang-ur urdu-text">MEPCO بل دیکھیں اور ڈاؤن لوڈ کریں</span></button></form></div>
+                        <div class="mb-4"><form id="pitc-billForm" action="#" method="GET" target="_blank"><button type="submit" class="btn btn-success btn-lg px-5"><i class="fas fa-file-invoice me-2"></i><span class="lang-en">View & Download MEPCO Bill</span><span class="lang-ur urdu-text">MEPCO بل دیکھیں اور ڈاؤن لوڈ کریں</span></button></form></div>
                         <button id="pitc-reset-btn" class="btn btn-outline-primary"><i class="fas fa-redo-alt me-2"></i><span class="lang-en">Check Another Bill</span><span class="lang-ur urdu-text">دوبارہ چیک کریں</span></button>
                     </div>
                 </div>
@@ -442,70 +345,41 @@
     </div>
 
     <!-- Services Section -->
-   <div class="services-section">
-    <h3 class="services-title">
-        <i class="fas fa-list-ul me-2"></i> Our Bill Checking Services
-    </h3>
-
-    <div class="row g-3" id="servicesList">
-
-        <!-- FESCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/fesco-online-bill-check" class="service-card text-decoration-none" data-service="fesco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    FESCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
+    <div class="services-section">
+        <h3 class="services-title"><i class="fas fa-list-ul me-2"></i> Our Bill Checking Services</h3>
+        <div class="row g-3" id="servicesList">
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/fesco-online-bill-check" class="service-card text-decoration-none" data-service="fesco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> FESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/mepco-online-bill-check" class="service-card text-decoration-none" data-service="mepco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> MEPCO Online Bill</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/gepco-online-bill-check" class="service-card text-decoration-none" data-service="gepco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> GEPCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/lesco-online-bill-check" class="service-card text-decoration-none" data-service="lesco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> LESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://pakbillcheck.com/pesco-online-bill-check" class="service-card text-decoration-none" data-service="pesco">
+                    <span class="service-name"><i class="fas fa-file-alt text-success me-2"></i> PESCO Online Bill Check</span>
+                    <span class="service-badge">Check Now</span>
+                </a>
+            </div>
         </div>
-
-        <!-- MEPCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/mepco-online-bill-check" class="service-card text-decoration-none" data-service="mepco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    MEPCO Online Bill
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
-        <!-- GEPCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/gepco-online-bill-check" class="service-card text-decoration-none" data-service="gepco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    GEPCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
-        <!-- LESCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/lesco-online-bill-check" class="service-card text-decoration-none" data-service="lesco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    LESCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
-        <!-- PESCO -->
-        <div class="col-md-6 col-lg-4">
-            <a href="https://pakbillcheck.com/pesco-online-bill-check" class="service-card text-decoration-none" data-service="pesco">
-                <span class="service-name">
-                    <i class="fas fa-file-alt text-success me-2"></i>
-                    PESCO Online Bill Check
-                </span>
-                <span class="service-badge">Check Now</span>
-            </a>
-        </div>
-
     </div>
-</div>
 
     <!-- Dynamic Content Area -->
     <div class="dynamic-content-area" id="dynamicContentArea">
@@ -519,49 +393,34 @@
 </main>
 
 <!-- Footer -->
-<!-- Footer -->
 <footer class="footer-custom">
-
     <div class="footer-links">
         <a href="https://pakbillcheck.com/">Home</a>
-
         <a href="https://pakbillcheck.com/Fesco-Online-Bill-Check.html">FESCO Bill Check</a>
-
         <a href="https://pakbillcheck.com/Gepco-Online-Bill-Check.html">GEPCO Bill Check</a>
-
         <a href="https://pakbillcheck.com/Lesco-Online-Bill-Check.html">LESCO Bill Check</a>
-
         <a href="https://pakbillcheck.com/Mepco-Online-Bill-Check.html">MEPCO Bill Check</a>
-
         <a href="https://pakbillcheck.com/Pesco-Online-Bill-Check.html">PESCO Bill Check</a>
-
         <a href="https://pakbillcheck.com/privacy-policy.html">Privacy Policy</a>
-
         <a href="https://pakbillcheck.com/terms-and-conditions.html">Terms & Conditions</a>
-
         <a href="https://pakbillcheck.com/contact.html">Contact Us</a>
     </div>
 
     <div class="copyright">
-        <p>
-            &copy; 2026 PakBillCheck.com - Online Electricity Bill Check Pakistan
-        </p>
-
+        <p>&copy; 2026 PakBillCheck.com - Online Electricity Bill Check Pakistan</p>
         <p class="small">
             FESCO, GEPCO, LESCO, MEPCO, and PESCO are electricity distribution companies in Pakistan. 
             This website helps users check their <a href="https://pakbillcheck.com/gepco-online-bill-check">electricity bill</a> online using reference number.
         </p>
     </div>
-
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // CRITICAL: Prevent ANY auto-scroll on page load - page stays at TOP
+    // Prevent auto-scroll on page load
     if (window.location.hash === '') {
         window.scrollTo(0, 0);
     }
-    
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo(0, 0);
@@ -585,10 +444,10 @@
         const billOptions = document.querySelectorAll('.bill-option');
         const urTypeWrapper = document.getElementById('pitc-ur-type-wrapper');
         const progressBar = document.querySelector('#pitc-loading-container .progress-bar');
-        
+
         function hideError() { errorMsgDiv.style.display = 'none'; referenceInput.classList.remove('is-invalid'); }
         function showError(msg) { errorMsgDiv.textContent = msg; errorMsgDiv.style.display = 'block'; referenceInput.classList.add('is-invalid'); }
-        
+
         function updateUIBasedOnType() {
             const selected = document.querySelector('input[name="bill_type"]:checked').value;
             const isUrdu = document.body.classList.contains('urdu');
@@ -603,53 +462,81 @@
             }
             hideError();
         }
-        
+
         function validateInput() {
             const val = referenceInput.value.trim();
             const type = document.querySelector('input[name="bill_type"]:checked').value;
-            if(type === 'refno') { if(!/^\d{14}$/.test(val)) { showError('Please enter a valid 14-digit reference number'); return false; } }
-            else { if(!/^\d{10}$/.test(val)) { showError('Please enter a valid 10-digit Customer ID'); return false; } }
+            if(type === 'refno') {
+                if(!/^\d{14}$/.test(val)) { showError('Please enter a valid 14-digit reference number'); return false; }
+            } else {
+                if(!/^\d{10}$/.test(val)) { showError('Please enter a valid 10-digit Customer ID'); return false; }
+            }
             return true;
         }
-        
+
         function performFetch() {
             if(!validateInput()) return;
             const inputVal = referenceInput.value.trim();
             const type = document.querySelector('input[name="bill_type"]:checked').value;
             const area = type === 'refno' ? urTypeSelect.value : 'U';
+
             searchFormContainer.style.display = 'none';
             loadingContainer.style.display = 'block';
             resultContainer.style.display = 'none';
             errorContainer.style.display = 'none';
+
             let progress = 0;
             const interval = setInterval(() => {
                 progress += 8;
-                if(progress <= 90 && progressBar) progressBar.style.width = progress+'%';
+                if(progress <= 90 && progressBar) progressBar.style.width = progress + '%';
             }, 150);
+
             setTimeout(() => {
                 clearInterval(interval);
                 if(progressBar) progressBar.style.width = '100%';
+
+                // ✅ MEPCO ka SAHI PITC URL
                 let billUrl = '';
-                if(type === 'refno') billUrl = `https://bill.pitc.com.pk/gbill.aspx?refno=${encodeURIComponent(inputVal)}&type=${area}`;
-                else billUrl = `https://bill.pitc.com.pk/custbill.aspx?custid=${encodeURIComponent(inputVal)}`;
+                if(type === 'refno') {
+                    billUrl = 'https://bill.pitc.com.pk/mepcobill?refno=' + encodeURIComponent(inputVal);
+                } else {
+                    billUrl = 'https://bill.pitc.com.pk/mepcobill?refno=' + encodeURIComponent(inputVal);
+                }
                 billForm.action = billUrl;
+
                 loadingContainer.style.display = 'none';
                 resultContainer.style.display = 'block';
+
                 const animDiv = document.querySelector('#pitc-result-container .success-animation');
-                if(animDiv) animDiv.style.animation = 'none';
-                setTimeout(() => { if(animDiv) animDiv.style.animation = ''; }, 10);
+                if(animDiv) {
+                    animDiv.style.animation = 'none';
+                    setTimeout(() => { animDiv.style.animation = ''; }, 10);
+                }
             }, 1400);
         }
-        
-        document.getElementById('pitc-bill-search-form').addEventListener('submit', (e) => { e.preventDefault(); performFetch(); });
+
+        document.getElementById('pitc-bill-search-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            performFetch();
+        });
+
         document.getElementById('pitc-reset-btn').addEventListener('click', () => {
-            resultContainer.style.display = 'none'; errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block';
-            referenceInput.value = ''; if(progressBar) progressBar.style.width = '0%'; hideError();
+            resultContainer.style.display = 'none';
+            errorContainer.style.display = 'none';
+            searchFormContainer.style.display = 'block';
+            referenceInput.value = '';
+            if(progressBar) progressBar.style.width = '0%';
+            hideError();
         });
+
         document.getElementById('pitc-retry-btn').addEventListener('click', () => {
-            errorContainer.style.display = 'none'; searchFormContainer.style.display = 'block'; hideError();
+            errorContainer.style.display = 'none';
+            searchFormContainer.style.display = 'block';
+            hideError();
         });
+
         referenceInput.addEventListener('input', hideError);
+
         billOptions.forEach(opt => {
             opt.addEventListener('click', function() {
                 const radio = this.querySelector('input[type="radio"]');
@@ -660,10 +547,11 @@
                 hideError();
             });
         });
+
         radioRef.addEventListener('change', () => { updateUIBasedOnType(); });
         radioCust.addEventListener('change', () => { updateUIBasedOnType(); });
         updateUIBasedOnType();
-        
+
         const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
         function setLanguage(lang) {
             if(lang === 'ur') document.body.classList.add('urdu'); else document.body.classList.remove('urdu');
@@ -683,516 +571,68 @@
         setLanguage('en');
     })();
 
-    // Dynamic content for services
-    const contentArea = document.getElementById('dynamicContentArea');
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    const serviceContent = {
-        fesco: { title: "FESCO Online Bill Check", body: "<p><strong>Faisalabad Electric Supply Company (FESCO)</strong> provides electricity to Faisalabad, Jhang, Toba Tek Singh, Chiniot and more. To check your FESCO bill, simply enter your 14-digit reference number in the tool above. You can view, download, and print duplicate bill instantly.</p><div class='mt-3 p-3 bg-light rounded'><i class='fas fa-phone-alt me-2'></i> FESCO Helpline: 118</div>" },
-        mepco: { title: "MEPCO Online Bill Check", body: "<p><strong>Multan Electric Power Company (MEPCO)</strong> serves southern Punjab. Use the tool above to check your MEPCO bill by entering your 14-digit reference number. Download duplicate bill as PDF instantly.</p><p>Peak hours: 7pm-11pm (Jun-Aug) – avoid heavy usage to save money.</p>" },
-        gepco: { title: "GEPCO Online Bill Check", body: "<p><strong>Gujranwala Electric Power Company (GEPCO)</strong> covers Gujranwala, Gujrat, Sialkot. Use reference number in our bill checker to view latest bill, units consumed, due date.</p>" },
-        lesco: { title: "LESCO Online Bill Check", body: "<p><strong>Lahore Electric Supply Company (LESCO)</strong> services Lahore, Kasur, Sheikhupura. Check your LESCO bill online using 14-digit reference number.</p>" },
-        pesco: { title: "PESCO Online Bill Check", body: "<p><strong>Peshawar Electric Supply Company (PESCO)</strong> operates in Khyber Pakhtunkhwa. Use our unified bill checker with your 14-digit reference number.</p>" }
-    };
-    
-    function updateServiceContent(serviceKey) {
-        const data = serviceContent[serviceKey];
-        if(data) {
-            contentArea.innerHTML = `<h3><i class="fas fa-file-invoice me-2"></i> ${data.title}</h3>${data.body}<hr><p class="text-muted small mt-3">You can upload/edit this content section easily.</p>`;
-        }
-    }
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const service = card.getAttribute('data-service');
-            if(service && serviceContent[service]) updateServiceContent(service);
-            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-    
     // Navigation - no auto scroll on load
     const navLinks = document.querySelectorAll('[data-page]');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const page = link.getAttribute('data-page');
-            if(page === 'home') {
-                contentArea.innerHTML = `<h3><i class="fas fa-home"></i> Welcome to Pakbillcheck.Com</h3><p><strong>MEPCO Online Bill Check</strong> - Enter your 14-digit reference number to view your MEPCO bill instantly. We also support FESCO, GEPCO, LESCO, and PESCO bill checks.</p><div class="alert alert-success"><strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.</div>`;
-            } else if(page === 'services') {
-                contentArea.innerHTML = `<h3><i class="fas fa-concierge-bell"></i> Our Services</h3><p>Free online bill checking for: FESCO, MEPCO, GEPCO, LESCO, PESCO. Enter your 14-digit reference number to get started.</p>`;
-            } else if(page === 'about') {
-                contentArea.innerHTML = `<h3><i class="fas fa-info-circle"></i> About Us</h3><p>Pakbillcheck.Com helps consumers check MEPCO online bill and other electricity bills using their 14-digit reference number.</p>`;
-            } else if(page === 'contact') {
-                contentArea.innerHTML = `<h3><i class="fas fa-envelope"></i> Contact Us</h3><p>Email: support@bPakbillcheck.Com<br>For MEPCO bill check issues, ensure your 14-digit reference number is correct.</p>`;
-            } else if(page === 'privacy') {
-                contentArea.innerHTML = `<h3>Privacy Policy</h3><p>We do not store any bill data. Your 14-digit reference number is used only for live bill check.</p>`;
-            } else if(page === 'terms') {
-                contentArea.innerHTML = `<h3>Terms & Conditions</h3><p>This MEPCO online bill check tool is for informational purposes only.</p>`;
+            const navbarCollapse = document.getElementById('mainNavbar');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                new bootstrap.Collapse(navbarCollapse).hide();
             }
-            contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
-    
-// Set default home content without scrolling
-setTimeout(function() {
-    const homeLink = document.querySelector('[data-page="home"]');
-    if (homeLink) {
-        contentArea.innerHTML = `
-        
-        <h3><i class="fas fa-home"></i>How to Check Your MEPCO Bill Online (Step-by-Step Guide)</h3>
 
-        <p>
-        The electricity bill, which is a regular part of our lives, has become a challenge. As soon as we receive a bill, we have to wait in long lines. Many people stand in these long queues because the office opens at nine o’clock and closes at two o’clock. During this time, there is also intense heat, and people have to wait for a long time.
-
-        So, to save you from the heat and the long waiting, we have created this tool. Now, you can sit at home, enter your bill’s reference number on your mobile, and download a duplicate copy from here.
-        </p>
-
-   <h2>MEPCO Online Bill Check</h2>
-<p><strong>MEPCO Online Bill Check</strong> makes it easier for electricity consumers to view their latest bill without waiting for a paper copy. If you live in an area served by the <strong>Multan Electric Power Company (MEPCO)</strong>, you can check your <a href="https://pakbillcheck.com/pesco-online-bill-check">electricity bill online</a> using your consumer information, particularly your <strong>14-digit reference number</strong>.</p>
-<p>Whether you want to check your current bill, find the amount due, see the due date, view previous billing information, or print a duplicate bill, an online bill check can save time and make the process more convenient.</p>
-
-<h2>MEPCO Online Bill Check</h2>
-<p>A <strong>MEPCO online bill check</strong> allows consumers to see their electricity bill through an <a href="https://pakbillcheck.com/lesco-online-bill-check">online billing service</a>. Instead of visiting an office or waiting for the printed bill, you can use your <strong>MEPCO bill reference number</strong> to retrieve your bill information online.</p>
-<p>The online MEPCO bill generally provides important information such as:</p>
-<ul>
-    <li>Consumer name</li>
-    <li>Reference number</li>
-    <li>Billing month</li>
-    <li>Due date</li>
-    <li>Current bill amount</li>
-    <li>Amount payable</li>
-    <li>Units consumed</li>
-    <li>Meter information</li>
-    <li>Electricity charges</li>
-    <li>Taxes and other applicable charges</li>
-    <li>Previous billing information</li>
-</ul>
-<p>If you are searching for <strong>mepco bill online check</strong>, <strong>online bill check mepco</strong>, <strong>bill check online mepco</strong>, or <strong>mepco bill check online</strong>, these searches generally refer to the same basic task: finding and viewing your MEPCO electricity bill online.</p>
-
-<h2>How to Check MEPCO Bill Online</h2>
-<p>If you want to know <strong>how to check MEPCO bill online</strong>, the process is straightforward.</p>
-
-<h3>Step 1: Find Your 14-Digit Reference Number</h3>
-<p>Look at an old MEPCO bill and locate your <strong>14-digit reference number</strong>. This number is normally printed on the electricity bill and is used to identify your connection.</p>
-
-<h3>Step 2: Open the MEPCO Bill Check Service</h3>
-<p>Open the relevant MEPCO online billing or bill-checking service. Make sure you are using a legitimate and reliable website when entering your billing information.</p>
-
-<h3>Step 3: Enter the Reference Number</h3>
-<p>Use the <strong>MEPCO online bill enter 14-digit</strong> field or equivalent bill-checking field and enter your reference number carefully.</p>
-<p>A single incorrect digit can prevent the system from finding your bill, so check the number before submitting it.</p>
-
-<h3>Step 4: Submit the Information</h3>
-<p>After entering the required information, select the option to check or view the bill.</p>
-
-<h3>Step 5: See Your MEPCO Bill</h3>
-<p>Once your information is accepted, your <strong>MEPCO bill</strong> should be displayed if the billing service has successfully retrieved the available record.</p>
-<p>You can then check the bill amount, due date, billing month, electricity consumption, and other available details.</p>
-
-<h2>MEPCO Online Bill Check Reference Number</h2>
-<p>The <strong>MEPCO online bill check reference number</strong> is one of the most important pieces of information for checking your electricity bill online.</p>
-<p>Many consumers search for:</p>
-<ul>
-    <li>MEPCO online bill check reference number</li>
-    <li>MEPCO bill online check by reference number</li>
-    <li>MEPCO online bill check 14-digit</li>
-    <li>MEPCO online bill enter 14 digit</li>
-    <li>MEPCO bill online check</li>
-    <li>Check MEPCO bill online</li>
-</ul>
-<p>Your reference number can normally be found on a previous electricity bill. Enter all 14 digits exactly as they appear on your bill.</p>
-
-<h3>Why Is the Reference Number Important?</h3>
-<p>The reference number helps identify your electricity connection in the billing system. If you enter the wrong number, the system may show an error or fail to retrieve the correct <strong>MEPCO consumer bill</strong>.</p>
-<p>For this reason, keep an old bill available when performing an <strong>online bill check</strong> for the first time.</p>
-
-<h2>MEPCO Bill Online Check by Reference Number</h2>
-<p>A <strong>MEPCO bill online check by reference number</strong> is useful when you have not received your printed electricity bill yet.</p>
-<p>You can use the reference number from a previous bill to retrieve the available current billing information. This is particularly helpful when you need to know your payable amount before the due date.</p>
-<p>If you are searching for <strong>mepco online check bill</strong>, <strong>check bill MEPCO online</strong>, <strong>bill MEPCO online check</strong>, <strong>check bill online MEPCO</strong>, or <strong>check online MEPCO bill</strong>, the reference-number process is generally what you are looking for.</p>
-
-<h2>MEPCO Bill Online Check by CNIC</h2>
-<p>Some users search for <strong>MEPCO bill online check by CNIC</strong> because they expect to retrieve their electricity bill using their national identification number.</p>
-<p>However, the availability of CNIC-based bill checking depends on the particular billing service and the information registered against the connection. A <strong>reference number</strong> is generally the more direct identifier for retrieving a specific electricity bill.</p>
-<p>If a bill-checking service does not provide a CNIC option, use the reference number printed on your previous <strong>MEPCO bill</strong> instead.</p>
-<p>Never enter your CNIC on an unfamiliar website. Only provide personal information to a service you trust.</p>
-
-<h2>MEPCO Online Bill Check for This Month</h2>
-<p>If you want to know the amount of your current electricity bill, you may search for <strong>online MEPCO bill check for this month</strong> or <strong>MEPCO online bill check for this month</strong>.</p>
-<p>The current bill can help you determine:</p>
-<ul>
-    <li>Current payable amount</li>
-    <li>Due date</li>
-    <li>Billing month</li>
-    <li>Units consumed</li>
-    <li>Electricity charges</li>
-    <li>Taxes</li>
-    <li>Additional charges, if applicable</li>
-    <li>Any available previous balance</li>
-</ul>
-<p>Checking the bill online before the due date can help you avoid missing your payment deadline.</p>
-
-<h2>MEPCO Online Bill Check 2026</h2>
-<p>Consumers may use searches such as <strong>MEPCO online bill check 2026</strong>, <strong>MEPCO bill check online 2026</strong>, <strong>online bill check MEPCO 2026</strong>, and <strong>online MEPCO bill check 2026</strong> when looking for the latest bill-checking information.</p>
-<p>The basic process remains focused on identifying your connection and retrieving the available billing record.</p>
-<p>If you are specifically searching for <strong>MEPCO online bill check March 2026</strong>, <strong>online MEPCO bill check March 2026</strong>, <strong>MEPCO online bill check May 2026</strong>, or <strong>MEPCO online bill check June 2026</strong>, remember that these are month-specific searches. The important information is the billing month displayed on your retrieved bill.</p>
-
-<h3>MEPCO Bill Check Online 2025</h3>
-<p>Older searches such as <strong>MEPCO bill check online 2025</strong> and <strong>MEPCO online bill check 2025</strong> may still appear in search results. If you are looking for a historical bill from 2025, the availability of old billing information depends on the particular online billing system.</p>
-<p>For a current bill, always check the latest available billing record rather than relying on an old cached result.</p>
-
-<h2>MEPCO Online Bill Check Multan</h2>
-<p><strong>MEPCO</strong> stands for <strong>Multan Electric Power Company</strong> and serves consumers in Multan and several areas of southern Punjab.</p>
-<p>People commonly search for:</p>
-<ul>
-    <li>MEPCO online bill check Multan</li>
-    <li>MEPCO bill online check Multan</li>
-    <li>Online bill check MEPCO Multan</li>
-    <li>Bill check online MEPCO Multan</li>
-    <li>Multan MEPCO bill online check</li>
-    <li>MEPCO bill Multan online check</li>
-    <li>Online bill check Multan</li>
-</ul>
-<p>These searches are usually related to checking an electricity bill for a connection supplied by MEPCO.</p>
-
-<h3>Multan MEPCO Bill Online Check</h3>
-<p>If your electricity connection is within the MEPCO service area, you can use the appropriate online billing service to retrieve your <strong>MEPCO electricity bill</strong>.</p>
-<p>The process is the same whether you search for <strong>Multan MEPCO bill online check</strong>, <strong>MEPCO online bill check Multan</strong>, or <strong>online bill check MEPCO Multan</strong>: locate your reference number, enter it correctly, and retrieve the available bill information.</p>
-
-<h2>Electricity Bill Online Check MEPCO</h2>
-<p>An <strong>electricity bill online check MEPCO</strong> allows consumers to review their electricity charges without depending solely on a physical bill.</p>
-<p>You can use an online <strong>electricity bill check</strong> to review important details before making a payment.</p>
-<p>Your <strong>MEPCO electricity bill online check</strong> may show the following:</p>
-<ul>
-    <li>Consumer information</li>
-    <li>Reference number</li>
-    <li>Meter information</li>
-    <li>Previous reading</li>
-    <li>Current reading</li>
-    <li>Units consumed</li>
-    <li>Billing period</li>
-    <li>Current charges</li>
-    <li>Government taxes</li>
-    <li>Other applicable charges</li>
-    <li>Total payable amount</li>
-    <li>Due date</li>
-</ul>
-<p>This makes an <strong>online bill check MEPCO</strong> service useful for both residential and other electricity consumers.</p>
-
-<h2>MEPCO Online Bill Check Print</h2>
-<p>After viewing your bill, you may want to keep a physical or digital copy.</p>
-<p>A <strong>MEPCO online bill check print</strong> option can be useful when you need a duplicate copy for your records or payment purposes.</p>
-<p>Depending on the billing service, you may be able to:</p>
-<ol>
-    <li>Open your bill.</li>
-    <li>Select the print option.</li>
-    <li>Choose your printer or save the document digitally.</li>
-    <li>Print the bill or save it as a PDF.</li>
-</ol>
-<p>If a direct print button is unavailable, your browser's print function may allow you to print the displayed bill.</p>
-
-<h2>MEPCO Duplicate Bill</h2>
-<p>A <strong>MEPCO duplicate bill</strong> is useful when your original electricity bill has been lost, damaged, or never delivered.</p>
-<p>Instead of waiting for another paper copy, you can check whether an online billing service provides access to the available bill record.</p>
-<p>A duplicate bill can contain the same important information needed to understand your current charges and payment deadline.</p>
-
-<h2>MEPCO Old Bill Check Online</h2>
-<p>If you want to perform a <strong>MEPCO old bill check online</strong>, the availability of historical billing records depends on the system you are using.</p>
-<p>For the question <strong>how to check old MEPCO bill online</strong>, start with your reference number and look for any available previous-bill or billing-history option.</p>
-<p>Keep in mind that not every online bill service provides unlimited historical records. If a particular older bill is unavailable online, you may need to contact MEPCO or use the appropriate official customer service channel.</p>
-
-<h2>MEPCO Bill Information</h2>
-<p>When you <strong>see MEPCO bill</strong> information online, it is important to understand what the different sections mean.</p>
-
-<h3>Consumer Information</h3>
-<p>This section identifies the electricity connection and may contain the consumer name, address, reference number, and other connection details.</p>
-
-<h3>Billing Month</h3>
-<p>The billing month indicates the period for which the electricity charges have been calculated.</p>
-
-<h3>Meter Reading</h3>
-<p>The bill may show previous and current meter readings and the number of units consumed during the billing period.</p>
-
-<h3>Electricity Charges</h3>
-<p>This represents the applicable charges for the electricity consumed.</p>
-
-<h3>Taxes and Other Charges</h3>
-<p>Depending on the bill, additional taxes, duties, surcharges, or other applicable charges may be included.</p>
-
-<h3>Due Date</h3>
-<p>The due date tells you when the bill should be paid to avoid applicable consequences associated with late payment.</p>
-
-<h3>Payable Amount</h3>
-<p>The payable amount is the amount shown as due according to the billing record.</p>
-
-<h2>MEPCO Bill Check and WAPDA Bill Online Check</h2>
-<p>Many Pakistani electricity consumers use the term <strong>WAPDA bill</strong> when referring generally to an electricity bill.</p>
-<p>This is why searches such as <strong>WAPDA bill check</strong>, <strong>WAPDA bill online check</strong>, <strong>WAPDA online bill</strong>, <strong>WAPDA bill check online</strong>, and <strong>WAPDA bill online check MEPCO</strong> are common.</p>
-<p>However, it is useful to understand the terminology. <strong>MEPCO (Multan Electric Power Company)</strong> is a power distribution company serving its designated areas, while "WAPDA bill" is a common general search term used by consumers for electricity bills.</p>
-<p>If your connection is supplied by MEPCO, look specifically for the appropriate <strong>MEPCO bill online check</strong> service.</p>
-
-<h2>MEPCO MIS and Online Billing</h2>
-<p>You may also encounter the term <strong>MEPCO MIS</strong> when searching for MEPCO billing information.</p>
-<p>MIS can refer to a management information system used for organizational or operational information. Consumers searching for an online electricity bill generally need the relevant bill-checking service rather than an internal management system.</p>
-<p>For ordinary consumers, the important task is simply to retrieve the <strong>MEPCO online bill</strong>, review the charges, and make the payment before the applicable deadline.</p>
-
-<h2>MEPCO Web Bill</h2>
-<p>A <strong>MEPCO web bill</strong> refers to the online version of your electricity bill that can be viewed through a web-based billing service.</p>
-<p>Online billing is particularly convenient because you can check your <strong>bijli ka bill</strong> from a computer or smartphone without keeping the physical paper bill in front of you.</p>
-<p>Whether you search for <strong>MEPCO online</strong>, <strong>MEPCO web bill</strong>, <strong>online bill MEPCO</strong>, or <strong>MEPCO bill online</strong>, the purpose is generally the same: to access your electricity billing information digitally.</p>
-
-<h2>Bijli Bill Check Online</h2>
-<p>In Pakistan, people commonly search for <strong>bijli bill check</strong>, <strong>bijli bill</strong>, <strong>bijli ka bill</strong>, <strong>bijli ka bill online check</strong>, and <strong>electricity bill</strong> when they want to view their electricity charges.</p>
-<p>For a MEPCO connection, a <strong>bijli ka bill online check</strong> can be completed through the appropriate MEPCO billing service using the information required to identify your connection.</p>
-<p>The online process is more convenient than waiting for a paper copy, especially when you want to check your bill amount quickly.</p>
-
-<h2>MEPCO Bill App</h2>
-<p>Consumers may also search for a <strong>MEPCO bill app</strong> when looking for a convenient way to access billing information from a mobile device.</p>
-<p>Before installing an app, check its developer, permissions, reviews, and whether it is officially associated with MEPCO. Avoid providing your reference number, CNIC, phone number, or other personal information to suspicious applications.</p>
-<p>For a simple <strong>online bill check</strong>, using a trusted web-based service can be sufficient.</p>
-
-<h2>How to Check MEPCO Electricity Bill Online?</h2>
-<p>If you are still wondering <strong>how to check MEPCO electricity bill online</strong>, follow these basic steps:</p>
-<ol>
-    <li>Take your previous MEPCO electricity bill.</li>
-    <li>Locate the 14-digit reference number.</li>
-    <li>Open a trusted MEPCO bill-checking service.</li>
-    <li>Enter the reference number accurately.</li>
-    <li>Submit the information.</li>
-    <li>View the available electricity bill.</li>
-    <li>Check the billing month, units, amount, and due date.</li>
-    <li>Print or save the bill if necessary.</li>
-</ol>
-<p>This is the easiest approach for consumers who want to <strong>check bill MEPCO online</strong> without waiting for a physical copy.</p>
-
-<h2>Why Check Your MEPCO Bill Online?</h2>
-<p>There are several reasons consumers prefer an online bill check.</p>
-
-<h3>Quick Access</h3>
-<p>You can check your bill when the paper copy has not arrived.</p>
-
-<h3>Convenient</h3>
-<p>You can perform an online bill check from a computer, tablet, or smartphone.</p>
-
-<h3>Check the Amount Before the Due Date</h3>
-<p>Seeing the bill online gives you an opportunity to know how much you need to pay.</p>
-
-<h3>Duplicate Copy</h3>
-<p>If the original bill is lost, an available online copy can be useful.</p>
-
-<h3>Better Record Keeping</h3>
-<p>You can save digital copies of your bills for future reference.</p>
-
-<h2>Common MEPCO Bill Check Searches</h2>
-<p>People use many different phrases when searching for the same service. These include <strong>mepco check online bill</strong>, <strong>online check bill MEPCO</strong>, <strong>bill online check MEPCO</strong>, <strong>online bill MEPCO check</strong>, <strong>MEPCO check bill online</strong>, <strong>check online bill MEPCO</strong>, <strong>bill check online MEPCO</strong>, and <strong>online MEPCO bill check</strong>.</p>
-<p>These variations all reflect the same basic search intent: finding and viewing a MEPCO electricity bill online.</p>
-<p>You may also see searches such as <strong>www MEPCO online bill check</strong>, <strong>www MEPCO com pk</strong>, or <strong>www.mepco.com.pk bill check online</strong>. When searching for an official service, carefully verify the website address before entering any personal or billing information.</p>
-
-<h2>What If My MEPCO Bill Does Not Appear?</h2>
-<p>Sometimes an online bill may not be displayed immediately.</p>
-<p>Possible reasons include:</p>
-<ul>
-    <li>Incorrect reference number</li>
-    <li>A typing error</li>
-    <li>Temporary website problems</li>
-    <li>The latest billing record has not yet been updated</li>
-    <li>The connection information does not match</li>
-    <li>The service does not provide the requested historical bill</li>
-    <li>Temporary technical maintenance</li>
-</ul>
-<p>First, check your <strong>14-digit reference number</strong> again. Make sure every digit has been entered correctly.</p>
-<p>If the problem continues, try again later or contact the relevant MEPCO customer support channel.</p>
-
-<h2>Tips for a Successful MEPCO Bill Check</h2>
-<p>For a smooth <strong>MEPCO bill check online</strong>, keep these tips in mind:</p>
-<ul>
-    <li>Use the reference number from a recent bill.</li>
-    <li>Enter all 14 digits correctly.</li>
-    <li>Do not add unnecessary spaces.</li>
-    <li>Verify the consumer information shown on the bill.</li>
-    <li>Check the billing month before making a payment.</li>
-    <li>Check the due date carefully.</li>
-    <li>Save a copy of important bills.</li>
-    <li>Use trusted websites when entering personal information.</li>
-    <li>Avoid sharing your CNIC or other sensitive information on unknown websites.</li>
-</ul>
-
-<h2>MEPCO Online Bill Check 2026: Current Bill Information</h2>
-<p>For consumers searching for <strong>MEPCO online bill check 2026</strong>, the key information is the latest available billing record for your connection.</p>
-<p>Searches such as <strong>online MEPCO bill check 2026</strong>, <strong>MEPCO bill check online 2026</strong>, and <strong>MEPCO online bill check 2026</strong> may be used by people looking for current billing information during 2026.</p>
-<p>Likewise, searches containing specific months, including <strong>MEPCO online bill check March 2026</strong>, <strong>online MEPCO bill check March 2026</strong>, <strong>MEPCO online bill check May 2026</strong>, and <strong>MEPCO online bill check June 2026</strong>, generally indicate a desire to find a bill for a particular billing period.</p>
-<p>Always check the billing month displayed on the actual bill rather than relying only on the date in a search query.</p>
-
-<h2>Frequently Asked Questions About MEPCO Online Bill Check</h2>
-
-<h3>How to check MEPCO bill online?</h3>
-<p>To check your MEPCO bill online, use a trusted MEPCO billing service and enter the required identifying information, usually your <strong>14-digit reference number</strong>. Submit the information to view the available bill.</p>
-
-<h3>How do I check my MEPCO bill online?</h3>
-<p>To check your MEPCO bill online, find the 14-digit reference number on a previous bill, enter it into the online bill-checking form, and submit it. You can then review the available bill details.</p>
-
-<h3>How to check electricity bill online MEPCO?</h3>
-<p>For an <strong>electricity bill online check MEPCO</strong>, use the appropriate online billing service and provide the reference number associated with your MEPCO electricity connection.</p>
-
-<h3>How to check online MEPCO bill?</h3>
-<p>For an online MEPCO bill check, enter your 14-digit reference number into the relevant bill-checking field and submit it to retrieve the available billing information.</p>
-
-<h3>How to check MEPCO electricity bill online?</h3>
-<p>You can check your MEPCO electricity bill online by using your reference number. Enter the number accurately and view the bill details provided by the billing service.</p>
-
-<h3>How do I check my MEPCO bill online?</h3>
-<p>Find your reference number on an old MEPCO bill and use it with a trusted online bill-checking service. After submitting the number, you can view the available electricity bill.</p>
-
-<h3>How to check old MEPCO bill online?</h3>
-<p>To check an old MEPCO bill online, enter your reference number and look for an available previous-bill or billing-history option. Historical records depend on the system and may not always be available.</p>
-
-<h3>Can I check my MEPCO bill with a 14-digit reference number?</h3>
-<p>Yes. The 14-digit reference number is commonly used to identify a MEPCO electricity connection when checking a bill online.</p>
-
-<h3>Can I check my MEPCO bill using my CNIC?</h3>
-<p>Some services may provide customer identification options, but CNIC-based bill checking is not necessarily available everywhere. If a CNIC option is not provided, use the reference number printed on your previous MEPCO bill.</p>
-
-<h3>Can I print my MEPCO bill online?</h3>
-<p>If the online billing service provides a printable bill, you can use its print option or your browser's print function to save or print the displayed bill.</p>
-
-<h3>What is a MEPCO duplicate bill?</h3>
-<p>A MEPCO duplicate bill is an online or reprinted copy of the available electricity bill. It can be useful if you have lost or did not receive the original paper bill.</p>
-
-<h3>What is MEPCO?</h3>
-<p>MEPCO stands for <strong>Multan Electric Power Company</strong>. It is an electricity distribution company serving designated areas of southern Punjab, including Multan.</p>
-
-<h3>What information do I need for an online MEPCO bill check?</h3>
-<p>In most cases, you should have the <strong>14-digit reference number</strong> from a previous MEPCO bill. Depending on the particular service, additional information may be requested.</p>
-
-<h2>Final Words</h2>
-<p><strong>MEPCO Online Bill Check</strong> is a convenient way to access your electricity billing information without waiting for a paper bill. By keeping your <strong>14-digit reference number</strong>, you can quickly check the available MEPCO bill, review the amount due, see the billing month and due date, and save or print a duplicate copy when needed.</p>
-<p>Whether you search for <strong>MEPCO bill online check</strong>, <strong>online bill check MEPCO</strong>, <strong>check MEPCO bill online</strong>, <strong>MEPCO electricity bill online check</strong>, <strong>MEPCO online bill check Multan</strong>, or <strong>Multan MEPCO bill online check</strong>, the goal is the same: to access your electricity bill conveniently online.</p>
-<p>For consumers in the MEPCO service area, keeping your reference number available makes future <strong>bill check online MEPCO</strong> searches much easier.</p>
-
-        <h3>Why Check MEPCO Bill Online?</h3>
-        <ul>
-            <li>Convenience: No need to visit offices</li>
-            <li>Time-saving: Access your bill instantly</li>
-            <li>Anywhere access: Check from mobile or computer</li>
-            <li>Avoid late fees: Stay updated on due dates</li>
-            <li>Duplicate bills: Easily download if you lose the original</li>
-        </ul>
-
-        <h3>Information You Need</h3>
-        <p>To check your MEPCO bill online, you only need:</p>
-        <ul>
-            <li>A 14-digit reference number</li>
-            <li>This number is printed on any previous electricity bill</li>
-            <li>Make sure you enter the number correctly to avoid errors.</li>
-        </ul>
-
-        <h3>How to Check MEPCO Bill Online (Step-by-Step)</h3>
-
-        <h4>Method 1: Official Website</h4>
-        <p>
-        The easiest and most reliable method is through the official portal:
-        </p>
-        <ul>
-            <li>Visit the MEPCO official website</li>
-            <li>Enter your 14-digit reference number</li>
-            <li>Click on the “Submit” or “Check Bill” button</li>
-            <li>Your bill details will appear on the screen</li>
-            <li>You can view due date, amount, and usage details instantly.</li>
-        </ul>
-
-        <h4>Method 2: Third-Party Websites</h4>
-        <ul>
-            <li>Open a reliable bill-checking site</li>
-            <li>Enter your reference number</li>
-            <li>Click “Check Bill”</li>
-            <li>View your bill details</li>
-        </ul>
-
-        <p>
-        These platforms work similarly but always ensure the site is secure.
-        </p>
-
-        <h3>How to Download and Print MEPCO Bill</h3>
-        <ul>
-            <li>After checking your bill, click on the Download or Print option</li>
-            <li>Save the bill as a PDF file</li>
-            <li>Print it using your printer</li>
-        </ul>
-
-        <p>This copy is valid for bill payment.</p>
-
-        <h3>How to Pay MEPCO Bill Online</h3>
-        <ul>
-            <li>Internet banking through your bank’s website</li>
-            <li>Mobile banking apps</li>
-            <li>ATM machines</li>
-            <li>Digital wallets like JazzCash and EasyPaisa</li>
-        </ul>
-
-        <p>
-        These methods are secure and help you avoid late payment charges.
-        </p>
-
-        <h3>Common Issues and Solutions</h3>
-        <ul>
-            <li>Incorrect reference number: Double-check digits before submitting</li>
-            <li>Website not loading: Try again later or switch browser</li>
-            <li>Bill not found: Ensure the bill has been generated for the month</li>
-            <li>Slow internet: Use a stable connection</li>
-        </ul>
-
-        <p>If problems continue, contact MEPCO customer support.</p>
-
-        <h3>Tips to Avoid Late Fees</h3>
-        <ul>
-            <li>Set reminders for due dates</li>
-            <li>Check your bill early each month</li>
-            <li>Use mobile apps for instant notifications</li>
-            <li>Consider auto-payment options</li>
-        </ul>
-
-        <h3>Frequently Asked Questions (FAQs)</h3>
-
-        <p><strong>1. How can I check my MEPCO bill without a reference number?</strong><br>
-        You usually need the reference number. Without it, checking the bill online is difficult.</p>
-
-        <p><strong>2. Can I check previous bills online?</strong><br>
-        Yes, many platforms allow access to billing history.</p>
-
-        <p><strong>3. Is the online bill valid for payment?</strong><br>
-        Yes, a downloaded or printed copy is valid.</p>
-
-        <p><strong>4. What if I lose my bill?</strong><br>
-        You can easily download a duplicate copy online.</p>
-
-        <h3>Conclusion</h3>
-        <p>
-        “Well, this tool has a great advantage as it saves your valuable time. It is an online service. Here, you can find a list of all electricity bills. As soon as you enter the reference number, your bill details will be displayed instantly without any delay. You can easily download it from here and get it printed from a nearby shopkeeper.”
-        </p>
-
-        
-<div class="bg-slate-50 rounded-2xl p-6 ring-1 ring-slate-100">
-  <h3 class="font-display font-bold text-navy">Related Services</h3>
-  <ul class="mt-3 space-y-2 text-sm">
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/">→ Pak Bill Check Online</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/fesco-online-bill-check">→ FESCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/gepco-online-bill-check">→ GEPCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/Lesco-Online-Bill-Check">→ LESCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/Mepco-Online-Bill-Check">→ MEPCO Online Bill Check</a></li>
-    <li><a class="text-primary font-semibold hover:underline" href="https://pakbillcheck.com/Pesco-Online-Bill-Check">→ PESCO Online Bill Check</a></li>
-  </ul>
-</div>
-
-
-        <div class="alert alert-success">
-            <strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.
-        </div>
-
-        `;
-    }
-}, 50);
-
-            
+    // Default home content without scrolling
+    setTimeout(function() {
+        const homeLink = document.querySelector('[data-page="home"]');
+        const contentArea = document.getElementById('dynamicContentArea');
+        if (homeLink && contentArea) {
+            contentArea.innerHTML = `
+                <h3><i class="fas fa-home"></i> How to Check Your MEPCO Bill Online (Step-by-Step Guide)</h3>
+                <p>The electricity bill, which is a regular part of our lives, has become a challenge. As soon as we receive a bill, we have to wait in long lines. Many people stand in these long queues because the office opens at nine o'clock and closes at two o'clock. During this time, there is also intense heat, and people have to wait for a long time.</p>
+                <p>So, to save you from the heat and the long waiting, we have created this tool. Now, you can sit at home, enter your bill's reference number on your mobile, and download a duplicate copy from here.</p>
+
+                <h2>MEPCO Online Bill Check</h2>
+                <p><strong>MEPCO Online Bill Check</strong> makes it easier for electricity consumers to view their latest bill without waiting for a paper copy. If you live in an area served by the <strong>Multan Electric Power Company (MEPCO)</strong>, you can check your <a href="https://pakbillcheck.com/pesco-online-bill-check">electricity bill online</a> using your consumer information, particularly your <strong>14-digit reference number</strong>.</p>
+                <p>Whether you want to check your current bill, find the amount due, see the due date, view previous billing information, or print a duplicate bill, an online bill check can save time and make the process more convenient.</p>
+
+                <h2>How to Check MEPCO Bill Online</h2>
+                <p>If you want to know <strong>how to check MEPCO bill online</strong>, the process is straightforward.</p>
+                <h3>Step 1: Find Your 14-Digit Reference Number</h3>
+                <p>Look at an old MEPCO bill and locate your <strong>14-digit reference number</strong>. This number is normally printed on the electricity bill and is used to identify your connection.</p>
+                <h3>Step 2: Open the MEPCO Bill Check Service</h3>
+                <p>Open the relevant MEPCO online billing or bill-checking service. Make sure you are using a legitimate and reliable website when entering your billing information.</p>
+                <h3>Step 3: Enter the Reference Number</h3>
+                <p>Use the <strong>MEPCO online bill enter 14-digit</strong> field or equivalent bill-checking field and enter your reference number carefully.</p>
+                <h3>Step 4: Submit the Information</h3>
+                <p>After entering the required information, select the option to check or view the bill.</p>
+                <h3>Step 5: See Your MEPCO Bill</h3>
+                <p>Once your information is accepted, your <strong>MEPCO bill</strong> should be displayed if the billing service has successfully retrieved the available record.</p>
+
+                <h2>MEPCO Online Bill Check Reference Number</h2>
+                <p>The <strong>MEPCO online bill check reference number</strong> is one of the most important pieces of information for checking your electricity bill online. Your reference number can normally be found on a previous electricity bill. Enter all 14 digits exactly as they appear on your bill.</p>
+
+                <h2>MEPCO Online Bill Check Multan</h2>
+                <p><strong>MEPCO</strong> stands for <strong>Multan Electric Power Company</strong> and serves consumers in Multan and several areas of southern Punjab.</p>
+
+                <h2>Frequently Asked Questions About MEPCO Online Bill Check</h2>
+                <h3>How to check MEPCO bill online?</h3>
+                <p>To check your MEPCO bill online, use a trusted MEPCO billing service and enter the required identifying information, usually your <strong>14-digit reference number</strong>. Submit the information to view the available bill.</p>
+                <h3>Can I print my MEPCO bill online?</h3>
+                <p>If the online billing service provides a printable bill, you can use its print option or your browser's print function to save or print the displayed bill.</p>
+                <h3>What is a MEPCO duplicate bill?</h3>
+                <p>A MEPCO duplicate bill is an online or reprinted copy of the available electricity bill. It can be useful if you have lost or did not receive the original paper bill.</p>
+
+                <h2>Final Words</h2>
+                <p><strong>MEPCO Online Bill Check</strong> is a convenient way to access your electricity billing information without waiting for a paper bill. By keeping your <strong>14-digit reference number</strong>, you can quickly check the available MEPCO bill, review the amount due, see the billing month and due date, and save or print a duplicate copy when needed.</p>
+
+                <div class="alert alert-success mt-3">
+                    <strong>⚡ Tip:</strong> Always keep your 14-digit reference number handy for quick bill access.
+                </div>
+            `;
+        }
+    }, 50);
 </script>
 </body>
 </html>
