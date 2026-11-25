@@ -498,9 +498,9 @@
                 // ✅ MEPCO ka SAHI PITC URL
                 let billUrl = '';
                 if(type === 'refno') {
-                    billUrl = 'https://bill.pitc.com.pk/mepcobill?refno=' + encodeURIComponent(inputVal);
+                    billUrl = 'https://bill.pitc.com.pk/gbill.aspx?refno=' + encodeURIComponent(inputVal);
                 } else {
-                    billUrl = 'https://bill.pitc.com.pk/mepcobill?refno=' + encodeURIComponent(inputVal);
+                    billUrl = 'https://bill.pitc.com.pk/gbill.aspx?refno=' + encodeURIComponent(inputVal);
                 }
                 billForm.action = billUrl;
 
