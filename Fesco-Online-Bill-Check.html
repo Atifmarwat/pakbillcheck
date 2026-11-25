@@ -492,9 +492,9 @@
             // ✅ FESCO ka SAHI URL
             let billUrl = '';
             if (type === 'refno') {
-                billUrl = 'https://bill.pitc.com.pk/fescobill?refno=' + encodeURIComponent(inputVal);
+                billUrl = 'https://bill.pitc.com.pk/gbill.aspxrefno=' + encodeURIComponent(inputVal);
             } else {
-                billUrl = 'https://bill.pitc.com.pk/fescobill?refno=' + encodeURIComponent(inputVal);
+                billUrl = 'https://bill.pitc.com.pk/gbill.aspxrefno=' + encodeURIComponent(inputVal);
             }
 
             billForm.action = billUrl;
