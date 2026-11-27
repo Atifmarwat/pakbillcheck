@@ -44,4 +44,24 @@
     <priority>0.8</priority>
   </url>
 
+     <url>
+        <loc>https://pakbillcheck.com/blog</loc>
+    </url>
+
+    <url>
+        <loc>https://pakbillcheck.com/how-to-check-electricity-bill-online</loc>
+    </url>
+
+    <url>
+        <loc>https://pakbillcheck.com/how-to-check-gepco-bill-online</loc>
+    </url>
+
+    <url>
+        <loc>https://pakbillcheck.com/how-to-check-lesco-bill-online</loc>
+    </url>
+
+    <url>
+        <loc>https://pakbillcheck.com/how-to-check-mepco-bill</loc>
+    </url>
+
 </urlset>
