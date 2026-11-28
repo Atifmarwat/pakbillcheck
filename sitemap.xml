@@ -64,4 +64,27 @@
         <loc>https://pakbillcheck.com/blog/how-to-check-mepco-bill</loc>
     </url>
 
+     <!-- LEGAL PAGES (Low Priority) -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://pakbillcheck.com/privacy-policy</loc>
+        <lastmod>2026-11-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://pakbillcheck.com/terms-and-conditions</loc>
+        <lastmod>2026-11-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://pakbillcheck.com/disclaimer</loc>
+        <lastmod>2026-11-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
 </urlset>
